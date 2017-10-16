@@ -1,0 +1,31 @@
+#Standar (non-var) Sequence-to-Sequence encoder 
+import numpy as np
+from keras.preprocessing import sequence
+from keras.datasets import imdb
+from sklearn.preprocessing import LabelBinarizer
+
+
+#Load data
+top_words = 600 #5000
+index_from = 3
+num_epochs = 3
+batch_size=64
+(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=top_words)
+print('Data loaded')
+#Pad sequences
+max_review_length = 50 #500
+print X_train.shape, (X_train[0])
+X_train =  sequence.pad_sequences(X_train, maxlen=max_review_length)
+X_test = sequence.pad_sequences(X_test, maxlen=max_review_length)
+
+enc =LabelBinarizer()
+#enc.fit(range(top_words +1))
+enc.fit(range(top_words))
+
+X_enc_in = list([enc.transform(x).tolist() for x in X_train])
+#X_enc_in = [list(enc.transform(x)) for x in X_train]
+X_enc_out = list([enc.transform(x) for x in X_test])
+#X_enc_out = [list(enc.transform(x)) for x in X_test]
+#print('x_enc',X_enc_in[13])
+
+print(X_enc_in[0:2])

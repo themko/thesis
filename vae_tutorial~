@@ -1,0 +1,6 @@
+#Code from https://blog.keras.io/building-autoencoders-in-keras.html
+
+x = Input(batch_shape=(batch_size, original_dim))
+h = Dense(intermediate_dim, activation='relu')(x)
+z_mean = Dense(latent_dim)(h)
+z_log_sigma = Dense(latent_dim)(h)s
