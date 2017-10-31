@@ -12,8 +12,8 @@ from sklearn.preprocessing import LabelBinarizer
 #Build Data
 top_words = 200 #5000
 index_from = 3
-num_epochs = 150
-batch_size=1
+num_epochs = 20
+batch_size=256
 intermediate_dim = 64
 max_review_length = 50 #500
 
@@ -45,7 +45,8 @@ if(False):
 	k= max_review_length
 	encoded_repeat = RepeatVector(k,name='encoded_repeat')(encoded)
 	decoded = LSTM(16,name='lstm_decoded',return_sequences=True)(encoded_repeat)
-	dense_out = TimeDistributed(Dense(top_words,activation='softmax'),name='time_dist_dense_out')(decoded)
+	dense_out = TimeDistributed(Dense(top_words,activation='softmax',input_shape=(50,16)),name='time_dist_dense_out')(decoded)
+	#dense_out = Dense(top_words,activation='softmax',input_shape=(50,16),name='time_dist_dense_out')(decoded)
 
 	print(x)
 	print(dense_in)
@@ -62,10 +63,12 @@ if(False):
 	decoder_input = Input(shape=(intermediate_dim,))
 	_encoded_repeat = RepeatVector(k,name='encoded_repeat')(decoder_input)
 	_decoded = LSTM(16,name='lstm_decoded',return_sequences=True)(_encoded_repeat)
-	_dense_out = TimeDistributed(Dense(top_words,activation='softmax'),name='time_dist_dense_out')(_decoded)
+	_dense_out = TimeDistributed(Dense(top_words,activation='softmax',input_shape=(50,16)),name='time_dist_dense_out')(_decoded)
+	#_dense_out = Dense(top_words,activation='softmax',input_shape=(50,16),name='time_dist_dense_out')(_decoded)
 
 
 	S_decoder = Model(decoder_input,_dense_out)
+	S_decoder_lstm = Model(decoder_input,_decoded)
 
 	SS.compile(optimizer='adagrad',loss='categorical_crossentropy')
 	print('Fitting model')
@@ -75,20 +78,21 @@ if(False):
 	        batch_size=batch_size,
 	        validation_data =(X_enc_out,X_enc_out))
 	#Save model
-	#timestr = time.strftime("%Y%m%d-%H%M%S")
 	timestr = time.strftime("%Y%m%d")
 	SS.save('S-to-S_1.h5py')
 	S_encoder.save('S_enc_1.h5py')
 	S_decoder.save('S_dec_1.h5py')
-	#SS.save('S-to-S_model_'+timestr+'.h5py')
-	#S_encoder.save('S_enc_'+timestr+'.h5py')
-	#S_decoder.save('S_dec_'+timestr+'.h5py')
 
+	"""
+	SS.save('S-to-S_model_'+timestr+'.h5py')
+	S_encoder.save('S_enc_'+timestr+'.h5py')
+	S_decoder.save('S_dec_'+timestr+'.h5py')
+	"""
 else:
 	#Load model
-	SS = load_model('S-to-S_nbatch1_nepochs300.h5py')
-	S_encoder = load_model('S_enc_nbatch1_nepochs150.h5py')
-	S_decoder = load_model('S_dec_nbatch1_nepochs150.h5py')
+	SS = load_model('S-to-S_1.h5py')
+	S_encoder = load_model('S_enc_1.h5py')
+	S_decoder = load_model('S_dec_1.h5py')
 	SS.summary()
 
 def onehot_to_num(database):
@@ -119,16 +123,15 @@ enc_outputs = S_encoder.predict(X_enc_out)
 print('enc_outputs',enc_outputs[0],enc_outputs[1])
 enc_interpol = (enc_outputs[0]-enc_outputs[1])/2.
 print('interpol', enc_interpol)
-#print('shape',size(X_enc_out))
-#print('inputs...',X_enc_out.dtype)
+
 test_Ss  =S_decoder.predict(np.array([enc_interpol,enc_outputs[0],enc_outputs[1]]))
-print('decoded',test_Ss)
+test_Ss_lstm = S_decoder_lstm.predict(np.array([enc_interpol,enc_outputs[0],enc_outputs[1]]))
+print('decoded 1,2,interpol',test_Ss)
 print('trans_to_nums', onehot_to_num(test_Ss))
 print('transl_decoded', [translate_back(x) for x in onehot_to_num(test_Ss)])
 
 test_out = SS.predict(X_enc_out)
 test_out = onehot_to_num(test_out) #to.list !! flattened probably
-print('X_enc_out',len(X_enc_out), len(X_enc_out[0]),len(X_enc_out[0][0]))
-print('test_out',len(test_out), len(test_out[0]),'#\'s:',test_out[0])
-print('Translation [0]',translate_back(test_out[0]))
-#print(onehot_to_num(X_enc_out[0])
+print('test_out 0:10',len(test_out), len(test_out[0]),'#\'s:',test_out[0:10])
+print('Translation [0:10]',[translate_back(x) for x in test_out[0:10]])
+print('Lstm outputs: ',test_Ss_lstm[0:10])
