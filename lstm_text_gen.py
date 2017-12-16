@@ -10,7 +10,7 @@ has at least ~100k characters. ~1M is better.
 from __future__ import print_function
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.layers import LSTM
+from keras.layers import LSTM, La
 from keras.optimizers import RMSprop
 from keras.utils.data_utils import get_file
 
@@ -21,8 +21,10 @@ import keras
 import numpy as np
 import random
 import sys
+import itertools
 
 word_num = False
+split_lines  = True
 
 if(word_num):   
     (X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=None)
@@ -30,8 +32,46 @@ if(word_num):
     [text.append(x) for y in X_train[0:50] for x in y]
 else:
     #path = get_file('nietzsche.txt', origin='https://s3.amazonaws.com/text-datasets/nietzsche.txt')
-    path = get_file('imdb_train.txt', origin='file:/home/thomas/Documents/Studie/Thesis/imdb_train.txt')
-    text = open(path).read().lower()
+    #path = get_file('imdb_train.txt', origin='file:/home/thomas/Documents/Studie/Thesis/imdb_train.txt')
+    path = get_file('French.txt', origin='file:/home/thomas/Documents/Studie/Thesis/data/French.txt')
+    path2 = get_file('English.txt', origin='file:/home/thomas/Documents/Studie/Thesis/data/English.txt')
+
+    text1 = open(path).read().lower()
+    text2 = open(path2).read().lower()
+    text  = text1 + text2
+    #Get starting indices
+    fo1 = open("data/French.txt","r")
+    fo2 = open("data/English.txt","r")
+
+    lines_text1 = fo1.readlines()
+    lines_text2 = fo2.readlines()
+    lines_text = lines_text1 + lines_text2
+    #Keep track of indices of the start of each verse
+    #lines_index = np.array([len(x) for x in lines_text1])
+    lines_index = np.array([len(x) for x in lines_text])
+    lines_index = list(np.append(np.array(0),lines_index.cumsum()))
+    labels = np.concatenate((np.zeros(len(lines_text1)),np.ones(len(lines_text2))),axis=0)
+    lines_labels = zip(labels,lines_text)
+    print('ll', (lines_labels[31100:31110]))
+    test_begin = random.choice(lines_index)
+    #33102 lines in  the bible
+    print( text[test_begin:test_begin+20] )
+    print('textnum', test_begin)
+    words_in_text1 = (sum([len(x) for x in lines_text1]))
+    test_label = None
+    if(test_begin <words_in_text1 and test_begin  + 20 < words_in_text1):
+        test_label= 0.
+    elif (test_begin >words_in_text1 and test_begin  + 20 >words_in_text1):
+        test_label = 1.
+    else:
+        test_label = 2.
+    print('label', test_label)
+
+    #Take portion of total
+    divider = 10
+    mini_text = text[0:int(round(len(text)/divider))]
+
+
 
 print('corpus length:', len(text))
 
@@ -41,6 +81,34 @@ print('total chars:', len(chars))
 char_indices = dict((c, i) for i, c in enumerate(chars))
 indices_char = dict((i, c) for i, c in enumerate(chars))
 
+#Build the new bilingual database
+#
+maxlen_line = max(max([len(x) for x in lines_text1]), max([len(x) for x in lines_text2]))
+#print('minlen',minlen) F: 15, E:12
+
+#Cut the text into slices, starting at the start of each verse
+#PERFORMS TERRIBLY
+"""
+print('Slicing bilingual sentences')
+maxlen = 11
+step = 12
+sentences = []
+next_chars = []
+for line in lines_text1:
+    for i in range(0, len(line) - maxlen, step):
+        sentences.append(text[i: i + maxlen])
+        next_chars.append(text[i + maxlen])
+print('nb sequences:', len(sentences))
+"""
+
+"""
+lines_text = np.zeros((len(lines_text1)+len(lines_text2),maxlen_line))
+for i in range(0,len(lines_text1)):
+    for j in range(0,maxlen_line):
+        if j <= len(lines_text1[i]):
+            lines_text[i][j] = lines_text1[i][j]
+        """
+
 # cut the text in semi-redundant sequences of maxlen characters
 maxlen = 40
 step = 3
@@ -49,45 +117,51 @@ next_chars = []
 for i in range(0, len(text) - maxlen, step):
     sentences.append(text[i: i + maxlen])
     next_chars.append(text[i + maxlen])
-    #print('testing')
-    #print(sentences,'\n',next_chars)
 print('nb sequences:', len(sentences))
 
+#Check how many of those are from the first corpus
+sentences1 = []
+next_chars1 = []
+for i in range(0, len(text1) - maxlen, step):
+    sentences1.append(text1[i: i + maxlen])
+    next_chars1.append(text1[i + maxlen])
+print('nb sequences from corpus1:', len(sentences1)) #1409719
+#
+
+#TAKE SLICE OF SENTENCES AND CHARACTERS FOR COMPUATABILITY!!
+
+
+
+#Add language labels to vectorization
 print('Vectorization...')
-X = np.zeros((len(sentences), maxlen, len(chars)), dtype=np.bool)
-y = np.zeros((len(sentences), len(chars)), dtype=np.bool)
+X = np.zeros((len(sentences), maxlen+1, len(chars)+2), dtype=np.bool)
+y = np.zeros((len(sentences), len(chars)+2), dtype=np.bool)
 for i, sentence in enumerate(sentences):
     for t, char in enumerate(sentence):
-        X[i, t, char_indices[char]] = 1
+        X[i, t+1, char_indices[char]] = 1
     y[i, char_indices[next_chars[i]]] = 1
 
-"""
-print('Loading imdb data')
-(X_train, y_train), (X_test, y_test) = imdb.load_data(num_words=maxlen)
-print('Sequences padded')
-X_imdb_train =  sequence.pad_sequences(X_train, maxlen=maxlen)
-X_imdb_test = sequence.pad_sequences(X_test, maxlen=maxlen)
-enc =LabelBinarizer()
-top_words = 50
-enc.fit(range(top_words)) #Possible problem, imdb.load_data ? starts at index 1
-print('One-hot encoding imdb')
-X_enc_train = ([enc.transform(x).tolist() for x in X_imdb_train])
-X_enc_test = ([enc.transform(x).tolist() for x in X_imdb_test])
-
-print(X_enc_train[0])
-print(X[0])
-"""
-
-#Print imdb data into Nietzsche format
+#
+print('Shape of X, y', X.shape) #(2789223, 40, 67)
+#Set first words of the sentences to language tokens
+for i,x_emp in enumerate(X):
+    if i==0:
+        print(x_emp)
+    if(i< len(sentences1)):
+        X[i,0,-1] = 1
+    else:
+        X[i,0,-2] = 1
+print('First word of sentence', X[0:100,0,:])
 
 
+print('example',X[500,0,60:69])
+#print('example2',X[2789222,0,60:69])
 
 
-# build the model: a single LSTM
 print('Build model...')
 model = Sequential()
-model.add(LSTM(128, input_shape=(maxlen, len(chars))))
-model.add(Dense(len(chars)))
+model.add(LSTM(128, input_shape=(maxlen+1, len(chars)+2)))
+model.add(Dense(len(chars)+2))
 model.add(Activation('softmax'))
 
 optimizer = RMSprop(lr=0.01)
@@ -124,7 +198,8 @@ for iteration in range(1, 60):
               epochs=1)
 
     #Make start index differnt for word_num: always start at the start of the review
-    start_index = random.randint(0, len(text) - maxlen - 1)
+    start_index = random.choice(lines_index)
+    #start_index = random.randint(0, len(text) - maxlen - 1)
 
     for diversity in [0.2, 0.5, 1.0, 1.2]:
         print()
@@ -137,12 +212,17 @@ for iteration in range(1, 60):
             print('----- Generating with seed: "' + sentence + '"')
             sys.stdout.write(generated)            
             for i in range(400):
-                x = np.zeros((1, maxlen, len(chars)))
+                x = np.zeros((1, maxlen+1, len(chars)+2))
                 for t, char in enumerate(sentence):
                     x[0, t, char_indices[char]] = 1.
 
                 preds = model.predict(x, verbose=0)[0]
                 next_index = sample(preds, diversity)
+
+                #Ignore errors caused by index of added 2 in vector space
+                if(next_index > len(chars) -1):
+                    break
+
                 next_char = indices_char[next_index]
 
                 generated += next_char
@@ -156,7 +236,8 @@ for iteration in range(1, 60):
             print('----- Generating with seed: "' , translate_back(sentence) , '"\n')
             #print(generated)            
             for i in range(400):
-                x = np.zeros((1, maxlen, len(chars)))
+                # x = np.zeros((1, maxlen, len(chars)))
+                x = np.zeros((1, maxlen+1, len(chars)+2))
                 for t, char in enumerate(sentence):
                     x[0, t, char_indices[char]] = 1.
 
@@ -169,3 +250,6 @@ for iteration in range(1, 60):
                 #print(next_char)
             #print(generated)
             print(translate_back(generated))
+        model.save('lstm_bible_gen.h5py')
+    model.save('lstm_bible_gen_final.h5py')
+

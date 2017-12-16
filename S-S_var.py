@@ -30,6 +30,7 @@ k= max_review_length
 z_mean = Dense(latent_dim)(encoded)
 z_log_sigma = Dense(latent_dim)(encoded)
 
+print('test zm',z_mean.shape)
 def sampling(args):
     z_mean, z_log_sigma = args
     epsilon = K.random_normal(shape=(batch_size, latent_dim),
