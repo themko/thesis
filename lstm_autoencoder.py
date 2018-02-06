@@ -206,8 +206,6 @@ vae_dec = Model(decoder_input, _x_decoded_mean)
 if(train_anew):
     print('Training:')
 
-
-
 #Train models
     vae.summary()
     vae.compile(optimizer='rmsprop',loss=vae_loss,metrics=['accuracy'])
@@ -272,12 +270,12 @@ if(train_anew):
         #    print(vae.get_weights())
         #print('\n final LSTM layer max weight', (np.max(decoder_mean.get_weights())) ) 
     #vae.save_weights('my_vae'+'_bs:'+str(batch_size)+'_epochs:'+str(epochs)+'_'+str(datetime.datetime.now())+'.h5')  # creates a HDF5 file 'my_model.h5'
-    vae.save_weights('../models/weights_'+str(datetime.datetime.now()+'.h5')  # creates a HDF5 file 'my_model.h5'
+    vae.save_weights('models/dfa_weights.h5')  # creates a HDF5 file 'my_model.h5'
 else:
     #CHANGE LOADOUT!
     #vae = load_model('my_vae_bs:100_epochs:11_current.h5', custom_objects={'batch_size':batch_size,'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
     #vae = load_model('models/dfa.h5', custom_objects={'batch_size':batch_size,'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
-    vae.load_weights('../models/dfa_weights.h5')
+    vae.load_weights('models/dfa_weights.h5')
     vae.summary()
     vae.compile(optimizer='rmsprop',loss=vae_loss,metrics=['accuracy'])
 
