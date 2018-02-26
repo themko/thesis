@@ -1,0 +1,394 @@
+'''Example script to generate text from Nietzsche's writings.
+At least 20 epochs are required before the generated text
+starts sounding coherent.
+It is recommended to run this script on GPU, as recurrent
+networks are quite computationally intensive.
+If you try this script on new data, make sure your corpus
+has at least ~100k characters. ~1M is better.
+'''
+from __future__ import print_function
+from keras.models import Sequential,Model,load_model,model_from_json
+from keras.layers import Dense, Activation,Input,RepeatVector
+from keras.layers import LSTM, Lambda
+from keras.optimizers import RMSprop
+from keras.utils.data_utils import get_file
+from keras import backend as K
+from keras import objectives
+from keras.callbacks import TensorBoard
+from keras.callbacks import Callback as Callback
+from keras.datasets import imdb
+from keras.preprocessing import sequence
+from keras import regularizers
+from collections import defaultdict
+import keras
+import pandas as pd
+import numpy as np
+import tensorflow as tf
+import random
+import sys
+import itertools
+import argparse
+import datetime
+
+#Arguments in order:
+#1:batch_size, 2:epochs, 3:retrain, 4:preprocessing, 5: percentage training size
+parser = argparse.ArgumentParser(description='Optional app description')
+parser.add_argument('batch_sz', type=int,nargs='?', default=100,const=100,
+                    help='Size of the batches in training')
+parser.add_argument('eps', type=int,nargs='?', default=20,const=20,
+                    help='Number of epochs')
+parser.add_argument('retrain', type=str,nargs='?', default='retrain',const='retrain',
+                    help='Parameter indicating if currently retraining model or just running existing one')
+parser.add_argument('preproc', type=str,nargs='?', default='verse',const='verse',
+                    help='Type of data preprocessing')
+parser.add_argument('perc', type=int,nargs='?', default=100,const=100,
+                    help='Percentage of dataset in use')
+parser.add_argument('reg', type=float,nargs='?', default=0.0,const=0.0,
+                    help='Percentage of dataset in use')
+args = parser.parse_args()
+print('Batch size: ',args.batch_sz)
+batch_size  = args.batch_sz
+epochs      = args.eps
+ignore_names= True
+train_anew  = False
+
+set_len     = True
+maxlen_len  = 10
+reg_weights = args.reg
+
+if(args.retrain == 'retrain'):
+    train_anew  = True
+preproc     = args.preproc
+assert (args.perc<= 100)
+perc        = args.perc
+#Print experiment set-up
+print('Batch size:',batch_size, ' epochs:',epochs, 'retrain:',train_anew, ' preprocessing:',preproc, 'Used data:',perc,'%')
+# train_anew = bool(train_anew)
+
+
+#path = get_file('French.txt', origin='file:/home/thomas/Documents/Studie/Thesis/data/French.txt')
+#path2 = get_file('English.txt', origin='file:/home/thomas/Documents/Studie/Thesis/data/English.txt')
+
+#RECONSIDER?? PERHAPSE CASE SENTSITIVITY HELPS MODEL!
+#path = "data/dfa.dat"
+path = "../data/English.txt"
+
+fo1 = open(path,"r")
+
+lines_text = fo1.read().splitlines()
+lines_text = [a.lower() for a in lines_text]
+
+print('Padding sequences')
+maxlen = max([len(b) for b in lines_text])
+for i,line in enumerate(lines_text):
+    while len(lines_text[i])< maxlen:
+        lines_text[i]+=('-')
+
+chars = sorted(list(set(''.join([item for sublist in lines_text for item in sublist]))))
+print('chars',chars)
+print('total chars:', len(chars))
+
+char_indices = dict((c, i) for i, c in enumerate(chars))
+indices_char = dict((i, c) for i, c in enumerate(chars))
+
+#Build the new bilingual database
+
+if(preproc == 'slice'):
+    # cut the text in semi-redundant sequences of maxlen character
+    maxlen = 40
+    step = 3
+    sentences = []
+    next_chars = []
+    for i in range(0, len(text) - maxlen, step):
+        sentences.append(text[i: i + maxlen])
+        next_chars.append(text[i + maxlen])
+    print('nb sequences:', len(sentences))
+    sentences1 = []
+    next_chars1 = []
+    for i in range(0, len(text1) - maxlen, step):
+        sentences1.append(text1[i: i + maxlen])
+        next_chars1.append(text1[i + maxlen])
+    print('nb sequences from corpus1:', len(sentences1)) #1409719
+    #
+elif(preproc == 'verse'):
+    print('lt',len(lines_text))
+    if(set_len == False):
+        maxlen = max([len(b) for b in lines_text])
+    else:
+        maxlen = maxlen_len
+    print('maxline',maxlen)
+    sentences = lines_text
+    #
+elif(preproc == 'kb'):
+    predicate_dict = defaultdict(set)
+    predicate_dict_test = defaultdict(set)
+
+    df = pd.read_csv('../data/e2e-dataset/trainset.csv',delimiter=',')
+    df_test= pd.read_csv('../data/e2e-dataset/testset.csv',delimiter=',')
+    tuples = [tuple(x) for x in df.values]
+    tuples_test = [tuple(x) for x in df_test.values]
+    for t in tuples:
+        for r in t[0].split(','):
+            r_ind1 = r.index('[')
+            r_ind2 = r.index(']')
+
+            rel = r[0:r_ind1].strip()
+            rel_val = r[r_ind1+1:r_ind2]
+            predicate_dict[rel].add(rel_val)    
+    for t in tuples_test:
+        for r in t[0].split(','):
+            r_ind1 = r.index('[')
+            r_ind2 = r.index(']')
+
+            rel = r[0:r_ind1].strip()
+            rel_val = r[r_ind1+1:r_ind2]
+            predicate_dict_test[rel].add(rel_val)
+    print(predicate_dict)
+    print
+    rel_lens = [len(predicate_dict[p]) for p in predicate_dict.keys()]
+    rel_lens_test = [len(predicate_dict_test[p]) for p in predicate_dict_test.keys()]
+    print(len(tuples))
+    print(rel_lens)
+    print(sum(rel_lens))
+
+
+#Add language labels to vectorization
+print('Vectorization...')
+if(preproc == 'slice'):
+    X = np.zeros((len(sentences), maxlen, len(chars)), dtype=np.bool)
+    y = np.zeros((len(sentences), len(chars)), dtype=np.bool)
+    for i, sentence in enumerate(sentences):
+        for t, char in enumerate(sentence):
+            X[i, t, char_indices[char]] = 1
+        y[i, char_indices[next_chars[i]]] = 1
+elif(preproc=='verse'):
+    y = []
+    print(maxlen)        
+    X = np.zeros((len(sentences), maxlen, len(chars)), dtype=np.bool)
+    print(X.shape)
+    for i, sentence in enumerate(sentences):
+                for t, char in enumerate(sentence):
+                    if(t<maxlen):
+                        X[i, t, char_indices[char]] = 1
+elif(preproc=='kb'):
+    print('kb')   
+    #Add X_val!!!!!!!!!!!!!
+    X = np.zeros((len(tuples), sum(rel_lens)), dtype=np.bool)
+    X_test = np.zeros((len(tuples_test), sum(rel_lens)), dtype=np.bool)
+    for i, tup in enumerate(tuples):
+        for relation in tup[0].split(',')[1:]:
+            #print(i,tup)
+            #print(t,relation)
+            rel_name = relation[0:relation.index('[')].strip()
+            rel_value= relation[relation.index('[')+1:-1].strip()
+            #print(rel_name,rel_value)
+            name_ind = predicate_dict.keys().index(rel_name)
+            value_ind= list(predicate_dict[rel_name]).index(rel_value)
+            #print('name_ind',name_ind)
+            #print('value_ind',value_ind)
+            j = sum(rel_lens[0:name_ind]) + value_ind
+            X[i,j] = 1    
+    for i, tup in enumerate(tuples_test):
+        for relation in tup[0].split(',')[1:]:
+            #print(i,tup)
+            #print(t,relation)
+            rel_name = relation[0:relation.index('[')].strip()
+            rel_value= relation[relation.index('[')+1:-1].strip()
+            #print(rel_name,rel_value)
+            name_ind = predicate_dict.keys().index(rel_name)
+            value_ind= list(predicate_dict[rel_name]).index(rel_value)
+            #print('name_ind',name_ind)
+            #print('value_ind',value_ind)
+            j = sum(rel_lens[0:name_ind]) + value_ind
+            X_test[i,j] = 1
+                    #print(j)
+else:
+    print(intentionalError)    
+
+print('X_test',X_test.shape,X.shape)
+print(X[0])
+print(tuples[0])
+print(rel_lens)
+print(predicate_dict)
+
+intermediate_dim1 = 64
+intermediate_dim2 = 32
+latent_dim = 16
+epsilon_std = 1.0
+
+if(ignore_names):
+    Xkb_train = np.array([line[rel_lens[0]:]for line in X])
+    X = Xkb_train
+
+sen_len = X.shape[1] #Length of sequence
+print('Build model...')
+
+"""
+inputs  = Input(shape=(sen_len,voc_len),name='inputs')
+encoded = LSTM(128,name='lstm_encoder')(inputs)
+decoded = RepeatVector(sen_len,name='repeat_decoder')(encoded)
+decoded = LSTM(voc_len,name='lstm_decoder',return_sequences=True)(decoded)
+
+autoencoder = Model(inputs,decoded)
+encoder     = Model(inputs,encoded)
+"""
+
+#VAE model based on same input
+x = Input(shape=(sen_len,),name='Inputs')
+h1= Dense(intermediate_dim1,name='enc_h1')(x)
+#h2= Dense(intermediate_dim2,name='enc_h2')(h1)
+z_mean = Dense(latent_dim,name='z_mean')(h1)#2)
+z_log_sigma= Dense(latent_dim,name='z_log_sigma')(h1)#2)
+
+def sampling(args):
+    z_mean, z_log_sigma = args
+    epsilon = K.random_normal(shape=(batch_size, latent_dim),
+                              mean=0., stddev=epsilon_std)
+    return z_mean + K.exp(z_log_sigma) * epsilon
+
+z = Lambda(sampling,output_shape=(latent_dim,))([z_mean,z_log_sigma])
+#decoder_h = Dense(intermediate_dim,name='dec_h',activation='relu')
+decoder_h2 = Dense(intermediate_dim2,name='dec_h2')
+decoder_h1 = Dense(intermediate_dim1,name='dec_h1')
+decoder_output = Dense(sen_len,name='dec_out')
+
+h_decoded2 = decoder_h2(z)
+#h_decoded1 = decoder_h1(h_decoded2)
+x_decoded_mean = decoder_output(h_decoded2)#1)
+
+
+decoder_input = Input(shape=(latent_dim,))
+print(decoder_input.shape)
+_h_decoded2 = decoder_h2(decoder_input)
+print(_h_decoded2.shape)
+#Removed a layer
+#_h_decoded1 = decoder_h1(_h_decoded2)
+_x_decoded_mean = decoder_output(_h_decoded2)#1)
+
+def vae_loss(x, x_decoded_mean):
+    #orig xent_loss = objectives.binary_crossentropy(x, x_decoded_mean)
+    xent_loss = K.mean(objectives.binary_crossentropy(x, x_decoded_mean))
+    kl_loss = - 0.5 * K.mean(1 + z_log_sigma - K.square(z_mean) - K.exp(z_log_sigma), axis=-1)    #Extra K.mean added to use with sequential input shape
+    #orig kl_loss = - 0.5 * K.mean(K.mean(1 + z_log_sigma - K.square(z_mean) - K.exp(z_log_sigma), axis=-1))
+    #kl_loss = - 0.5 * K.mean(1 + tf.reshape(z_log_sigma,[-1]) - K.square(tf.reshape(z_mean,[-1])) - K.exp(tf.reshape(z_log_sigma,[-1])), axis=-1)
+    
+    #How to track the two losses in Tensorboard?
+
+    #kl_loss weird !!!!
+    return  kl_loss + xent_loss
+
+
+def translate_back(predictions):
+    preds_num = [p.tolist().index(max(p)) for p in predictions]
+    pred_trans = [indices_char[pn] for pn in preds_num]
+    return pred_trans
+
+vae = Model(x,x_decoded_mean)
+vae_enc = Model(x,z_mean)
+vae_dec = Model(decoder_input, _x_decoded_mean)
+
+if(train_anew):
+    print('Training:')
+
+#Train models
+    vae.summary()
+    vae.compile(optimizer='rmsprop',loss=vae_loss,metrics=['accuracy'])
+    train_percentage    = 0.9
+    upper_train_bound   = int(np.floor(train_percentage*len(X)*perc/100))
+    upper_val_bound     = int(np.floor(len(X)*perc/100))
+    #Cut down ranges to avoid sampling size mismatch in last batch of epoch
+    upper_train_bound   = upper_train_bound - (upper_train_bound % batch_size)
+    upper_val_bound     = upper_val_bound - (upper_val_bound %batch_size)
+    print('BOUNDS',upper_train_bound,upper_val_bound)
+    train_range = range(0,upper_train_bound)
+    val_range   = range(upper_train_bound,upper_val_bound)
+
+    #Set up training size to be exact multitude of batch_size
+    print('Data cropped: ',upper_train_bound % batch_size)
+    print('X.shape',X.shape)
+    """
+    vae.fit(X,X,#X[train_range,:,:],X[train_range,:,:],
+            shuffle=True,
+            epochs=epochs,
+            batch_size=batch_size,
+            validation_data =(X[val_range,:,:],X[val_range,:,:]),
+            callbacks=[TensorBoard(log_dir='TensorBoard/vae')]
+            )
+    """
+    print('Fitting model with debugs inbetween')
+    Tensorboard_str = '../TensorBoard/kb_vae+_eps:'+str(epochs)+'_bs:'+str(batch_size)+'_reg:'+str(reg_weights)+'_'+str(datetime.datetime.now())
+
+    for i in range(0,1):
+        print('\n Iterations: ',i+1)
+        vae.fit( x = X[0:upper_train_bound,:],y=X[0:upper_train_bound,:],#X[train_range,:,:],y=X[train_range,:,:],
+        shuffle=True,
+        epochs=epochs,
+        batch_size=batch_size,
+        validation_data =(X[val_range,:],X[val_range,:]),
+        callbacks=[TensorBoard(log_dir=Tensorboard_str,write_batch_performance=True)]
+        )
+        #print(vae.evaluate(   x = X[0:upper_train_bound,:,:],y=X[0:upper_train_bound,:,:],
+        #                batch_size=batch_size)
+        #)
+        print('Evaluated...')
+        vae_weights = vae.get_weights()
+
+        #Do some weight debugging
+        print('Weight prints:')
+        wes_max = []
+        wes_min = []
+        for we_list in vae_weights:
+            for we in we_list:
+                wes_max.append(np.max(we))
+                wes_min.append(np.min(we))
+        #print(wes)
+        print('minmax',min(wes_min),max(wes_max))
+
+
+        #print('max_weights: ', ([np.max(x) for y in vae_weights for x in y]))#[np.max(var) for var in vae_weights])
+        print('max_weight: ',max([np.max(var) for var in vae_weights]))
+        print('min_weights: ',[np.min(var) for var in vae_weights])
+        print('min_abs_weights: ',[np.min(abs(var)) for var in vae_weights])
+        print('min_weight: ',min([np.min(var) for var in vae_weights]), min([np.min(abs(var)) for var in vae_weights]))
+        #if(i %10 ==0):
+        #    print(vae.get_weights())
+        #print('\n final LSTM layer max weight', (np.max(decoder_mean.get_weights())) ) 
+    #vae.save_weights('my_vae'+'_bs:'+str(batch_size)+'_epochs:'+str(epochs)+'_'+str(datetime.datetime.now())+'.h5')  # creates a HDF5 file 'my_model.h5'
+    vae.save_weights('models/vae_lstm_weights_eps_'+str(epochs)+'_bs_'+str(batch_size)+'_'+str(maxlen_len)+'_words_+'+str(datetime.datetime.now())+'.h5')  # creates a HDF5 file 'my_model.h5'
+else:
+    #CHANGE LOADOUT!
+    #vae = load_model('my_vae_bs:100_epochs:11_current.h5', custom_objects={'batch_size':batch_size,'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
+    #vae = load_model('models/dfa.h5', custom_objects={'batch_size':batch_size,'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
+    vae.load_weights('../models/dfa_weights.h5')
+    vae.summary()
+    vae.compile(optimizer='rmsprop',loss=vae_loss,metrics=['accuracy'])
+
+    print('Starting interpolation')
+    #How to load partial models?
+    vae_enc = Model(x,z_mean)
+    vae_dec = Model(decoder_input, _x_decoded_mean)
+    vae_enc.compile(optimizer='rmsprop',loss=vae_loss)
+    vae_dec.compile(optimizer='rmsprop',loss=vae_loss)
+
+#PREDICT NOT RETURNING CORRECT NUMBER OF DIMENSIONS
+vp1 = vae_enc.predict(X[range(0,100),:,:])
+vp2 = vae_dec.predict(vp1)
+
+print('prediction enc')
+for i in range(2):
+    num1,num2 = [random.randint(0,100),random.randint(0,100)]
+    print('\n nums: ',num1,' ',num2)
+    vp_mean = ( np.array(vp1[num1])+np.array(vp1[num2]) )/2
+    print('prediction dec')
+    print('orig 0 & 1:')
+    print(translate_back(X[num1]))
+    print(translate_back(X[num2]))
+    print('dec')
+    print(translate_back(list(vp2[num1])))
+    print(translate_back(list(vp2[num2])))
+    print('interpolation orig decoded')
+
+    vp_means = np.vstack((vp_mean,vp_mean,vp_mean,vp_mean,vp_mean,vp_mean,vp_mean,vp_mean,vp_mean,vp_mean))
+    print('vp_means',vp_means.dtype,vp_means.shape)
+    vp_means_dec = vae_dec.predict(vp_means)
+    print(translate_back(list(vp_means_dec[0])))
