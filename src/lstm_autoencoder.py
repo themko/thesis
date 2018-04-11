@@ -19,7 +19,9 @@ from keras.callbacks import Callback as Callback
 from keras.datasets import imdb
 from keras.preprocessing import sequence
 from keras import regularizers
+from collections import defaultdict
 import keras
+import pandas as pd
 import numpy as np
 import tensorflow as tf
 import random
@@ -50,7 +52,8 @@ epochs      = args.eps
 train_anew  = False
 
 set_len     = True
-maxlen_len  = 5
+maxlen_len  = 10
+reg_weights = 0.00
 
 if(args.retrain == 'retrain'):
     train_anew  = True
@@ -67,7 +70,7 @@ print('Batch size:',batch_size, ' epochs:',epochs, 'retrain:',train_anew, ' prep
 
 #RECONSIDER?? PERHAPSE CASE SENTSITIVITY HELPS MODEL!
 #path = "data/dfa.dat"
-path = "data/English.txt"
+path = "../data/English.txt"
 
 fo1 = open(path,"r")
 
@@ -114,6 +117,24 @@ elif(preproc == 'verse'):
         maxlen = maxlen_len
     print('maxline',maxlen)
     sentences = lines_text
+    #
+elif(preproc == 'kb'):
+    predicate_dict = defaultdict(set)
+    df = pd.read_csv('../data/e2e-dataset/trainset.csv',delimiter=',')
+    tuples = [tuple(x) for x in df.values]
+    for t in tuples:
+        for r in t[0].split(','):
+            r_ind1 = r.index('[')
+            r_ind2 = r.index(']')
+
+            rel = r[0:r_ind1].strip()
+            rel_val = r[r_ind1+1:r_ind2]
+            predicate_dict[rel].add(rel_val)
+    print(predicate_dict)
+    rel_lens = [len(p) for p in predicate_dict.keys()]
+    print(len(tuples))
+    print(rel_lens)
+    print(sum(rel_lens))
 
 #Add language labels to vectorization
 print('Vectorization...')
@@ -133,6 +154,22 @@ elif(preproc=='verse'):
                 for t, char in enumerate(sentence):
                     if(t<maxlen):
                         X[i, t, char_indices[char]] = 1
+elif(preproc=='kb'):
+    print('kb')   
+    X = np.zeros((len(tuples), sum(rel_lens)), dtype=np.bool)
+    print(X.shape)
+    #Make it into all tuples!!!!!
+    for i, tup in enumerate(tuples[0:10]):
+                for relation in tup[0].split(','):
+                    print(i,tup)
+                    print(t,relation)
+                    rel_name = relation[0:relation.index('[')].strip()
+                    rel_value= relation[relation.index('[')+1:-1].strip()
+                    print(rel_name,rel_value)
+                    name_ind = predicate_dict.keys().index(rel_name)
+                    value_ind= list(predicate_dict[rel_name]).index(rel_value)
+                    print(name_ind)
+                    print(value_ind)
 else:
     print(intentionalError)    
 
@@ -158,7 +195,8 @@ encoder     = Model(inputs,encoded)
 #VAE model based on same input
 x = Input(shape=(sen_len,voc_len))
 #h = LSTM(intermediate_dim, name='h_layer',activation='relu',kernel_regularizer=regularizers.l1(0.05))(x)
-h = LSTM(intermediate_dim, name='h_layer',kernel_regularizer=regularizers.l1(0.03))(x)
+h = LSTM(intermediate_dim, name='h_layer',kernel_regularizer=regularizers.l1(reg_weights))(x)
+#h = LSTM(intermediate_dim, name='h_layer')(x)
 z_mean = Dense(latent_dim,name='z_mean')(h)
 z_log_sigma= Dense(latent_dim,name='z_log_sigma')(h)
 
@@ -172,7 +210,8 @@ z = Lambda(sampling,output_shape=(latent_dim,))([z_mean,z_log_sigma])
 repeat_z = RepeatVector(sen_len,name='repeat_z')(z)
 #decoder_h = Dense(intermediate_dim,name='dec_h',activation='relu')
 decoder_h = Dense(intermediate_dim,name='dec_h')
-decoder_mean = LSTM(voc_len,name='dec_mean',return_sequences=True,activation='softmax',kernel_regularizer=regularizers.l1(0.03))
+decoder_mean = LSTM(voc_len,name='dec_mean',return_sequences=True,activation='softmax',kernel_regularizer=regularizers.l1(reg_weights))
+#decoder_mean = LSTM(voc_len,name='dec_mean',return_sequences=True,activation='softmax')
 h_decoded = decoder_h(repeat_z)
 x_decoded_mean = decoder_mean(h_decoded)
 
@@ -206,8 +245,6 @@ vae_dec = Model(decoder_input, _x_decoded_mean)
 if(train_anew):
     print('Training:')
 
-
-
 #Train models
     vae.summary()
     vae.compile(optimizer='rmsprop',loss=vae_loss,metrics=['accuracy'])
@@ -234,7 +271,7 @@ if(train_anew):
             )
     """
     print('Fitting model with debugs inbetween')
-    Tensorboard_str = 'TensorBoard/vae1+_'+str(datetime.datetime.now())
+    Tensorboard_str = 'TensorBoard/vae+_eps:'+str(epochs)+'_bs:'+str(batch_size)+'_reg:'+str(reg_weights)+'_'+str(datetime.datetime.now())
 
     for i in range(0,1):
         print('\n Iterations: ',i+1)
@@ -272,12 +309,12 @@ if(train_anew):
         #    print(vae.get_weights())
         #print('\n final LSTM layer max weight', (np.max(decoder_mean.get_weights())) ) 
     #vae.save_weights('my_vae'+'_bs:'+str(batch_size)+'_epochs:'+str(epochs)+'_'+str(datetime.datetime.now())+'.h5')  # creates a HDF5 file 'my_model.h5'
-    vae.save_weights('models/dfa_weights.h5')  # creates a HDF5 file 'my_model.h5'
+    vae.save_weights('models/vae_lstm_weights_eps_'+str(epochs)+'_bs_'+str(batch_size)+'_'+str(maxlen_len)+'_words_+'+str(datetime.datetime.now())+'.h5')  # creates a HDF5 file 'my_model.h5'
 else:
     #CHANGE LOADOUT!
     #vae = load_model('my_vae_bs:100_epochs:11_current.h5', custom_objects={'batch_size':batch_size,'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
     #vae = load_model('models/dfa.h5', custom_objects={'batch_size':batch_size,'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
-    vae.load_weights('models/dfa_weights.h5')
+    vae.load_weights('../models/dfa_weights.h5')
     vae.summary()
     vae.compile(optimizer='rmsprop',loss=vae_loss,metrics=['accuracy'])
 
