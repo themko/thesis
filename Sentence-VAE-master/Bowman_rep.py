@@ -1,5 +1,5 @@
 import time
-import pandas as pd
+#import pandas as pd
 import numpy as np
 import keras
 import argparse
@@ -7,7 +7,7 @@ from keras import backend as K
 from keras.models import Sequential,Model,load_model,model_from_json,model_from_yaml
 from keras.layers import *
 from collections import defaultdict, OrderedDict, Counter
-from ptb import PTB
+#from ptb import PTB
 from keras import objectives
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing import sequence
@@ -144,7 +144,6 @@ def go(args):
             line_ind=idx+1
 
     print()
-    word_to_id_imdb = keras.datasets.imdb.get_word_index()
     X_input.sort(key=len)
 
     X_batches = []
@@ -208,7 +207,7 @@ def go(args):
         #
 
         if(i%d_eval ==0):
-            b = X_batches[1][0:2]
+            b = X_batches[1][0:10]
             n = b.shape[0]
             b_shift = np.concatenate([np.ones((n, 1)), b], axis=1) 
 
@@ -216,8 +215,11 @@ def go(args):
             y = np.argmax(out, axis=-1)
 
             for i in range(b.shape[0]):
-                print('in   ', [ ' '.join([id_to_word[aa] for aa in a]) for a in b] ,'\n')
-                print('out   ', [' '.join([id_to_word[aa] for aa in a]) for a in y] ,'\n\n')
+                in_values = [' '.join([id_to_word[aa] for aa in a]) for a in b]
+                out_values= [' '.join([id_to_word[aa] for aa in a]) for a in y]
+                for i in range(len(in_values)):
+                    print('in   ', in_values[i] )
+                    print('out   ', out_values[i] ,'\n')
         for batch in tqdm(X_batches):
         #Batches
         #i is the starting index of the batch
