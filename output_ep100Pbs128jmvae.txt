@@ -1,0 +1,1247 @@
+Tensorboard logging on
+79
+lsl
+(37389, 79)
+model created
+SentenceJMVAE(
+  (embedding): Embedding(1684, 300)
+  (word_dropout): Dropout(p=0.5)
+  (encoder_rnn): GRU(379, 256, batch_first=True)
+  (encoder_rnn_w): GRU(300, 256, batch_first=True)
+  (relu): LeakyReLU(negative_slope=0.01)
+  (sigmoid): Sigmoid()
+  (encoder_linear_y1): Linear(in_features=79, out_features=256, bias=True)
+  (encoder_linear_y2): Linear(in_features=256, out_features=256, bias=True)
+  (decoder_rnn): GRU(300, 256, batch_first=True)
+  (hidden2mean): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2logv): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2mean_w): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2logv_w): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2mean_y): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2logv_y): Linear(in_features=256, out_features=16, bias=True)
+  (latent2hidden): Linear(in_features=16, out_features=256, bias=True)
+  (outputs2vocab): Linear(in_features=256, out_features=1684, bias=True)
+  (latent2hidden_y): Linear(in_features=16, out_features=256, bias=True)
+  (decoder_linear_y): Linear(in_features=256, out_features=79, bias=True)
+)
+starting training
+split:  train 	epoch:  0
+Out dataloader received
+Tensorboard logging on
+79
+lsl
+(37389, 79)
+model created
+SentenceJMVAE(
+  (embedding): Embedding(1684, 300)
+  (word_dropout): Dropout(p=0.5)
+  (encoder_rnn): GRU(379, 256, batch_first=True)
+  (encoder_rnn_w): GRU(300, 256, batch_first=True)
+  (relu): LeakyReLU(negative_slope=0.01)
+  (sigmoid): Sigmoid()
+  (encoder_linear_y1): Linear(in_features=79, out_features=256, bias=True)
+  (encoder_linear_y2): Linear(in_features=256, out_features=256, bias=True)
+  (decoder_rnn): GRU(300, 256, batch_first=True)
+  (hidden2mean): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2logv): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2mean_w): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2logv_w): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2mean_y): Linear(in_features=256, out_features=16, bias=True)
+  (hidden2logv_y): Linear(in_features=256, out_features=16, bias=True)
+  (latent2hidden): Linear(in_features=16, out_features=256, bias=True)
+  (outputs2vocab): Linear(in_features=256, out_features=1684, bias=True)
+  (latent2hidden_y): Linear(in_features=16, out_features=256, bias=True)
+  (decoder_linear_y): Linear(in_features=256, out_features=79, bias=True)
+)
+starting training
+split:  train 	epoch:  0
+TRAIN Batch 0000/292, Loss  222.9460, NLL-Loss  167.2931, BCE-Loss   55.6520, KL-Loss-joint    0.4598, KL-Loss-w    0.7124, KL-Loss-y    0.4997, KL-Weight  0.002
+TRAIN Batch 0050/292, Loss   84.1093, NLL-Loss   71.3703, BCE-Loss   12.5429, KL-Loss-joint   89.8412, KL-Loss-w   23.8321, KL-Loss-y   23.2162, KL-Weight  0.002
+TRAIN Batch 0100/292, Loss   67.9807, NLL-Loss   55.2448, BCE-Loss   12.5049, KL-Loss-joint   93.3905, KL-Loss-w   10.4031, KL-Loss-y   17.9928, KL-Weight  0.002
+TRAIN Batch 0150/292, Loss   64.7022, NLL-Loss   51.7871, BCE-Loss   12.6832, KL-Loss-joint   82.7954, KL-Loss-w   12.1956, KL-Loss-y   16.2702, KL-Weight  0.003
+TRAIN Batch 0200/292, Loss   62.8411, NLL-Loss   50.3613, BCE-Loss   12.2319, KL-Loss-joint   78.1220, KL-Loss-w   15.9226, KL-Loss-y   16.6961, KL-Weight  0.003
+TRAIN Batch 0250/292, Loss   58.0897, NLL-Loss   46.4312, BCE-Loss   11.3571, KL-Loss-joint   83.8710, KL-Loss-w   22.7980, KL-Loss-y   22.8989, KL-Weight  0.004
+TRAIN Batch 0292/292, Loss   52.4153, NLL-Loss   41.2153, BCE-Loss   10.8295, KL-Loss-joint   92.8325, KL-Loss-w   28.8072, KL-Loss-y   28.8394, KL-Weight  0.004
+TRAIN Epoch 00/100, Mean ELBO   74.3262
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E0.pytorch
+split:  valid 	epoch:  0
+VALID Batch 0000/36, Loss   54.1756, NLL-Loss   43.2628, BCE-Loss   10.5787, KL-Loss-joint   83.5071, KL-Loss-w   28.2682, KL-Loss-y   28.1074, KL-Weight  0.004
+VALID Batch 0036/36, Loss   49.5011, NLL-Loss   38.6402, BCE-Loss   10.5264, KL-Loss-joint   83.6112, KL-Loss-w   28.1152, KL-Loss-y   28.2026, KL-Weight  0.004
+VALID Epoch 00/100, Mean ELBO   54.3810
+split:  train 	epoch:  1
+TRAIN Batch 0000/292, Loss   56.7691, NLL-Loss   45.5001, BCE-Loss   10.9318, KL-Loss-joint   84.3081, KL-Loss-w   28.1882, KL-Loss-y   28.0547, KL-Weight  0.004
+TRAIN Batch 0050/292, Loss   55.4633, NLL-Loss   44.7053, BCE-Loss   10.3732, KL-Loss-joint   84.9347, KL-Loss-w   32.1625, KL-Loss-y   31.5735, KL-Weight  0.005
+TRAIN Batch 0100/292, Loss   54.2273, NLL-Loss   44.9618, BCE-Loss    8.8241, KL-Loss-joint   86.0386, KL-Loss-w   35.9083, KL-Loss-y   34.6027, KL-Weight  0.005
+TRAIN Batch 0150/292, Loss   47.9705, NLL-Loss   40.1801, BCE-Loss    7.2646, KL-Loss-joint   90.4915, KL-Loss-w   39.5367, KL-Loss-y   37.3390, KL-Weight  0.006
+TRAIN Batch 0200/292, Loss   45.8458, NLL-Loss   39.2939, BCE-Loss    5.9296, KL-Loss-joint   94.6136, KL-Loss-w   41.7544, KL-Loss-y   38.6018, KL-Weight  0.007
+TRAIN Batch 0250/292, Loss   44.7050, NLL-Loss   39.2336, BCE-Loss    4.7702, KL-Loss-joint   94.1496, KL-Loss-w   43.8578, KL-Loss-y   39.4404, KL-Weight  0.007
+TRAIN Batch 0292/292, Loss   58.4640, NLL-Loss   53.2578, BCE-Loss    4.4384, KL-Loss-joint   92.8993, KL-Loss-w   44.2638, KL-Loss-y   37.4642, KL-Weight  0.008
+TRAIN Epoch 01/100, Mean ELBO   49.6466
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E1.pytorch
+split:  valid 	epoch:  1
+VALID Batch 0000/36, Loss   42.3462, NLL-Loss   37.7822, BCE-Loss    3.7998, KL-Loss-joint   92.2329, KL-Loss-w   43.7618, KL-Loss-y   37.9861, KL-Weight  0.008
+VALID Batch 0036/36, Loss   38.0015, NLL-Loss   33.4646, BCE-Loss    3.7691, KL-Loss-joint   92.6532, KL-Loss-w   43.8166, KL-Loss-y   37.9400, KL-Weight  0.008
+VALID Epoch 01/100, Mean ELBO   42.3897
+split:  train 	epoch:  2
+TRAIN Batch 0000/292, Loss   46.4865, NLL-Loss   41.7466, BCE-Loss    3.9530, KL-Loss-joint   94.9738, KL-Loss-w   44.4718, KL-Loss-y   38.6166, KL-Weight  0.008
+TRAIN Batch 0050/292, Loss   42.3886, NLL-Loss   38.1819, BCE-Loss    3.3333, KL-Loss-joint   93.1332, KL-Loss-w   44.7046, KL-Loss-y   38.2388, KL-Weight  0.009
+TRAIN Batch 0100/292, Loss   42.5631, NLL-Loss   38.4754, BCE-Loss    3.1259, KL-Loss-joint   90.6108, KL-Loss-w   44.5386, KL-Loss-y   37.6481, KL-Weight  0.011
+TRAIN Batch 0150/292, Loss   41.1931, NLL-Loss   37.4271, BCE-Loss    2.6567, KL-Loss-joint   92.3639, KL-Loss-w   43.8306, KL-Loss-y   37.3822, KL-Weight  0.012
+TRAIN Batch 0200/292, Loss   40.8070, NLL-Loss   37.0388, BCE-Loss    2.5779, KL-Loss-joint   87.5962, KL-Loss-w   43.2357, KL-Loss-y   36.6336, KL-Weight  0.014
+TRAIN Batch 0250/292, Loss   39.9075, NLL-Loss   36.1917, BCE-Loss    2.4444, KL-Loss-joint   82.7215, KL-Loss-w   41.2578, KL-Loss-y   36.2908, KL-Weight  0.015
+TRAIN Batch 0292/292, Loss   30.2636, NLL-Loss   26.3800, BCE-Loss    2.5282, KL-Loss-joint   79.5305, KL-Loss-w   39.1168, KL-Loss-y   35.4015, KL-Weight  0.017
+TRAIN Epoch 02/100, Mean ELBO   41.0174
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E2.pytorch
+split:  valid 	epoch:  2
+VALID Batch 0000/36, Loss   37.9245, NLL-Loss   34.5055, BCE-Loss    2.0440, KL-Loss-joint   80.4858, KL-Loss-w   40.2662, KL-Loss-y   35.4254, KL-Weight  0.017
+VALID Batch 0036/36, Loss   33.3080, NLL-Loss   29.7973, BCE-Loss    2.1450, KL-Loss-joint   79.9411, KL-Loss-w   39.4498, KL-Loss-y   35.9734, KL-Weight  0.017
+VALID Epoch 02/100, Mean ELBO   37.8544
+split:  train 	epoch:  3
+TRAIN Batch 0000/292, Loss   39.3090, NLL-Loss   36.0710, BCE-Loss    1.8592, KL-Loss-joint   80.7076, KL-Loss-w   40.3072, KL-Loss-y   35.5270, KL-Weight  0.017
+TRAIN Batch 0050/292, Loss   35.2363, NLL-Loss   31.8043, BCE-Loss    1.9700, KL-Loss-joint   75.6898, KL-Loss-w   38.5766, KL-Loss-y   35.0448, KL-Weight  0.019
+TRAIN Batch 0100/292, Loss   34.7321, NLL-Loss   31.3730, BCE-Loss    1.7946, KL-Loss-joint   71.6684, KL-Loss-w   37.5718, KL-Loss-y   34.0626, KL-Weight  0.022
+TRAIN Batch 0150/292, Loss   36.5703, NLL-Loss   33.1160, BCE-Loss    1.6948, KL-Loss-joint   71.3369, KL-Loss-w   37.3151, KL-Loss-y   34.3352, KL-Weight  0.025
+TRAIN Batch 0200/292, Loss   39.7946, NLL-Loss   36.0434, BCE-Loss    1.8141, KL-Loss-joint   69.5369, KL-Loss-w   36.7361, KL-Loss-y   34.0030, KL-Weight  0.028
+TRAIN Batch 0250/292, Loss   36.4464, NLL-Loss   32.7108, BCE-Loss    1.6784, KL-Loss-joint   65.4109, KL-Loss-w   35.3730, KL-Loss-y   33.2388, KL-Weight  0.031
+TRAIN Batch 0292/292, Loss   39.2806, NLL-Loss   35.7101, BCE-Loss    1.4529, KL-Loss-joint   60.8282, KL-Loss-w   34.3682, KL-Loss-y   32.3166, KL-Weight  0.035
+TRAIN Epoch 03/100, Mean ELBO   37.9199
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E3.pytorch
+split:  valid 	epoch:  3
+VALID Batch 0000/36, Loss   36.5493, NLL-Loss   32.9655, BCE-Loss    1.5396, KL-Loss-joint   58.5802, KL-Loss-w   34.4784, KL-Loss-y   31.7071, KL-Weight  0.035
+VALID Batch 0036/36, Loss   32.1800, NLL-Loss   28.3800, BCE-Loss    1.7805, KL-Loss-joint   57.8731, KL-Loss-w   33.3618, KL-Loss-y   32.4727, KL-Weight  0.035
+VALID Epoch 03/100, Mean ELBO   36.5639
+split:  train 	epoch:  4
+TRAIN Batch 0000/292, Loss   39.0675, NLL-Loss   35.0261, BCE-Loss    1.9918, KL-Loss-joint   58.7334, KL-Loss-w   34.2533, KL-Loss-y   32.0895, KL-Weight  0.035
+TRAIN Batch 0050/292, Loss   38.2561, NLL-Loss   34.4792, BCE-Loss    1.4498, KL-Loss-joint   59.1272, KL-Loss-w   34.3218, KL-Loss-y   31.9662, KL-Weight  0.039
+TRAIN Batch 0100/292, Loss   34.6858, NLL-Loss   30.7497, BCE-Loss    1.4304, KL-Loss-joint   56.4759, KL-Loss-w   32.8809, KL-Loss-y   30.7986, KL-Weight  0.044
+TRAIN Batch 0150/292, Loss   33.9505, NLL-Loss   30.0566, BCE-Loss    1.3649, KL-Loss-joint   50.5991, KL-Loss-w   30.9247, KL-Loss-y   29.3820, KL-Weight  0.050
+TRAIN Batch 0200/292, Loss   33.4473, NLL-Loss   29.3192, BCE-Loss    1.4142, KL-Loss-joint   48.2408, KL-Loss-w   29.9136, KL-Loss-y   28.5419, KL-Weight  0.056
+TRAIN Batch 0250/292, Loss   36.3541, NLL-Loss   31.8385, BCE-Loss    1.5292, KL-Loss-joint   47.1958, KL-Loss-w   29.2947, KL-Loss-y   28.1317, KL-Weight  0.063
+TRAIN Batch 0292/292, Loss   32.2050, NLL-Loss   27.5480, BCE-Loss    1.7172, KL-Loss-joint   42.1207, KL-Loss-w   28.1889, KL-Loss-y   25.9111, KL-Weight  0.070
+TRAIN Epoch 04/100, Mean ELBO   36.8421
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E4.pytorch
+split:  valid 	epoch:  4
+VALID Batch 0000/36, Loss   36.3025, NLL-Loss   31.6910, BCE-Loss    1.4806, KL-Loss-joint   44.7560, KL-Loss-w   28.8455, KL-Loss-y   27.0956, KL-Weight  0.070
+VALID Batch 0036/36, Loss   31.8408, NLL-Loss   27.1009, BCE-Loss    1.6389, KL-Loss-joint   44.3285, KL-Loss-w   27.7682, KL-Loss-y   27.5077, KL-Weight  0.070
+VALID Epoch 04/100, Mean ELBO   36.0648
+split:  train 	epoch:  5
+TRAIN Batch 0000/292, Loss   35.7295, NLL-Loss   30.9673, BCE-Loss    1.5140, KL-Loss-joint   46.4333, KL-Loss-w   29.4035, KL-Loss-y   27.2593, KL-Weight  0.070
+TRAIN Batch 0050/292, Loss   35.0530, NLL-Loss   30.1579, BCE-Loss    1.3851, KL-Loss-joint   44.6910, KL-Loss-w   28.5841, KL-Loss-y   27.3507, KL-Weight  0.079
+TRAIN Batch 0100/292, Loss   38.0991, NLL-Loss   33.0420, BCE-Loss    1.4288, KL-Loss-joint   41.1953, KL-Loss-w   26.7687, KL-Loss-y   25.7535, KL-Weight  0.088
+TRAIN Batch 0150/292, Loss   36.8074, NLL-Loss   31.5253, BCE-Loss    1.3644, KL-Loss-joint   39.7146, KL-Loss-w   27.0295, KL-Loss-y   25.8216, KL-Weight  0.099
+TRAIN Batch 0200/292, Loss   37.0354, NLL-Loss   31.2126, BCE-Loss    1.8102, KL-Loss-joint   36.3678, KL-Loss-w   24.8222, KL-Loss-y   23.8549, KL-Weight  0.110
+TRAIN Batch 0250/292, Loss   37.6106, NLL-Loss   31.7165, BCE-Loss    1.5860, KL-Loss-joint   34.9640, KL-Loss-w   24.7259, KL-Loss-y   23.6496, KL-Weight  0.123
+TRAIN Batch 0292/292, Loss   37.0757, NLL-Loss   30.8834, BCE-Loss    1.3891, KL-Loss-joint   35.5763, KL-Loss-w   25.2538, KL-Loss-y   22.0105, KL-Weight  0.135
+TRAIN Epoch 05/100, Mean ELBO   37.1291
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E5.pytorch
+split:  valid 	epoch:  5
+VALID Batch 0000/36, Loss   37.2002, NLL-Loss   31.1063, BCE-Loss    1.3795, KL-Loss-joint   34.8427, KL-Loss-w   24.0996, KL-Loss-y   22.7793, KL-Weight  0.135
+VALID Batch 0036/36, Loss   33.1130, NLL-Loss   26.9039, BCE-Loss    1.5612, KL-Loss-joint   34.3513, KL-Loss-w   23.0294, KL-Loss-y   23.4287, KL-Weight  0.135
+VALID Epoch 05/100, Mean ELBO   37.0975
+split:  train 	epoch:  6
+TRAIN Batch 0000/292, Loss   41.4944, NLL-Loss   35.4041, BCE-Loss    1.3681, KL-Loss-joint   34.8998, KL-Loss-w   24.2998, KL-Loss-y   22.4861, KL-Weight  0.135
+TRAIN Batch 0050/292, Loss   36.0191, NLL-Loss   29.6635, BCE-Loss    1.4112, KL-Loss-joint   32.8291, KL-Loss-w   23.2119, KL-Loss-y   22.6816, KL-Weight  0.151
+TRAIN Batch 0100/292, Loss   37.6904, NLL-Loss   30.8911, BCE-Loss    1.5091, KL-Loss-joint   31.6193, KL-Loss-w   22.2732, KL-Loss-y   21.5506, KL-Weight  0.167
+TRAIN Batch 0150/292, Loss   38.6197, NLL-Loss   31.2616, BCE-Loss    1.7086, KL-Loss-joint   30.4632, KL-Loss-w   21.5112, KL-Loss-y   20.8595, KL-Weight  0.185
+TRAIN Batch 0200/292, Loss   37.0063, NLL-Loss   29.3342, BCE-Loss    1.7595, KL-Loss-joint   28.8303, KL-Loss-w   20.5697, KL-Loss-y   20.0257, KL-Weight  0.205
+TRAIN Batch 0250/292, Loss   40.5739, NLL-Loss   32.4922, BCE-Loss    1.8013, KL-Loss-joint   27.7632, KL-Loss-w   20.1142, KL-Loss-y   19.3197, KL-Weight  0.226
+TRAIN Batch 0292/292, Loss   51.5006, NLL-Loss   42.9968, BCE-Loss    1.8277, KL-Loss-joint   27.2361, KL-Loss-w   20.3816, KL-Loss-y   19.0979, KL-Weight  0.245
+TRAIN Epoch 06/100, Mean ELBO   38.6574
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E6.pytorch
+split:  valid 	epoch:  6
+VALID Batch 0000/36, Loss   39.5834, NLL-Loss   31.3110, BCE-Loss    1.7221, KL-Loss-joint   26.6724, KL-Loss-w   19.8261, KL-Loss-y   18.3938, KL-Weight  0.246
+VALID Batch 0036/36, Loss   35.6110, NLL-Loss   27.3188, BCE-Loss    1.7689, KL-Loss-joint   26.5623, KL-Loss-w   18.8865, KL-Loss-y   19.2528, KL-Weight  0.246
+VALID Epoch 06/100, Mean ELBO   39.5415
+split:  train 	epoch:  7
+TRAIN Batch 0000/292, Loss   40.7209, NLL-Loss   32.5634, BCE-Loss    1.7532, KL-Loss-joint   26.0777, KL-Loss-w   19.2299, KL-Loss-y   18.2275, KL-Weight  0.246
+TRAIN Batch 0050/292, Loss   42.2422, NLL-Loss   33.5655, BCE-Loss    1.7119, KL-Loss-joint   25.8461, KL-Loss-w   19.2198, KL-Loss-y   17.8904, KL-Weight  0.269
+TRAIN Batch 0100/292, Loss   39.5214, NLL-Loss   30.0242, BCE-Loss    2.0537, KL-Loss-joint   25.2515, KL-Loss-w   18.3906, KL-Loss-y   17.5880, KL-Weight  0.295
+TRAIN Batch 0150/292, Loss   42.0070, NLL-Loss   32.4955, BCE-Loss    1.6646, KL-Loss-joint   24.4136, KL-Loss-w   18.2626, KL-Loss-y   16.8493, KL-Weight  0.321
+TRAIN Batch 0200/292, Loss   43.9190, NLL-Loss   33.5854, BCE-Loss    2.1900, KL-Loss-joint   23.3167, KL-Loss-w   16.4803, KL-Loss-y   15.9463, KL-Weight  0.349
+TRAIN Batch 0250/292, Loss   43.5931, NLL-Loss   32.7199, BCE-Loss    2.2388, KL-Loss-joint   22.8313, KL-Loss-w   16.6597, KL-Loss-y   15.1742, KL-Weight  0.378
+TRAIN Batch 0292/292, Loss   46.5777, NLL-Loss   35.7388, BCE-Loss    2.4423, KL-Loss-joint   20.8262, KL-Loss-w   15.2572, KL-Loss-y   14.2623, KL-Weight  0.403
+TRAIN Epoch 07/100, Mean ELBO   41.1269
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E7.pytorch
+split:  valid 	epoch:  7
+VALID Batch 0000/36, Loss   42.2378, NLL-Loss   31.6594, BCE-Loss    2.1253, KL-Loss-joint   20.9351, KL-Loss-w   15.4110, KL-Loss-y   14.0298, KL-Weight  0.404
+VALID Batch 0036/36, Loss   38.0681, NLL-Loss   27.6625, BCE-Loss    2.0509, KL-Loss-joint   20.6916, KL-Loss-w   14.5164, KL-Loss-y   14.6809, KL-Weight  0.404
+VALID Epoch 07/100, Mean ELBO   42.1666
+split:  train 	epoch:  8
+TRAIN Batch 0000/292, Loss   42.3564, NLL-Loss   31.6957, BCE-Loss    2.3434, KL-Loss-joint   20.5990, KL-Loss-w   15.3470, KL-Loss-y   13.7485, KL-Weight  0.404
+TRAIN Batch 0050/292, Loss   45.0330, NLL-Loss   34.1255, BCE-Loss    1.9958, KL-Loss-joint   20.5246, KL-Loss-w   14.8290, KL-Loss-y   13.9735, KL-Weight  0.434
+TRAIN Batch 0100/292, Loss   39.9688, NLL-Loss   28.3925, BCE-Loss    2.3233, KL-Loss-joint   19.8937, KL-Loss-w   14.2005, KL-Loss-y   13.7787, KL-Weight  0.465
+TRAIN Batch 0150/292, Loss   42.8269, NLL-Loss   30.7422, BCE-Loss    2.1693, KL-Loss-joint   19.9778, KL-Loss-w   14.8851, KL-Loss-y   13.2363, KL-Weight  0.496
+TRAIN Batch 0200/292, Loss   43.7357, NLL-Loss   30.9691, BCE-Loss    2.6009, KL-Loss-joint   19.2698, KL-Loss-w   14.3000, KL-Loss-y   12.6531, KL-Weight  0.527
+TRAIN Batch 0250/292, Loss   44.0662, NLL-Loss   31.5303, BCE-Loss    2.6056, KL-Loss-joint   17.7783, KL-Loss-w   13.1573, KL-Loss-y   11.3156, KL-Weight  0.558
+TRAIN Batch 0292/292, Loss   43.1918, NLL-Loss   30.4538, BCE-Loss    2.6478, KL-Loss-joint   17.2696, KL-Loss-w   12.6789, KL-Loss-y   11.7077, KL-Weight  0.584
+TRAIN Epoch 08/100, Mean ELBO   43.8709
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E8.pytorch
+split:  valid 	epoch:  8
+VALID Batch 0000/36, Loss   45.9283, NLL-Loss   32.4793, BCE-Loss    2.9984, KL-Loss-joint   17.8681, KL-Loss-w   13.3000, KL-Loss-y   11.4969, KL-Weight  0.585
+VALID Batch 0036/36, Loss   41.3437, NLL-Loss   27.9917, BCE-Loss    3.0225, KL-Loss-joint   17.6609, KL-Loss-w   12.4598, KL-Loss-y   11.8518, KL-Weight  0.585
+VALID Epoch 08/100, Mean ELBO   45.3815
+split:  train 	epoch:  9
+TRAIN Batch 0000/292, Loss   43.6798, NLL-Loss   30.9609, BCE-Loss    2.5013, KL-Loss-joint   17.4697, KL-Loss-w   12.9659, KL-Loss-y   11.2524, KL-Weight  0.585
+TRAIN Batch 0050/292, Loss   47.9776, NLL-Loss   34.3649, BCE-Loss    2.9339, KL-Loss-joint   17.3675, KL-Loss-w   13.0822, KL-Loss-y   11.0862, KL-Weight  0.615
+TRAIN Batch 0100/292, Loss   41.8554, NLL-Loss   28.0831, BCE-Loss    2.7045, KL-Loss-joint   17.1853, KL-Loss-w   12.5357, KL-Loss-y   10.9620, KL-Weight  0.644
+TRAIN Batch 0150/292, Loss   47.1688, NLL-Loss   32.9846, BCE-Loss    2.9766, KL-Loss-joint   16.6742, KL-Loss-w   12.5124, KL-Loss-y   10.5762, KL-Weight  0.672
+TRAIN Batch 0200/292, Loss   49.2637, NLL-Loss   34.9844, BCE-Loss    3.1049, KL-Loss-joint   15.9842, KL-Loss-w   12.1421, KL-Loss-y   10.1602, KL-Weight  0.699
+TRAIN Batch 0250/292, Loss   49.8470, NLL-Loss   34.9964, BCE-Loss    3.4447, KL-Loss-joint   15.7384, KL-Loss-w   11.6720, KL-Loss-y    9.9924, KL-Weight  0.725
+TRAIN Batch 0292/292, Loss   41.4715, NLL-Loss   27.6430, BCE-Loss    3.2766, KL-Loss-joint   14.1602, KL-Loss-w   10.5917, KL-Loss-y    8.6240, KL-Weight  0.745
+TRAIN Epoch 09/100, Mean ELBO   46.2016
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E9.pytorch
+split:  valid 	epoch:  9
+VALID Batch 0000/36, Loss   47.5368, NLL-Loss   32.9231, BCE-Loss    3.5793, KL-Loss-joint   14.7983, KL-Loss-w   10.9664, KL-Loss-y    9.0359, KL-Weight  0.746
+VALID Batch 0036/36, Loss   42.7869, NLL-Loss   28.3748, BCE-Loss    3.6452, KL-Loss-joint   14.4398, KL-Loss-w   10.2312, KL-Loss-y    9.2927, KL-Weight  0.746
+VALID Epoch 09/100, Mean ELBO   47.0039
+split:  train 	epoch:  10
+TRAIN Batch 0000/292, Loss   46.2233, NLL-Loss   31.5634, BCE-Loss    3.5624, KL-Loss-joint   14.8831, KL-Loss-w   10.9178, KL-Loss-y    9.1435, KL-Weight  0.746
+TRAIN Batch 0050/292, Loss   47.8006, NLL-Loss   33.1121, BCE-Loss    3.1520, KL-Loss-joint   15.0092, KL-Loss-w   11.1204, KL-Loss-y    9.1481, KL-Weight  0.769
+TRAIN Batch 0100/292, Loss   47.7747, NLL-Loss   32.9997, BCE-Loss    3.2805, KL-Loss-joint   14.5479, KL-Loss-w   10.9058, KL-Loss-y    8.6420, KL-Weight  0.790
+TRAIN Batch 0150/292, Loss   47.1180, NLL-Loss   32.0267, BCE-Loss    3.4328, KL-Loss-joint   14.3913, KL-Loss-w   10.7307, KL-Loss-y    8.7929, KL-Weight  0.810
+TRAIN Batch 0200/292, Loss   47.4760, NLL-Loss   32.3418, BCE-Loss    3.8464, KL-Loss-joint   13.6227, KL-Loss-w   10.1554, KL-Loss-y    8.0963, KL-Weight  0.828
+TRAIN Batch 0250/292, Loss   49.1345, NLL-Loss   33.9895, BCE-Loss    3.8783, KL-Loss-joint   13.3232, KL-Loss-w    9.9807, KL-Loss-y    7.6315, KL-Weight  0.846
+TRAIN Batch 0292/292, Loss   46.4296, NLL-Loss   30.5425, BCE-Loss    4.2033, KL-Loss-joint   13.6037, KL-Loss-w   10.4995, KL-Loss-y    7.5876, KL-Weight  0.859
+TRAIN Epoch 10/100, Mean ELBO   47.6325
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E10.pytorch
+split:  valid 	epoch:  10
+VALID Batch 0000/36, Loss   48.8347, NLL-Loss   33.1775, BCE-Loss    4.2134, KL-Loss-joint   13.3196, KL-Loss-w   10.0445, KL-Loss-y    7.6844, KL-Weight  0.859
+VALID Batch 0036/36, Loss   44.5262, NLL-Loss   28.9508, BCE-Loss    4.4886, KL-Loss-joint   12.9040, KL-Loss-w    9.2238, KL-Loss-y    7.8388, KL-Weight  0.859
+VALID Epoch 10/100, Mean ELBO   48.1873
+split:  train 	epoch:  11
+TRAIN Batch 0000/292, Loss   48.8636, NLL-Loss   33.0640, BCE-Loss    4.4484, KL-Loss-joint   13.2119, KL-Loss-w    9.7894, KL-Loss-y    7.7765, KL-Weight  0.859
+TRAIN Batch 0050/292, Loss   48.4446, NLL-Loss   32.8078, BCE-Loss    3.7326, KL-Loss-joint   13.6259, KL-Loss-w   10.0716, KL-Loss-y    8.0744, KL-Weight  0.874
+TRAIN Batch 0100/292, Loss   48.5456, NLL-Loss   33.2488, BCE-Loss    3.7638, KL-Loss-joint   13.0049, KL-Loss-w    9.8468, KL-Loss-y    7.6068, KL-Weight  0.887
+TRAIN Batch 0150/292, Loss   48.0909, NLL-Loss   32.7167, BCE-Loss    4.1325, KL-Loss-joint   12.5076, KL-Loss-w    9.2613, KL-Loss-y    7.0625, KL-Weight  0.899
+TRAIN Batch 0200/292, Loss   46.8060, NLL-Loss   31.8644, BCE-Loss    3.9164, KL-Loss-joint   12.1207, KL-Loss-w    9.1880, KL-Loss-y    6.7682, KL-Weight  0.909
+TRAIN Batch 0250/292, Loss   49.8600, NLL-Loss   34.3316, BCE-Loss    5.0062, KL-Loss-joint   11.4448, KL-Loss-w    8.2472, KL-Loss-y    6.5854, KL-Weight  0.919
+TRAIN Batch 0292/292, Loss   50.5219, NLL-Loss   34.0638, BCE-Loss    5.6382, KL-Loss-joint   11.6738, KL-Loss-w    8.4411, KL-Loss-y    6.9587, KL-Weight  0.927
+TRAIN Epoch 11/100, Mean ELBO   48.3086
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E11.pytorch
+split:  valid 	epoch:  11
+VALID Batch 0000/36, Loss   48.6171, NLL-Loss   33.2845, BCE-Loss    3.9903, KL-Loss-joint   12.2352, KL-Loss-w    9.0953, KL-Loss-y    6.9078, KL-Weight  0.927
+VALID Batch 0036/36, Loss   44.6982, NLL-Loss   29.6890, BCE-Loss    4.0248, KL-Loss-joint   11.8491, KL-Loss-w    8.4740, KL-Loss-y    6.9910, KL-Weight  0.927
+VALID Epoch 11/100, Mean ELBO   48.6297
+split:  train 	epoch:  12
+TRAIN Batch 0000/292, Loss   46.6781, NLL-Loss   31.0136, BCE-Loss    4.5986, KL-Loss-joint   11.9371, KL-Loss-w    8.8735, KL-Loss-y    6.7991, KL-Weight  0.927
+TRAIN Batch 0050/292, Loss   47.7028, NLL-Loss   32.2665, BCE-Loss    4.4241, KL-Loss-joint   11.7772, KL-Loss-w    8.8096, KL-Loss-y    6.5774, KL-Weight  0.935
+TRAIN Batch 0100/292, Loss   47.3175, NLL-Loss   31.8382, BCE-Loss    4.5158, KL-Loss-joint   11.6353, KL-Loss-w    8.6829, KL-Loss-y    6.4879, KL-Weight  0.942
+TRAIN Batch 0150/292, Loss   49.2664, NLL-Loss   33.6060, BCE-Loss    4.4511, KL-Loss-joint   11.8153, KL-Loss-w    8.9015, KL-Loss-y    6.5496, KL-Weight  0.949
+TRAIN Batch 0200/292, Loss   47.1454, NLL-Loss   31.5618, BCE-Loss    4.3716, KL-Loss-joint   11.7468, KL-Loss-w    8.6015, KL-Loss-y    6.6040, KL-Weight  0.954
+TRAIN Batch 0250/292, Loss   48.2767, NLL-Loss   32.8060, BCE-Loss    4.4506, KL-Loss-joint   11.4839, KL-Loss-w    8.7726, KL-Loss-y    6.1312, KL-Weight  0.959
+TRAIN Batch 0292/292, Loss   42.6182, NLL-Loss   27.9034, BCE-Loss    4.0579, KL-Loss-joint   11.0604, KL-Loss-w    8.6429, KL-Loss-y    5.8528, KL-Weight  0.963
+TRAIN Epoch 12/100, Mean ELBO   48.3917
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E12.pytorch
+split:  valid 	epoch:  12
+VALID Batch 0000/36, Loss   48.7577, NLL-Loss   33.2279, BCE-Loss    4.4377, KL-Loss-joint   11.5112, KL-Loss-w    8.5794, KL-Loss-y    6.2865, KL-Weight  0.963
+VALID Batch 0036/36, Loss   45.6727, NLL-Loss   30.2150, BCE-Loss    4.7932, KL-Loss-joint   11.0673, KL-Loss-w    7.8709, KL-Loss-y    6.3245, KL-Weight  0.963
+VALID Epoch 12/100, Mean ELBO   48.7245
+split:  train 	epoch:  13
+TRAIN Batch 0000/292, Loss   48.3350, NLL-Loss   32.7482, BCE-Loss    4.5997, KL-Loss-joint   11.4021, KL-Loss-w    8.4424, KL-Loss-y    6.2483, KL-Weight  0.963
+TRAIN Batch 0050/292, Loss   50.2521, NLL-Loss   34.8188, BCE-Loss    4.4356, KL-Loss-joint   11.3643, KL-Loss-w    8.3889, KL-Loss-y    6.4075, KL-Weight  0.968
+TRAIN Batch 0100/292, Loss   46.3682, NLL-Loss   30.7557, BCE-Loss    4.7590, KL-Loss-joint   11.1725, KL-Loss-w    8.2458, KL-Loss-y    6.2093, KL-Weight  0.971
+TRAIN Batch 0150/292, Loss   45.5785, NLL-Loss   30.4532, BCE-Loss    4.5567, KL-Loss-joint   10.8426, KL-Loss-w    8.2442, KL-Loss-y    5.7797, KL-Weight  0.975
+TRAIN Batch 0200/292, Loss   49.9535, NLL-Loss   34.3893, BCE-Loss    4.7170, KL-Loss-joint   11.0952, KL-Loss-w    8.3325, KL-Loss-y    5.8693, KL-Weight  0.978
+TRAIN Batch 0250/292, Loss   47.9048, NLL-Loss   32.5679, BCE-Loss    4.9933, KL-Loss-joint   10.5521, KL-Loss-w    7.7722, KL-Loss-y    5.6621, KL-Weight  0.980
+TRAIN Batch 0292/292, Loss   47.3961, NLL-Loss   31.3098, BCE-Loss    5.3822, KL-Loss-joint   10.8983, KL-Loss-w    8.0812, KL-Loss-y    5.6633, KL-Weight  0.982
+TRAIN Epoch 13/100, Mean ELBO   48.3000
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E13.pytorch
+split:  valid 	epoch:  13
+VALID Batch 0000/36, Loss   48.9496, NLL-Loss   33.4484, BCE-Loss    4.9014, KL-Loss-joint   10.7916, KL-Loss-w    8.1332, KL-Loss-y    5.7213, KL-Weight  0.982
+VALID Batch 0036/36, Loss   44.3399, NLL-Loss   29.3948, BCE-Loss    4.7226, KL-Loss-joint   10.4075, KL-Loss-w    7.4923, KL-Loss-y    5.7749, KL-Weight  0.982
+VALID Epoch 13/100, Mean ELBO   48.6221
+split:  train 	epoch:  14
+TRAIN Batch 0000/292, Loss   47.2889, NLL-Loss   32.1531, BCE-Loss    4.7857, KL-Loss-joint   10.5374, KL-Loss-w    7.9149, KL-Loss-y    5.5510, KL-Weight  0.982
+TRAIN Batch 0050/292, Loss   47.6563, NLL-Loss   31.9039, BCE-Loss    5.3236, KL-Loss-joint   10.5952, KL-Loss-w    7.9586, KL-Loss-y    5.6366, KL-Weight  0.984
+TRAIN Batch 0100/292, Loss   48.5212, NLL-Loss   33.1511, BCE-Loss    4.7655, KL-Loss-joint   10.7538, KL-Loss-w    7.9760, KL-Loss-y    5.7792, KL-Weight  0.986
+TRAIN Batch 0150/292, Loss   45.2184, NLL-Loss   30.2113, BCE-Loss    4.7748, KL-Loss-joint   10.3591, KL-Loss-w    7.5879, KL-Loss-y    5.6706, KL-Weight  0.988
+TRAIN Batch 0200/292, Loss   47.2559, NLL-Loss   32.2428, BCE-Loss    4.4392, KL-Loss-joint   10.6894, KL-Loss-w    7.7809, KL-Loss-y    6.0689, KL-Weight  0.989
+TRAIN Batch 0250/292, Loss   47.6322, NLL-Loss   32.3070, BCE-Loss    4.9220, KL-Loss-joint   10.5034, KL-Loss-w    7.8696, KL-Loss-y    5.5342, KL-Weight  0.990
+TRAIN Batch 0292/292, Loss   50.0645, NLL-Loss   35.6166, BCE-Loss    3.3004, KL-Loss-joint   11.2440, KL-Loss-w    7.8100, KL-Loss-y    6.2714, KL-Weight  0.991
+TRAIN Epoch 14/100, Mean ELBO   48.1126
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E14.pytorch
+split:  valid 	epoch:  14
+VALID Batch 0000/36, Loss   48.5987, NLL-Loss   33.3854, BCE-Loss    5.1669, KL-Loss-joint   10.1331, KL-Loss-w    7.4843, KL-Loss-y    5.4058, KL-Weight  0.991
+VALID Batch 0036/36, Loss   44.8225, NLL-Loss   29.3132, BCE-Loss    5.8088, KL-Loss-joint    9.7842, KL-Loss-w    6.9062, KL-Loss-y    5.4936, KL-Weight  0.991
+VALID Epoch 14/100, Mean ELBO   48.6274
+split:  train 	epoch:  15
+TRAIN Batch 0000/292, Loss   46.6731, NLL-Loss   31.8258, BCE-Loss    4.9206, KL-Loss-joint   10.0124, KL-Loss-w    7.2257, KL-Loss-y    5.5177, KL-Weight  0.991
+TRAIN Batch 0050/292, Loss   49.6131, NLL-Loss   34.4326, BCE-Loss    5.1018, KL-Loss-joint   10.1554, KL-Loss-w    7.4786, KL-Loss-y    5.3630, KL-Weight  0.992
+TRAIN Batch 0100/292, Loss   47.9444, NLL-Loss   32.4541, BCE-Loss    4.9702, KL-Loss-joint   10.5906, KL-Loss-w    7.8104, KL-Loss-y    5.7419, KL-Weight  0.993
+TRAIN Batch 0150/292, Loss   45.7043, NLL-Loss   30.8546, BCE-Loss    4.6467, KL-Loss-joint   10.2632, KL-Loss-w    7.5274, KL-Loss-y    5.5356, KL-Weight  0.994
+TRAIN Batch 0200/292, Loss   48.8790, NLL-Loss   33.0712, BCE-Loss    5.4047, KL-Loss-joint   10.4570, KL-Loss-w    7.9012, KL-Loss-y    5.3924, KL-Weight  0.995
+TRAIN Batch 0250/292, Loss   45.5980, NLL-Loss   31.0258, BCE-Loss    4.5850, KL-Loss-joint   10.0328, KL-Loss-w    7.3555, KL-Loss-y    5.2871, KL-Weight  0.995
+TRAIN Batch 0292/292, Loss   43.4770, NLL-Loss   28.5678, BCE-Loss    4.4319, KL-Loss-joint   10.5201, KL-Loss-w    7.8996, KL-Loss-y    5.6178, KL-Weight  0.996
+TRAIN Epoch 15/100, Mean ELBO   47.8915
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E15.pytorch
+split:  valid 	epoch:  15
+VALID Batch 0000/36, Loss   49.2926, NLL-Loss   33.7837, BCE-Loss    5.3235, KL-Loss-joint   10.2269, KL-Loss-w    7.5540, KL-Loss-y    5.4772, KL-Weight  0.996
+VALID Batch 0036/36, Loss   45.3208, NLL-Loss   29.9164, BCE-Loss    5.4019, KL-Loss-joint   10.0433, KL-Loss-w    7.1025, KL-Loss-y    5.6090, KL-Weight  0.996
+VALID Epoch 15/100, Mean ELBO   48.5777
+split:  train 	epoch:  16
+TRAIN Batch 0000/292, Loss   45.4416, NLL-Loss   30.1220, BCE-Loss    5.0501, KL-Loss-joint   10.3115, KL-Loss-w    7.5230, KL-Loss-y    5.6214, KL-Weight  0.996
+TRAIN Batch 0050/292, Loss   46.8585, NLL-Loss   31.9003, BCE-Loss    4.8673, KL-Loss-joint   10.1271, KL-Loss-w    7.5498, KL-Loss-y    5.3336, KL-Weight  0.996
+TRAIN Batch 0100/292, Loss   47.3295, NLL-Loss   32.0427, BCE-Loss    5.4116, KL-Loss-joint    9.9064, KL-Loss-w    7.3424, KL-Loss-y    5.1948, KL-Weight  0.997
+TRAIN Batch 0150/292, Loss   47.6836, NLL-Loss   32.4513, BCE-Loss    5.3784, KL-Loss-joint    9.8812, KL-Loss-w    7.2178, KL-Loss-y    5.3247, KL-Weight  0.997
+TRAIN Batch 0200/292, Loss   49.0388, NLL-Loss   33.9797, BCE-Loss    5.2218, KL-Loss-joint    9.8612, KL-Loss-w    7.3593, KL-Loss-y    5.1148, KL-Weight  0.997
+TRAIN Batch 0250/292, Loss   47.5060, NLL-Loss   32.6923, BCE-Loss    4.9497, KL-Loss-joint    9.8849, KL-Loss-w    7.2806, KL-Loss-y    5.1011, KL-Weight  0.998
+TRAIN Batch 0292/292, Loss   46.6511, NLL-Loss   32.5046, BCE-Loss    4.7027, KL-Loss-joint    9.4618, KL-Loss-w    7.0311, KL-Loss-y    4.9232, KL-Weight  0.998
+TRAIN Epoch 16/100, Mean ELBO   47.6505
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E16.pytorch
+split:  valid 	epoch:  16
+VALID Batch 0000/36, Loss   48.1776, NLL-Loss   33.4600, BCE-Loss    5.1791, KL-Loss-joint    9.5566, KL-Loss-w    7.0735, KL-Loss-y    4.9359, KL-Weight  0.998
+VALID Batch 0036/36, Loss   44.6754, NLL-Loss   29.8676, BCE-Loss    5.5500, KL-Loss-joint    9.2753, KL-Loss-w    6.5565, KL-Loss-y    4.9955, KL-Weight  0.998
+VALID Epoch 16/100, Mean ELBO   48.2783
+split:  train 	epoch:  17
+TRAIN Batch 0000/292, Loss   45.7819, NLL-Loss   31.0856, BCE-Loss    5.3782, KL-Loss-joint    9.3358, KL-Loss-w    6.7835, KL-Loss-y    4.9191, KL-Weight  0.998
+TRAIN Batch 0050/292, Loss   46.6111, NLL-Loss   31.6187, BCE-Loss    5.0546, KL-Loss-joint    9.9543, KL-Loss-w    7.4229, KL-Loss-y    5.1371, KL-Weight  0.998
+TRAIN Batch 0100/292, Loss   46.9323, NLL-Loss   32.1639, BCE-Loss    5.3613, KL-Loss-joint    9.4207, KL-Loss-w    7.0025, KL-Loss-y    4.7800, KL-Weight  0.998
+TRAIN Batch 0150/292, Loss   48.1022, NLL-Loss   32.8633, BCE-Loss    5.2445, KL-Loss-joint   10.0071, KL-Loss-w    7.3803, KL-Loss-y    5.2289, KL-Weight  0.999
+TRAIN Batch 0200/292, Loss   46.2399, NLL-Loss   31.7131, BCE-Loss    4.9385, KL-Loss-joint    9.5989, KL-Loss-w    6.9960, KL-Loss-y    4.9650, KL-Weight  0.999
+TRAIN Batch 0250/292, Loss   49.1479, NLL-Loss   34.4832, BCE-Loss    4.8671, KL-Loss-joint    9.8070, KL-Loss-w    7.3544, KL-Loss-y    4.9092, KL-Weight  0.999
+TRAIN Batch 0292/292, Loss   46.7310, NLL-Loss   31.7792, BCE-Loss    5.3288, KL-Loss-joint    9.6312, KL-Loss-w    6.9593, KL-Loss-y    5.1596, KL-Weight  0.999
+TRAIN Epoch 17/100, Mean ELBO   47.4225
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E17.pytorch
+split:  valid 	epoch:  17
+VALID Batch 0000/36, Loss   48.4377, NLL-Loss   33.8018, BCE-Loss    4.9053, KL-Loss-joint    9.7389, KL-Loss-w    7.3121, KL-Loss-y    4.8801, KL-Weight  0.999
+VALID Batch 0036/36, Loss   44.2565, NLL-Loss   29.6021, BCE-Loss    5.2176, KL-Loss-joint    9.4448, KL-Loss-w    6.8566, KL-Loss-y    4.9245, KL-Weight  0.999
+VALID Epoch 17/100, Mean ELBO   48.1380
+split:  train 	epoch:  18
+TRAIN Batch 0000/292, Loss   45.6994, NLL-Loss   30.8493, BCE-Loss    5.1844, KL-Loss-joint    9.6738, KL-Loss-w    7.2687, KL-Loss-y    4.8872, KL-Weight  0.999
+TRAIN Batch 0050/292, Loss   46.2533, NLL-Loss   31.4909, BCE-Loss    5.0584, KL-Loss-joint    9.7111, KL-Loss-w    7.2822, KL-Loss-y    4.9730, KL-Weight  0.999
+TRAIN Batch 0100/292, Loss   47.2467, NLL-Loss   32.5341, BCE-Loss    5.1798, KL-Loss-joint    9.5388, KL-Loss-w    6.9940, KL-Loss-y    5.0087, KL-Weight  0.999
+TRAIN Batch 0150/292, Loss   44.4957, NLL-Loss   29.6408, BCE-Loss    5.4358, KL-Loss-joint    9.4242, KL-Loss-w    6.8498, KL-Loss-y    4.8674, KL-Weight  0.999
+TRAIN Batch 0200/292, Loss   46.3045, NLL-Loss   31.4215, BCE-Loss    5.0380, KL-Loss-joint    9.8495, KL-Loss-w    7.3049, KL-Loss-y    5.1316, KL-Weight  0.999
+TRAIN Batch 0250/292, Loss   46.0150, NLL-Loss   31.4989, BCE-Loss    5.0701, KL-Loss-joint    9.4497, KL-Loss-w    7.0547, KL-Loss-y    4.8639, KL-Weight  0.999
+TRAIN Batch 0292/292, Loss   46.3758, NLL-Loss   31.7205, BCE-Loss    5.2251, KL-Loss-joint    9.4333, KL-Loss-w    7.1866, KL-Loss-y    4.4641, KL-Weight  1.000
+TRAIN Epoch 18/100, Mean ELBO   47.2116
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E18.pytorch
+split:  valid 	epoch:  18
+VALID Batch 0000/36, Loss   48.0189, NLL-Loss   33.4601, BCE-Loss    4.9068, KL-Loss-joint    9.6553, KL-Loss-w    7.1579, KL-Loss-y    4.9195, KL-Weight  1.000
+VALID Batch 0036/36, Loss   44.4754, NLL-Loss   29.7844, BCE-Loss    5.3840, KL-Loss-joint    9.3103, KL-Loss-w    6.6839, KL-Loss-y    4.9567, KL-Weight  1.000
+VALID Epoch 18/100, Mean ELBO   48.1058
+split:  train 	epoch:  19
+TRAIN Batch 0000/292, Loss   47.8352, NLL-Loss   32.9292, BCE-Loss    5.1831, KL-Loss-joint    9.7262, KL-Loss-w    7.1835, KL-Loss-y    5.0151, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   48.6490, NLL-Loss   33.5372, BCE-Loss    5.3403, KL-Loss-joint    9.7743, KL-Loss-w    7.2325, KL-Loss-y    5.1086, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.1040, NLL-Loss   29.2422, BCE-Loss    5.5209, KL-Loss-joint    9.3431, KL-Loss-w    6.7277, KL-Loss-y    4.9585, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   46.8957, NLL-Loss   32.2918, BCE-Loss    5.3041, KL-Loss-joint    9.3016, KL-Loss-w    6.8708, KL-Loss-y    4.7896, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   48.1285, NLL-Loss   33.4936, BCE-Loss    5.1538, KL-Loss-joint    9.4825, KL-Loss-w    7.0208, KL-Loss-y    4.8588, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   47.2597, NLL-Loss   32.7527, BCE-Loss    4.9449, KL-Loss-joint    9.5633, KL-Loss-w    7.1459, KL-Loss-y    4.8525, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.2637, NLL-Loss   29.8338, BCE-Loss    4.8013, KL-Loss-joint    9.6295, KL-Loss-w    7.0678, KL-Loss-y    5.1405, KL-Weight  1.000
+TRAIN Epoch 19/100, Mean ELBO   46.9997
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E19.pytorch
+split:  valid 	epoch:  19
+VALID Batch 0000/36, Loss   47.7473, NLL-Loss   33.1728, BCE-Loss    4.9212, KL-Loss-joint    9.6543, KL-Loss-w    7.2027, KL-Loss-y    4.8545, KL-Weight  1.000
+VALID Batch 0036/36, Loss   44.8622, NLL-Loss   29.8005, BCE-Loss    5.7634, KL-Loss-joint    9.2992, KL-Loss-w    6.5755, KL-Loss-y    4.9725, KL-Weight  1.000
+VALID Epoch 19/100, Mean ELBO   47.9349
+split:  train 	epoch:  20
+TRAIN Batch 0000/292, Loss   46.0970, NLL-Loss   30.7738, BCE-Loss    5.6693, KL-Loss-joint    9.6549, KL-Loss-w    7.3044, KL-Loss-y    4.8350, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.9970, NLL-Loss   30.3591, BCE-Loss    5.3543, KL-Loss-joint    9.2843, KL-Loss-w    6.7826, KL-Loss-y    4.7813, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.4949, NLL-Loss   31.8925, BCE-Loss    5.3601, KL-Loss-joint    9.2428, KL-Loss-w    6.8142, KL-Loss-y    4.6738, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   48.7678, NLL-Loss   34.1331, BCE-Loss    5.2633, KL-Loss-joint    9.3716, KL-Loss-w    6.8881, KL-Loss-y    4.7745, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   47.6115, NLL-Loss   32.8700, BCE-Loss    5.2345, KL-Loss-joint    9.5071, KL-Loss-w    7.1005, KL-Loss-y    4.7291, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   48.5570, NLL-Loss   33.7821, BCE-Loss    5.3848, KL-Loss-joint    9.3901, KL-Loss-w    6.9140, KL-Loss-y    4.7806, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.0716, NLL-Loss   30.2634, BCE-Loss    4.5338, KL-Loss-joint    9.2742, KL-Loss-w    6.1196, KL-Loss-y    5.3827, KL-Weight  1.000
+TRAIN Epoch 20/100, Mean ELBO   46.8570
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E20.pytorch
+split:  valid 	epoch:  20
+VALID Batch 0000/36, Loss   48.1183, NLL-Loss   33.5484, BCE-Loss    4.9495, KL-Loss-joint    9.6202, KL-Loss-w    7.1320, KL-Loss-y    4.9028, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.2377, NLL-Loss   29.3549, BCE-Loss    4.5948, KL-Loss-joint    9.2878, KL-Loss-w    6.6134, KL-Loss-y    4.9926, KL-Weight  1.000
+VALID Epoch 20/100, Mean ELBO   47.7976
+split:  train 	epoch:  21
+TRAIN Batch 0000/292, Loss   47.0091, NLL-Loss   32.0128, BCE-Loss    5.5007, KL-Loss-joint    9.4955, KL-Loss-w    7.0679, KL-Loss-y    4.8238, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   46.7655, NLL-Loss   31.6180, BCE-Loss    5.1755, KL-Loss-joint    9.9717, KL-Loss-w    7.4815, KL-Loss-y    5.0698, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.3127, NLL-Loss   31.6356, BCE-Loss    5.0888, KL-Loss-joint    9.5878, KL-Loss-w    7.2390, KL-Loss-y    4.8144, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   46.0267, NLL-Loss   31.2903, BCE-Loss    5.1266, KL-Loss-joint    9.6094, KL-Loss-w    7.0792, KL-Loss-y    4.9372, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   47.2619, NLL-Loss   32.3525, BCE-Loss    5.4766, KL-Loss-joint    9.4322, KL-Loss-w    6.9499, KL-Loss-y    4.8364, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.1098, NLL-Loss   30.3465, BCE-Loss    5.4578, KL-Loss-joint    9.3049, KL-Loss-w    6.8641, KL-Loss-y    4.7543, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   45.6193, NLL-Loss   31.1139, BCE-Loss    4.6926, KL-Loss-joint    9.8121, KL-Loss-w    7.2904, KL-Loss-y    4.9294, KL-Weight  1.000
+TRAIN Epoch 21/100, Mean ELBO   46.6691
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E21.pytorch
+split:  valid 	epoch:  21
+VALID Batch 0000/36, Loss   47.6914, NLL-Loss   33.4375, BCE-Loss    4.7025, KL-Loss-joint    9.5508, KL-Loss-w    7.0894, KL-Loss-y    4.8165, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.4120, NLL-Loss   29.6743, BCE-Loss    4.4951, KL-Loss-joint    9.2420, KL-Loss-w    6.6498, KL-Loss-y    4.8266, KL-Weight  1.000
+VALID Epoch 21/100, Mean ELBO   47.7422
+split:  train 	epoch:  22
+TRAIN Batch 0000/292, Loss   45.0333, NLL-Loss   30.5154, BCE-Loss    5.0130, KL-Loss-joint    9.5042, KL-Loss-w    6.9997, KL-Loss-y    4.8867, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.5844, NLL-Loss   31.3598, BCE-Loss    5.1636, KL-Loss-joint    9.0602, KL-Loss-w    6.4589, KL-Loss-y    4.7305, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   45.6114, NLL-Loss   30.9709, BCE-Loss    5.0953, KL-Loss-joint    9.5443, KL-Loss-w    7.1027, KL-Loss-y    4.7920, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   46.6147, NLL-Loss   32.3548, BCE-Loss    5.2351, KL-Loss-joint    9.0240, KL-Loss-w    6.7462, KL-Loss-y    4.5072, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.6487, NLL-Loss   30.9348, BCE-Loss    5.3018, KL-Loss-joint    9.4112, KL-Loss-w    7.0145, KL-Loss-y    4.7233, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.0197, NLL-Loss   30.7349, BCE-Loss    5.2201, KL-Loss-joint    9.0639, KL-Loss-w    6.6554, KL-Loss-y    4.4794, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   35.6867, NLL-Loss   21.9097, BCE-Loss    5.1386, KL-Loss-joint    8.6375, KL-Loss-w    5.6596, KL-Loss-y    5.0893, KL-Weight  1.000
+TRAIN Epoch 22/100, Mean ELBO   46.4500
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E22.pytorch
+split:  valid 	epoch:  22
+VALID Batch 0000/36, Loss   47.8160, NLL-Loss   33.2575, BCE-Loss    5.1431, KL-Loss-joint    9.4146, KL-Loss-w    6.8793, KL-Loss-y    4.8005, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.8157, NLL-Loss   29.4793, BCE-Loss    5.1828, KL-Loss-joint    9.1527, KL-Loss-w    6.4345, KL-Loss-y    4.8489, KL-Weight  1.000
+VALID Epoch 22/100, Mean ELBO   47.6948
+split:  train 	epoch:  23
+TRAIN Batch 0000/292, Loss   47.2661, NLL-Loss   32.4567, BCE-Loss    5.4519, KL-Loss-joint    9.3565, KL-Loss-w    6.7014, KL-Loss-y    4.9955, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.8472, NLL-Loss   31.1637, BCE-Loss    5.3307, KL-Loss-joint    9.3518, KL-Loss-w    6.9596, KL-Loss-y    4.7738, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.2025, NLL-Loss   31.6825, BCE-Loss    5.4148, KL-Loss-joint    9.1043, KL-Loss-w    6.6740, KL-Loss-y    4.4728, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   46.4880, NLL-Loss   32.1419, BCE-Loss    5.0569, KL-Loss-joint    9.2882, KL-Loss-w    6.7854, KL-Loss-y    4.6992, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.3485, NLL-Loss   31.5504, BCE-Loss    5.1718, KL-Loss-joint    9.6252, KL-Loss-w    7.2070, KL-Loss-y    4.7917, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.7293, NLL-Loss   32.3746, BCE-Loss    5.0388, KL-Loss-joint    9.3148, KL-Loss-w    6.8209, KL-Loss-y    4.7296, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   47.7309, NLL-Loss   31.8683, BCE-Loss    6.1447, KL-Loss-joint    9.7168, KL-Loss-w    7.0466, KL-Loss-y    5.2006, KL-Weight  1.000
+TRAIN Epoch 23/100, Mean ELBO   46.3496
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E23.pytorch
+split:  valid 	epoch:  23
+VALID Batch 0000/36, Loss   47.9560, NLL-Loss   33.0492, BCE-Loss    5.3371, KL-Loss-joint    9.5686, KL-Loss-w    7.0506, KL-Loss-y    4.8294, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.7282, NLL-Loss   29.6938, BCE-Loss    4.8055, KL-Loss-joint    9.2279, KL-Loss-w    6.5292, KL-Loss-y    4.8666, KL-Weight  1.000
+VALID Epoch 23/100, Mean ELBO   47.6299
+split:  train 	epoch:  24
+TRAIN Batch 0000/292, Loss   44.0374, NLL-Loss   29.4625, BCE-Loss    4.9739, KL-Loss-joint    9.5998, KL-Loss-w    6.9781, KL-Loss-y    4.9264, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.4393, NLL-Loss   28.8040, BCE-Loss    5.2961, KL-Loss-joint    9.3382, KL-Loss-w    6.9481, KL-Loss-y    4.6805, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.2456, NLL-Loss   31.6903, BCE-Loss    5.2742, KL-Loss-joint    9.2802, KL-Loss-w    6.7392, KL-Loss-y    4.7042, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   47.2779, NLL-Loss   32.6248, BCE-Loss    5.1304, KL-Loss-joint    9.5215, KL-Loss-w    7.0772, KL-Loss-y    4.7871, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.4661, NLL-Loss   31.9850, BCE-Loss    5.1383, KL-Loss-joint    9.3417, KL-Loss-w    6.8095, KL-Loss-y    4.7907, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.0784, NLL-Loss   31.4050, BCE-Loss    5.0270, KL-Loss-joint    9.6452, KL-Loss-w    7.1631, KL-Loss-y    4.9574, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   40.5270, NLL-Loss   26.8654, BCE-Loss    4.5273, KL-Loss-joint    9.1332, KL-Loss-w    6.9041, KL-Loss-y    4.4632, KL-Weight  1.000
+TRAIN Epoch 24/100, Mean ELBO   46.1908
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E24.pytorch
+split:  valid 	epoch:  24
+VALID Batch 0000/36, Loss   47.9928, NLL-Loss   33.6777, BCE-Loss    4.9502, KL-Loss-joint    9.3637, KL-Loss-w    7.0449, KL-Loss-y    4.6529, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.8425, NLL-Loss   29.7833, BCE-Loss    4.9979, KL-Loss-joint    9.0603, KL-Loss-w    6.5449, KL-Loss-y    4.6432, KL-Weight  1.000
+VALID Epoch 24/100, Mean ELBO   47.5862
+split:  train 	epoch:  25
+TRAIN Batch 0000/292, Loss   45.0267, NLL-Loss   30.5975, BCE-Loss    5.1897, KL-Loss-joint    9.2385, KL-Loss-w    6.9027, KL-Loss-y    4.6433, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.3892, NLL-Loss   30.1281, BCE-Loss    4.7972, KL-Loss-joint    9.4628, KL-Loss-w    7.1103, KL-Loss-y    4.7498, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.6083, NLL-Loss   31.9996, BCE-Loss    5.2658, KL-Loss-joint    9.3417, KL-Loss-w    6.8906, KL-Loss-y    4.7561, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   48.8165, NLL-Loss   33.6692, BCE-Loss    5.7872, KL-Loss-joint    9.3590, KL-Loss-w    6.9376, KL-Loss-y    4.6864, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   47.0988, NLL-Loss   32.1527, BCE-Loss    5.3867, KL-Loss-joint    9.5583, KL-Loss-w    7.1302, KL-Loss-y    4.7581, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.2143, NLL-Loss   30.8381, BCE-Loss    5.2610, KL-Loss-joint    9.1141, KL-Loss-w    6.8364, KL-Loss-y    4.3227, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   46.0930, NLL-Loss   32.7205, BCE-Loss    4.2805, KL-Loss-joint    9.0908, KL-Loss-w    6.6352, KL-Loss-y    4.4599, KL-Weight  1.000
+TRAIN Epoch 25/100, Mean ELBO   46.0886
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E25.pytorch
+split:  valid 	epoch:  25
+VALID Batch 0000/36, Loss   47.7017, NLL-Loss   33.1939, BCE-Loss    5.2842, KL-Loss-joint    9.2225, KL-Loss-w    6.8288, KL-Loss-y    4.5610, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.8156, NLL-Loss   29.3828, BCE-Loss    5.4843, KL-Loss-joint    8.9474, KL-Loss-w    6.2811, KL-Loss-y    4.5765, KL-Weight  1.000
+VALID Epoch 25/100, Mean ELBO   47.6226
+split:  train 	epoch:  26
+TRAIN Batch 0000/292, Loss   44.8734, NLL-Loss   30.4042, BCE-Loss    5.2948, KL-Loss-joint    9.1732, KL-Loss-w    6.8116, KL-Loss-y    4.5569, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   46.2923, NLL-Loss   31.4035, BCE-Loss    5.4913, KL-Loss-joint    9.3964, KL-Loss-w    6.9239, KL-Loss-y    4.8209, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   45.0149, NLL-Loss   30.1563, BCE-Loss    5.3231, KL-Loss-joint    9.5344, KL-Loss-w    6.9688, KL-Loss-y    4.8804, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.0558, NLL-Loss   30.6440, BCE-Loss    5.3404, KL-Loss-joint    9.0704, KL-Loss-w    6.5523, KL-Loss-y    4.6806, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.7008, NLL-Loss   32.1644, BCE-Loss    5.3814, KL-Loss-joint    9.1539, KL-Loss-w    6.8139, KL-Loss-y    4.4326, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   47.9635, NLL-Loss   32.8322, BCE-Loss    5.6958, KL-Loss-joint    9.4344, KL-Loss-w    6.9821, KL-Loss-y    4.6429, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   50.0062, NLL-Loss   34.8925, BCE-Loss    6.4105, KL-Loss-joint    8.7021, KL-Loss-w    6.4262, KL-Loss-y    4.2361, KL-Weight  1.000
+TRAIN Epoch 26/100, Mean ELBO   46.0081
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E26.pytorch
+split:  valid 	epoch:  26
+VALID Batch 0000/36, Loss   48.0643, NLL-Loss   33.2577, BCE-Loss    5.3003, KL-Loss-joint    9.5052, KL-Loss-w    7.0535, KL-Loss-y    4.7165, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.5361, NLL-Loss   29.4732, BCE-Loss    4.8875, KL-Loss-joint    9.1743, KL-Loss-w    6.5604, KL-Loss-y    4.7966, KL-Weight  1.000
+VALID Epoch 26/100, Mean ELBO   47.6147
+split:  train 	epoch:  27
+TRAIN Batch 0000/292, Loss   44.7656, NLL-Loss   30.9025, BCE-Loss    4.7099, KL-Loss-joint    9.1521, KL-Loss-w    6.7840, KL-Loss-y    4.4987, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.6358, NLL-Loss   29.8562, BCE-Loss    5.8633, KL-Loss-joint    8.9152, KL-Loss-w    6.6169, KL-Loss-y    4.3118, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.5553, NLL-Loss   31.8857, BCE-Loss    5.2737, KL-Loss-joint    9.3947, KL-Loss-w    6.9399, KL-Loss-y    4.6689, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.9644, NLL-Loss   28.7509, BCE-Loss    4.8862, KL-Loss-joint    9.3261, KL-Loss-w    6.9281, KL-Loss-y    4.5847, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.4806, NLL-Loss   30.0199, BCE-Loss    5.2758, KL-Loss-joint    9.1837, KL-Loss-w    6.7873, KL-Loss-y    4.5988, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.5535, NLL-Loss   30.9163, BCE-Loss    5.6605, KL-Loss-joint    8.9756, KL-Loss-w    6.6957, KL-Loss-y    4.2912, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   43.2988, NLL-Loss   28.3243, BCE-Loss    6.0163, KL-Loss-joint    8.9570, KL-Loss-w    6.0086, KL-Loss-y    5.2434, KL-Weight  1.000
+TRAIN Epoch 27/100, Mean ELBO   45.8269
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E27.pytorch
+split:  valid 	epoch:  27
+VALID Batch 0000/36, Loss   48.1269, NLL-Loss   33.1617, BCE-Loss    5.7668, KL-Loss-joint    9.1973, KL-Loss-w    6.7718, KL-Loss-y    4.5788, KL-Weight  1.000
+VALID Batch 0036/36, Loss   44.4493, NLL-Loss   29.3819, BCE-Loss    6.2396, KL-Loss-joint    8.8268, KL-Loss-w    6.1190, KL-Loss-y    4.6457, KL-Weight  1.000
+VALID Epoch 27/100, Mean ELBO   47.5848
+split:  train 	epoch:  28
+TRAIN Batch 0000/292, Loss   45.2542, NLL-Loss   30.7991, BCE-Loss    5.2343, KL-Loss-joint    9.2197, KL-Loss-w    6.6641, KL-Loss-y    4.7607, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.3706, NLL-Loss   30.2638, BCE-Loss    5.0807, KL-Loss-joint    9.0250, KL-Loss-w    6.6172, KL-Loss-y    4.5316, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.0924, NLL-Loss   31.7996, BCE-Loss    5.2993, KL-Loss-joint    8.9924, KL-Loss-w    6.5717, KL-Loss-y    4.5054, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.0313, NLL-Loss   29.4635, BCE-Loss    5.2703, KL-Loss-joint    9.2963, KL-Loss-w    7.0549, KL-Loss-y    4.4266, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.6708, NLL-Loss   32.1230, BCE-Loss    5.0285, KL-Loss-joint    9.5182, KL-Loss-w    7.0075, KL-Loss-y    4.7127, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   47.0388, NLL-Loss   32.4586, BCE-Loss    5.3409, KL-Loss-joint    9.2382, KL-Loss-w    6.7425, KL-Loss-y    4.5610, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   49.1068, NLL-Loss   33.3116, BCE-Loss    6.3791, KL-Loss-joint    9.4150, KL-Loss-w    6.7845, KL-Loss-y    4.9348, KL-Weight  1.000
+TRAIN Epoch 28/100, Mean ELBO   45.7123
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E28.pytorch
+split:  valid 	epoch:  28
+VALID Batch 0000/36, Loss   47.5480, NLL-Loss   33.2288, BCE-Loss    4.8906, KL-Loss-joint    9.4275, KL-Loss-w    7.0979, KL-Loss-y    4.5899, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.8853, NLL-Loss   29.5436, BCE-Loss    5.3041, KL-Loss-joint    9.0365, KL-Loss-w    6.4951, KL-Loss-y    4.5789, KL-Weight  1.000
+VALID Epoch 28/100, Mean ELBO   47.4891
+split:  train 	epoch:  29
+TRAIN Batch 0000/292, Loss   43.0830, NLL-Loss   28.7452, BCE-Loss    5.0605, KL-Loss-joint    9.2762, KL-Loss-w    6.9420, KL-Loss-y    4.5177, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.6462, NLL-Loss   31.1063, BCE-Loss    5.2223, KL-Loss-joint    9.3164, KL-Loss-w    6.8314, KL-Loss-y    4.6980, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.0929, NLL-Loss   28.6473, BCE-Loss    5.3755, KL-Loss-joint    9.0689, KL-Loss-w    6.5590, KL-Loss-y    4.5442, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.6418, NLL-Loss   30.9512, BCE-Loss    5.2018, KL-Loss-joint    9.4876, KL-Loss-w    7.0333, KL-Loss-y    4.7110, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.1465, NLL-Loss   31.5578, BCE-Loss    5.2731, KL-Loss-joint    9.3145, KL-Loss-w    6.8047, KL-Loss-y    4.6749, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.2540, NLL-Loss   30.7732, BCE-Loss    5.2085, KL-Loss-joint    9.2712, KL-Loss-w    6.8733, KL-Loss-y    4.4905, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   40.6772, NLL-Loss   26.2129, BCE-Loss    5.4421, KL-Loss-joint    9.0211, KL-Loss-w    6.2137, KL-Loss-y    4.8236, KL-Weight  1.000
+TRAIN Epoch 29/100, Mean ELBO   45.5933
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E29.pytorch
+split:  valid 	epoch:  29
+VALID Batch 0000/36, Loss   48.2135, NLL-Loss   33.5370, BCE-Loss    5.2467, KL-Loss-joint    9.4287, KL-Loss-w    7.0670, KL-Loss-y    4.5281, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.3701, NLL-Loss   29.1021, BCE-Loss    5.1434, KL-Loss-joint    9.1235, KL-Loss-w    6.5747, KL-Loss-y    4.6182, KL-Weight  1.000
+VALID Epoch 29/100, Mean ELBO   47.5269
+split:  train 	epoch:  30
+TRAIN Batch 0000/292, Loss   43.8419, NLL-Loss   29.0212, BCE-Loss    5.3981, KL-Loss-joint    9.4215, KL-Loss-w    6.9749, KL-Loss-y    4.7644, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.0470, NLL-Loss   30.0129, BCE-Loss    5.0445, KL-Loss-joint    8.9885, KL-Loss-w    6.6223, KL-Loss-y    4.2609, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   45.5063, NLL-Loss   31.0824, BCE-Loss    5.0409, KL-Loss-joint    9.3818, KL-Loss-w    6.9438, KL-Loss-y    4.6226, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.6959, NLL-Loss   31.1732, BCE-Loss    5.0636, KL-Loss-joint    9.4580, KL-Loss-w    6.9837, KL-Loss-y    4.6632, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.0464, NLL-Loss   31.5616, BCE-Loss    5.2275, KL-Loss-joint    9.2563, KL-Loss-w    6.7422, KL-Loss-y    4.5807, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.6644, NLL-Loss   32.1281, BCE-Loss    5.1619, KL-Loss-joint    9.3732, KL-Loss-w    6.9497, KL-Loss-y    4.6176, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.1957, NLL-Loss   27.7132, BCE-Loss    5.1032, KL-Loss-joint    9.3782, KL-Loss-w    7.1352, KL-Loss-y    4.4564, KL-Weight  1.000
+TRAIN Epoch 30/100, Mean ELBO   45.4660
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E30.pytorch
+split:  valid 	epoch:  30
+VALID Batch 0000/36, Loss   47.6176, NLL-Loss   33.0523, BCE-Loss    4.9403, KL-Loss-joint    9.6238, KL-Loss-w    7.1636, KL-Loss-y    4.7327, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.5256, NLL-Loss   29.4726, BCE-Loss    4.7529, KL-Loss-joint    9.2990, KL-Loss-w    6.6273, KL-Loss-y    4.8029, KL-Weight  1.000
+VALID Epoch 30/100, Mean ELBO   47.4489
+split:  train 	epoch:  31
+TRAIN Batch 0000/292, Loss   44.4265, NLL-Loss   29.7744, BCE-Loss    5.0235, KL-Loss-joint    9.6273, KL-Loss-w    7.0182, KL-Loss-y    4.9438, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.6542, NLL-Loss   29.0737, BCE-Loss    5.1090, KL-Loss-joint    9.4703, KL-Loss-w    6.9707, KL-Loss-y    4.7210, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.6570, NLL-Loss   29.0859, BCE-Loss    5.5564, KL-Loss-joint    9.0136, KL-Loss-w    6.5270, KL-Loss-y    4.4987, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.0525, NLL-Loss   30.3543, BCE-Loss    4.7783, KL-Loss-joint    8.9188, KL-Loss-w    6.5308, KL-Loss-y    4.3143, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.3686, NLL-Loss   31.9865, BCE-Loss    4.9937, KL-Loss-joint    9.3873, KL-Loss-w    6.9468, KL-Loss-y    4.6535, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.5225, NLL-Loss   28.5177, BCE-Loss    4.7365, KL-Loss-joint    9.2671, KL-Loss-w    6.8274, KL-Loss-y    4.5293, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   36.3116, NLL-Loss   23.2346, BCE-Loss    4.5736, KL-Loss-joint    8.5022, KL-Loss-w    6.4985, KL-Loss-y    4.1210, KL-Weight  1.000
+TRAIN Epoch 31/100, Mean ELBO   45.3879
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E31.pytorch
+split:  valid 	epoch:  31
+VALID Batch 0000/36, Loss   47.6481, NLL-Loss   33.2670, BCE-Loss    5.2838, KL-Loss-joint    9.0961, KL-Loss-w    6.7478, KL-Loss-y    4.3776, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.6258, NLL-Loss   29.6196, BCE-Loss    5.2184, KL-Loss-joint    8.7867, KL-Loss-w    6.2682, KL-Loss-y    4.4744, KL-Weight  1.000
+VALID Epoch 31/100, Mean ELBO   47.4122
+split:  train 	epoch:  32
+TRAIN Batch 0000/292, Loss   44.8683, NLL-Loss   30.0163, BCE-Loss    5.6248, KL-Loss-joint    9.2260, KL-Loss-w    6.9568, KL-Loss-y    4.4071, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.1081, NLL-Loss   29.6547, BCE-Loss    5.1006, KL-Loss-joint    9.3517, KL-Loss-w    6.8329, KL-Loss-y    4.6340, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   45.3903, NLL-Loss   31.1155, BCE-Loss    5.1171, KL-Loss-joint    9.1567, KL-Loss-w    6.9769, KL-Loss-y    4.1033, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.0821, NLL-Loss   29.7910, BCE-Loss    4.9645, KL-Loss-joint    9.3255, KL-Loss-w    6.9111, KL-Loss-y    4.5899, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.1144, NLL-Loss   31.9118, BCE-Loss    4.9671, KL-Loss-joint    9.2343, KL-Loss-w    6.7294, KL-Loss-y    4.6140, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.6786, NLL-Loss   31.1463, BCE-Loss    5.3973, KL-Loss-joint    9.1339, KL-Loss-w    6.5886, KL-Loss-y    4.5063, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   47.5618, NLL-Loss   33.8654, BCE-Loss    4.8605, KL-Loss-joint    8.8348, KL-Loss-w    6.6039, KL-Loss-y    3.9389, KL-Weight  1.000
+TRAIN Epoch 32/100, Mean ELBO   45.2865
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E32.pytorch
+split:  valid 	epoch:  32
+VALID Batch 0000/36, Loss   47.1776, NLL-Loss   33.3242, BCE-Loss    4.6242, KL-Loss-joint    9.2281, KL-Loss-w    6.7495, KL-Loss-y    4.5000, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.5828, NLL-Loss   29.3260, BCE-Loss    5.3540, KL-Loss-joint    8.9016, KL-Loss-w    6.2385, KL-Loss-y    4.5798, KL-Weight  1.000
+VALID Epoch 32/100, Mean ELBO   47.3972
+split:  train 	epoch:  33
+TRAIN Batch 0000/292, Loss   45.4525, NLL-Loss   30.5797, BCE-Loss    5.4382, KL-Loss-joint    9.4335, KL-Loss-w    6.9845, KL-Loss-y    4.7322, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.9179, NLL-Loss   29.3320, BCE-Loss    5.4574, KL-Loss-joint    9.1274, KL-Loss-w    6.7578, KL-Loss-y    4.3782, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.0236, NLL-Loss   31.7965, BCE-Loss    5.5101, KL-Loss-joint    8.7160, KL-Loss-w    6.2761, KL-Loss-y    4.2679, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.3365, NLL-Loss   28.8858, BCE-Loss    4.9554, KL-Loss-joint    9.4941, KL-Loss-w    6.9353, KL-Loss-y    4.6584, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.3362, NLL-Loss   29.3359, BCE-Loss    4.7871, KL-Loss-joint    9.2120, KL-Loss-w    6.7888, KL-Loss-y    4.4997, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.2048, NLL-Loss   31.8161, BCE-Loss    4.9562, KL-Loss-joint    9.4314, KL-Loss-w    7.1148, KL-Loss-y    4.4287, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   49.2994, NLL-Loss   34.9694, BCE-Loss    5.6160, KL-Loss-joint    8.7129, KL-Loss-w    6.5711, KL-Loss-y    3.7966, KL-Weight  1.000
+TRAIN Epoch 33/100, Mean ELBO   45.2208
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E33.pytorch
+split:  valid 	epoch:  33
+VALID Batch 0000/36, Loss   47.4889, NLL-Loss   33.3461, BCE-Loss    5.1000, KL-Loss-joint    9.0417, KL-Loss-w    6.7578, KL-Loss-y    4.2514, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.5661, NLL-Loss   29.6601, BCE-Loss    5.1967, KL-Loss-joint    8.7083, KL-Loss-w    6.2541, KL-Loss-y    4.2703, KL-Weight  1.000
+VALID Epoch 33/100, Mean ELBO   47.2776
+split:  train 	epoch:  34
+TRAIN Batch 0000/292, Loss   44.0703, NLL-Loss   29.8680, BCE-Loss    5.3394, KL-Loss-joint    8.8618, KL-Loss-w    6.4869, KL-Loss-y    4.3408, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.0336, NLL-Loss   28.3637, BCE-Loss    5.4651, KL-Loss-joint    9.2036, KL-Loss-w    6.7893, KL-Loss-y    4.4812, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.3899, NLL-Loss   30.0742, BCE-Loss    5.2457, KL-Loss-joint    9.0688, KL-Loss-w    6.6404, KL-Loss-y    4.4027, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.3271, NLL-Loss   30.1433, BCE-Loss    5.1191, KL-Loss-joint    9.0637, KL-Loss-w    6.7074, KL-Loss-y    4.3404, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.6527, NLL-Loss   32.2221, BCE-Loss    5.1591, KL-Loss-joint    9.2703, KL-Loss-w    6.8842, KL-Loss-y    4.4186, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.4446, NLL-Loss   32.3706, BCE-Loss    4.9121, KL-Loss-joint    9.1608, KL-Loss-w    6.8198, KL-Loss-y    4.3097, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   57.2067, NLL-Loss   43.6077, BCE-Loss    4.4240, KL-Loss-joint    9.1739, KL-Loss-w    7.1126, KL-Loss-y    3.9693, KL-Weight  1.000
+TRAIN Epoch 34/100, Mean ELBO   45.1467
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E34.pytorch
+split:  valid 	epoch:  34
+VALID Batch 0000/36, Loss   47.0396, NLL-Loss   33.0820, BCE-Loss    4.7344, KL-Loss-joint    9.2222, KL-Loss-w    6.8198, KL-Loss-y    4.3252, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.7461, NLL-Loss   29.4669, BCE-Loss    5.3827, KL-Loss-joint    8.8954, KL-Loss-w    6.3450, KL-Loss-y    4.3249, KL-Weight  1.000
+VALID Epoch 34/100, Mean ELBO   47.2000
+split:  train 	epoch:  35
+TRAIN Batch 0000/292, Loss   44.3893, NLL-Loss   30.2376, BCE-Loss    5.0483, KL-Loss-joint    9.1023, KL-Loss-w    6.6955, KL-Loss-y    4.3026, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   46.0119, NLL-Loss   31.4589, BCE-Loss    5.1602, KL-Loss-joint    9.3917, KL-Loss-w    7.0361, KL-Loss-y    4.3802, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.9456, NLL-Loss   29.4382, BCE-Loss    4.9668, KL-Loss-joint    9.5394, KL-Loss-w    6.8238, KL-Loss-y    4.9055, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.0277, NLL-Loss   29.6918, BCE-Loss    5.0725, KL-Loss-joint    9.2623, KL-Loss-w    6.8964, KL-Loss-y    4.3453, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.3303, NLL-Loss   30.9256, BCE-Loss    5.0241, KL-Loss-joint    9.3794, KL-Loss-w    7.0395, KL-Loss-y    4.4294, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.4459, NLL-Loss   29.8591, BCE-Loss    5.7515, KL-Loss-joint    8.8343, KL-Loss-w    6.4888, KL-Loss-y    4.1629, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   51.0361, NLL-Loss   36.1402, BCE-Loss    5.0940, KL-Loss-joint    9.8008, KL-Loss-w    7.4781, KL-Loss-y    4.1590, KL-Weight  1.000
+TRAIN Epoch 35/100, Mean ELBO   45.0950
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E35.pytorch
+split:  valid 	epoch:  35
+VALID Batch 0000/36, Loss   47.6010, NLL-Loss   33.2571, BCE-Loss    5.1969, KL-Loss-joint    9.1459, KL-Loss-w    6.7428, KL-Loss-y    4.2730, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.4010, NLL-Loss   29.3500, BCE-Loss    5.1581, KL-Loss-joint    8.8918, KL-Loss-w    6.2791, KL-Loss-y    4.3677, KL-Weight  1.000
+VALID Epoch 35/100, Mean ELBO   47.3130
+split:  train 	epoch:  36
+TRAIN Batch 0000/292, Loss   44.8929, NLL-Loss   30.6077, BCE-Loss    4.9851, KL-Loss-joint    9.2990, KL-Loss-w    6.7913, KL-Loss-y    4.4719, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.8812, NLL-Loss   31.9980, BCE-Loss    4.7860, KL-Loss-joint    9.0961, KL-Loss-w    6.7408, KL-Loss-y    4.2695, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   45.2691, NLL-Loss   30.9170, BCE-Loss    5.1689, KL-Loss-joint    9.1821, KL-Loss-w    6.7139, KL-Loss-y    4.3553, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   41.9239, NLL-Loss   27.6533, BCE-Loss    5.1306, KL-Loss-joint    9.1389, KL-Loss-w    6.4436, KL-Loss-y    4.7453, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.4389, NLL-Loss   31.6036, BCE-Loss    4.8787, KL-Loss-joint    8.9556, KL-Loss-w    6.6119, KL-Loss-y    4.2446, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.3414, NLL-Loss   31.8087, BCE-Loss    5.4302, KL-Loss-joint    9.1014, KL-Loss-w    6.7618, KL-Loss-y    4.3293, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   45.4798, NLL-Loss   30.8503, BCE-Loss    3.9865, KL-Loss-joint   10.6417, KL-Loss-w    8.1594, KL-Loss-y    4.9307, KL-Weight  1.000
+TRAIN Epoch 36/100, Mean ELBO   44.9508
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E36.pytorch
+split:  valid 	epoch:  36
+VALID Batch 0000/36, Loss   47.1100, NLL-Loss   32.5508, BCE-Loss    5.1304, KL-Loss-joint    9.4276, KL-Loss-w    6.9746, KL-Loss-y    4.4983, KL-Weight  1.000
+VALID Batch 0036/36, Loss   44.0097, NLL-Loss   29.5991, BCE-Loss    5.2861, KL-Loss-joint    9.1234, KL-Loss-w    6.5595, KL-Loss-y    4.5488, KL-Weight  1.000
+VALID Epoch 36/100, Mean ELBO   47.3270
+split:  train 	epoch:  37
+TRAIN Batch 0000/292, Loss   44.7409, NLL-Loss   30.2038, BCE-Loss    4.9262, KL-Loss-joint    9.6097, KL-Loss-w    7.3220, KL-Loss-y    4.4170, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.1981, NLL-Loss   30.9892, BCE-Loss    5.2692, KL-Loss-joint    8.9386, KL-Loss-w    6.5973, KL-Loss-y    4.1863, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.1373, NLL-Loss   30.3247, BCE-Loss    4.6151, KL-Loss-joint    9.1964, KL-Loss-w    6.8511, KL-Loss-y    4.3585, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.3803, NLL-Loss   31.2362, BCE-Loss    4.8023, KL-Loss-joint    9.3406, KL-Loss-w    6.8902, KL-Loss-y    4.3692, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.5001, NLL-Loss   30.3066, BCE-Loss    4.7994, KL-Loss-joint    9.3929, KL-Loss-w    7.0332, KL-Loss-y    4.3965, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.1347, NLL-Loss   30.8070, BCE-Loss    4.6788, KL-Loss-joint    9.6478, KL-Loss-w    7.2062, KL-Loss-y    4.4783, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   39.4494, NLL-Loss   25.5515, BCE-Loss    4.6585, KL-Loss-joint    9.2383, KL-Loss-w    7.1988, KL-Loss-y    4.1378, KL-Weight  1.000
+TRAIN Epoch 37/100, Mean ELBO   44.8732
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E37.pytorch
+split:  valid 	epoch:  37
+VALID Batch 0000/36, Loss   48.1561, NLL-Loss   33.6059, BCE-Loss    5.2428, KL-Loss-joint    9.3062, KL-Loss-w    6.9464, KL-Loss-y    4.2474, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.2638, NLL-Loss   29.4830, BCE-Loss    4.8288, KL-Loss-joint    8.9510, KL-Loss-w    6.4028, KL-Loss-y    4.2587, KL-Weight  1.000
+VALID Epoch 37/100, Mean ELBO   47.2142
+split:  train 	epoch:  38
+TRAIN Batch 0000/292, Loss   44.4040, NLL-Loss   29.9873, BCE-Loss    5.0166, KL-Loss-joint    9.3990, KL-Loss-w    7.1683, KL-Loss-y    4.2257, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.8204, NLL-Loss   29.6473, BCE-Loss    4.8930, KL-Loss-joint    9.2790, KL-Loss-w    6.7224, KL-Loss-y    4.5292, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.4602, NLL-Loss   32.0036, BCE-Loss    5.1481, KL-Loss-joint    9.3074, KL-Loss-w    6.9324, KL-Loss-y    4.3553, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.5806, NLL-Loss   30.4019, BCE-Loss    4.9553, KL-Loss-joint    9.2223, KL-Loss-w    6.7784, KL-Loss-y    4.3898, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   41.3200, NLL-Loss   27.4126, BCE-Loss    4.6666, KL-Loss-joint    9.2396, KL-Loss-w    6.6175, KL-Loss-y    4.5480, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.4662, NLL-Loss   32.1802, BCE-Loss    5.2372, KL-Loss-joint    9.0478, KL-Loss-w    6.6241, KL-Loss-y    4.2985, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.0436, NLL-Loss   27.7227, BCE-Loss    5.0113, KL-Loss-joint    9.3085, KL-Loss-w    6.7242, KL-Loss-y    4.5144, KL-Weight  1.000
+TRAIN Epoch 38/100, Mean ELBO   44.7822
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E38.pytorch
+split:  valid 	epoch:  38
+VALID Batch 0000/36, Loss   47.6924, NLL-Loss   33.3721, BCE-Loss    4.7725, KL-Loss-joint    9.5467, KL-Loss-w    7.0702, KL-Loss-y    4.4508, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.3730, NLL-Loss   29.2786, BCE-Loss    4.8456, KL-Loss-joint    9.2476, KL-Loss-w    6.5983, KL-Loss-y    4.4775, KL-Weight  1.000
+VALID Epoch 38/100, Mean ELBO   47.1471
+split:  train 	epoch:  39
+TRAIN Batch 0000/292, Loss   44.2444, NLL-Loss   29.9306, BCE-Loss    4.7262, KL-Loss-joint    9.5865, KL-Loss-w    7.1217, KL-Loss-y    4.5346, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.7041, NLL-Loss   29.2804, BCE-Loss    5.0705, KL-Loss-joint    9.3521, KL-Loss-w    6.9469, KL-Loss-y    4.2846, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   46.9450, NLL-Loss   32.7445, BCE-Loss    4.7668, KL-Loss-joint    9.4326, KL-Loss-w    7.0240, KL-Loss-y    4.3850, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.7090, NLL-Loss   30.5009, BCE-Loss    5.2029, KL-Loss-joint    9.0041, KL-Loss-w    6.8509, KL-Loss-y    3.9158, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.2497, NLL-Loss   29.4631, BCE-Loss    5.4449, KL-Loss-joint    9.3405, KL-Loss-w    6.8895, KL-Loss-y    4.3169, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.0741, NLL-Loss   29.9927, BCE-Loss    5.0964, KL-Loss-joint    8.9839, KL-Loss-w    6.6512, KL-Loss-y    4.0592, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   45.4925, NLL-Loss   31.0843, BCE-Loss    5.4887, KL-Loss-joint    8.9185, KL-Loss-w    6.4600, KL-Loss-y    4.2243, KL-Weight  1.000
+TRAIN Epoch 39/100, Mean ELBO   44.7260
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E39.pytorch
+split:  valid 	epoch:  39
+VALID Batch 0000/36, Loss   47.3527, NLL-Loss   32.8612, BCE-Loss    5.2755, KL-Loss-joint    9.2150, KL-Loss-w    6.7680, KL-Loss-y    4.3605, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.8096, NLL-Loss   29.5974, BCE-Loss    5.2686, KL-Loss-joint    8.9425, KL-Loss-w    6.3127, KL-Loss-y    4.3768, KL-Weight  1.000
+VALID Epoch 39/100, Mean ELBO   47.2211
+split:  train 	epoch:  40
+TRAIN Batch 0000/292, Loss   45.0491, NLL-Loss   30.9828, BCE-Loss    4.9642, KL-Loss-joint    9.1010, KL-Loss-w    6.7190, KL-Loss-y    4.2090, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.7899, NLL-Loss   29.8057, BCE-Loss    4.8934, KL-Loss-joint    9.0897, KL-Loss-w    6.7157, KL-Loss-y    4.2943, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.6985, NLL-Loss   29.6426, BCE-Loss    4.9861, KL-Loss-joint    9.0687, KL-Loss-w    6.6011, KL-Loss-y    4.3244, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.7670, NLL-Loss   30.0903, BCE-Loss    5.3958, KL-Loss-joint    9.2797, KL-Loss-w    6.9481, KL-Loss-y    4.2612, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.9356, NLL-Loss   29.0983, BCE-Loss    4.7286, KL-Loss-joint    9.1076, KL-Loss-w    6.6503, KL-Loss-y    4.2362, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.6716, NLL-Loss   28.5520, BCE-Loss    4.8190, KL-Loss-joint    9.2995, KL-Loss-w    6.7762, KL-Loss-y    4.4191, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   50.1301, NLL-Loss   35.0755, BCE-Loss    5.9524, KL-Loss-joint    9.1011, KL-Loss-w    6.8076, KL-Loss-y    4.1185, KL-Weight  1.000
+TRAIN Epoch 40/100, Mean ELBO   44.6143
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E40.pytorch
+split:  valid 	epoch:  40
+VALID Batch 0000/36, Loss   47.2321, NLL-Loss   33.1062, BCE-Loss    4.9819, KL-Loss-joint    9.1430, KL-Loss-w    6.7297, KL-Loss-y    4.2011, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.5075, NLL-Loss   29.5645, BCE-Loss    5.1141, KL-Loss-joint    8.8278, KL-Loss-w    6.2883, KL-Loss-y    4.2612, KL-Weight  1.000
+VALID Epoch 40/100, Mean ELBO   47.1482
+split:  train 	epoch:  41
+TRAIN Batch 0000/292, Loss   41.2299, NLL-Loss   27.0077, BCE-Loss    5.2119, KL-Loss-joint    9.0093, KL-Loss-w    6.6137, KL-Loss-y    4.1769, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.3755, NLL-Loss   29.6715, BCE-Loss    5.2276, KL-Loss-joint    9.4753, KL-Loss-w    6.9495, KL-Loss-y    4.5397, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   45.3740, NLL-Loss   31.2625, BCE-Loss    5.1084, KL-Loss-joint    9.0020, KL-Loss-w    6.6224, KL-Loss-y    4.1559, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.9342, NLL-Loss   31.8097, BCE-Loss    4.6958, KL-Loss-joint    9.4276, KL-Loss-w    6.9140, KL-Loss-y    4.4401, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.1087, NLL-Loss   31.0670, BCE-Loss    4.9323, KL-Loss-joint    9.1083, KL-Loss-w    6.7531, KL-Loss-y    4.1112, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.0395, NLL-Loss   31.2991, BCE-Loss    4.6970, KL-Loss-joint    9.0423, KL-Loss-w    6.8118, KL-Loss-y    4.0002, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   52.0195, NLL-Loss   37.4798, BCE-Loss    4.4443, KL-Loss-joint   10.0942, KL-Loss-w    8.0088, KL-Loss-y    4.5110, KL-Weight  1.000
+TRAIN Epoch 41/100, Mean ELBO   44.5969
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E41.pytorch
+split:  valid 	epoch:  41
+VALID Batch 0000/36, Loss   47.7796, NLL-Loss   33.2399, BCE-Loss    5.2603, KL-Loss-joint    9.2783, KL-Loss-w    6.9386, KL-Loss-y    4.2054, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.0229, NLL-Loss   29.4550, BCE-Loss    4.6159, KL-Loss-joint    8.9510, KL-Loss-w    6.3630, KL-Loss-y    4.2541, KL-Weight  1.000
+VALID Epoch 41/100, Mean ELBO   47.2069
+split:  train 	epoch:  42
+TRAIN Batch 0000/292, Loss   45.1324, NLL-Loss   31.0527, BCE-Loss    4.8291, KL-Loss-joint    9.2495, KL-Loss-w    6.9807, KL-Loss-y    4.2007, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.4381, NLL-Loss   29.1336, BCE-Loss    5.1616, KL-Loss-joint    9.1419, KL-Loss-w    6.7370, KL-Loss-y    4.1147, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.8147, NLL-Loss   29.8951, BCE-Loss    4.5384, KL-Loss-joint    9.3800, KL-Loss-w    6.8801, KL-Loss-y    4.4195, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.8620, NLL-Loss   28.2690, BCE-Loss    5.3965, KL-Loss-joint    9.1954, KL-Loss-w    6.5807, KL-Loss-y    4.3727, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.2367, NLL-Loss   30.8993, BCE-Loss    5.0997, KL-Loss-joint    9.2366, KL-Loss-w    6.8218, KL-Loss-y    4.2209, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.5818, NLL-Loss   30.6198, BCE-Loss    4.7533, KL-Loss-joint    9.2076, KL-Loss-w    6.7831, KL-Loss-y    4.2260, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.5641, NLL-Loss   27.3804, BCE-Loss    4.5893, KL-Loss-joint    9.5933, KL-Loss-w    6.8752, KL-Loss-y    4.7068, KL-Weight  1.000
+TRAIN Epoch 42/100, Mean ELBO   44.4967
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E42.pytorch
+split:  valid 	epoch:  42
+VALID Batch 0000/36, Loss   46.9633, NLL-Loss   32.9860, BCE-Loss    4.6192, KL-Loss-joint    9.3570, KL-Loss-w    6.9238, KL-Loss-y    4.2594, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.3847, NLL-Loss   29.0983, BCE-Loss    4.3185, KL-Loss-joint    8.9668, KL-Loss-w    6.3875, KL-Loss-y    4.3001, KL-Weight  1.000
+VALID Epoch 42/100, Mean ELBO   47.1367
+split:  train 	epoch:  43
+TRAIN Batch 0000/292, Loss   42.4270, NLL-Loss   28.5941, BCE-Loss    4.3505, KL-Loss-joint    9.4812, KL-Loss-w    6.9505, KL-Loss-y    4.4433, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.5919, NLL-Loss   29.5153, BCE-Loss    4.5968, KL-Loss-joint    9.4786, KL-Loss-w    6.9882, KL-Loss-y    4.4197, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.7534, NLL-Loss   29.8685, BCE-Loss    4.8492, KL-Loss-joint    9.0346, KL-Loss-w    6.7452, KL-Loss-y    4.0665, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.8049, NLL-Loss   30.7351, BCE-Loss    4.9138, KL-Loss-joint    9.1550, KL-Loss-w    6.7334, KL-Loss-y    4.2414, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.0438, NLL-Loss   30.1514, BCE-Loss    4.6854, KL-Loss-joint    9.2059, KL-Loss-w    6.7549, KL-Loss-y    4.2591, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.6012, NLL-Loss   32.0371, BCE-Loss    5.1051, KL-Loss-joint    9.4579, KL-Loss-w    7.0804, KL-Loss-y    4.1788, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.1080, NLL-Loss   27.4057, BCE-Loss    5.5774, KL-Loss-joint    9.1238, KL-Loss-w    6.5089, KL-Loss-y    4.4646, KL-Weight  1.000
+TRAIN Epoch 43/100, Mean ELBO   44.4028
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E43.pytorch
+split:  valid 	epoch:  43
+VALID Batch 0000/36, Loss   47.2480, NLL-Loss   33.3933, BCE-Loss    4.5908, KL-Loss-joint    9.2628, KL-Loss-w    6.7653, KL-Loss-y    4.2187, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.7766, NLL-Loss   28.9605, BCE-Loss    4.8863, KL-Loss-joint    8.9288, KL-Loss-w    6.2630, KL-Loss-y    4.2330, KL-Weight  1.000
+VALID Epoch 43/100, Mean ELBO   47.0674
+split:  train 	epoch:  44
+TRAIN Batch 0000/292, Loss   43.2192, NLL-Loss   29.0162, BCE-Loss    4.9512, KL-Loss-joint    9.2507, KL-Loss-w    6.7872, KL-Loss-y    4.2469, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.9995, NLL-Loss   29.7742, BCE-Loss    4.6875, KL-Loss-joint    9.5367, KL-Loss-w    7.2032, KL-Loss-y    4.2677, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.4870, NLL-Loss   29.3691, BCE-Loss    4.6940, KL-Loss-joint    9.4227, KL-Loss-w    6.9761, KL-Loss-y    4.2657, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.9266, NLL-Loss   30.6036, BCE-Loss    5.4025, KL-Loss-joint    8.9193, KL-Loss-w    6.4901, KL-Loss-y    4.0120, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.1942, NLL-Loss   29.4041, BCE-Loss    4.6041, KL-Loss-joint    9.1850, KL-Loss-w    6.9368, KL-Loss-y    4.0631, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.2937, NLL-Loss   31.1064, BCE-Loss    4.8777, KL-Loss-joint    9.3086, KL-Loss-w    6.9483, KL-Loss-y    4.0113, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   45.6621, NLL-Loss   31.8418, BCE-Loss    3.8247, KL-Loss-joint    9.9944, KL-Loss-w    8.0387, KL-Loss-y    3.9504, KL-Weight  1.000
+TRAIN Epoch 44/100, Mean ELBO   44.3418
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E44.pytorch
+split:  valid 	epoch:  44
+VALID Batch 0000/36, Loss   47.2066, NLL-Loss   33.1957, BCE-Loss    4.7776, KL-Loss-joint    9.2321, KL-Loss-w    6.7676, KL-Loss-y    4.1436, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1835, NLL-Loss   29.3771, BCE-Loss    4.8379, KL-Loss-joint    8.9675, KL-Loss-w    6.3702, KL-Loss-y    4.1544, KL-Weight  1.000
+VALID Epoch 44/100, Mean ELBO   47.2067
+split:  train 	epoch:  45
+TRAIN Batch 0000/292, Loss   42.7737, NLL-Loss   29.1817, BCE-Loss    4.4830, KL-Loss-joint    9.1080, KL-Loss-w    6.8380, KL-Loss-y    3.9501, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.7227, NLL-Loss   28.9720, BCE-Loss    4.5543, KL-Loss-joint    9.1952, KL-Loss-w    6.7436, KL-Loss-y    4.1107, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.9551, NLL-Loss   30.9808, BCE-Loss    4.7079, KL-Loss-joint    9.2653, KL-Loss-w    6.7885, KL-Loss-y    4.1606, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.2725, NLL-Loss   30.3509, BCE-Loss    5.0465, KL-Loss-joint    8.8740, KL-Loss-w    6.5685, KL-Loss-y    3.9182, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   47.2324, NLL-Loss   33.2874, BCE-Loss    4.5197, KL-Loss-joint    9.4241, KL-Loss-w    7.1689, KL-Loss-y    4.0134, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.1304, NLL-Loss   27.6876, BCE-Loss    4.9631, KL-Loss-joint    9.4786, KL-Loss-w    7.0372, KL-Loss-y    4.2223, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   39.7343, NLL-Loss   26.3357, BCE-Loss    4.6189, KL-Loss-joint    8.7786, KL-Loss-w    6.2713, KL-Loss-y    4.0511, KL-Weight  1.000
+TRAIN Epoch 45/100, Mean ELBO   44.2501
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E45.pytorch
+split:  valid 	epoch:  45
+VALID Batch 0000/36, Loss   46.8465, NLL-Loss   33.1704, BCE-Loss    4.5878, KL-Loss-joint    9.0872, KL-Loss-w    6.6536, KL-Loss-y    4.0629, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.2907, NLL-Loss   29.5072, BCE-Loss    5.0847, KL-Loss-joint    8.6978, KL-Loss-w    6.1595, KL-Loss-y    3.9785, KL-Weight  1.000
+VALID Epoch 45/100, Mean ELBO   47.0570
+split:  train 	epoch:  46
+TRAIN Batch 0000/292, Loss   44.3909, NLL-Loss   29.8577, BCE-Loss    5.2782, KL-Loss-joint    9.2540, KL-Loss-w    6.7448, KL-Loss-y    4.1513, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.9701, NLL-Loss   29.7855, BCE-Loss    4.5158, KL-Loss-joint    9.6676, KL-Loss-w    7.3179, KL-Loss-y    4.1421, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.9418, NLL-Loss   28.6383, BCE-Loss    4.9089, KL-Loss-joint    9.3936, KL-Loss-w    7.0147, KL-Loss-y    4.1496, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   46.2172, NLL-Loss   31.8176, BCE-Loss    5.2022, KL-Loss-joint    9.1962, KL-Loss-w    6.9541, KL-Loss-y    3.9062, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.4713, NLL-Loss   29.4030, BCE-Loss    4.8910, KL-Loss-joint    9.1762, KL-Loss-w    6.7917, KL-Loss-y    4.1098, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.4404, NLL-Loss   31.9394, BCE-Loss    4.6917, KL-Loss-joint    8.8084, KL-Loss-w    6.4749, KL-Loss-y    3.8110, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   48.8378, NLL-Loss   34.6963, BCE-Loss    4.6651, KL-Loss-joint    9.4754, KL-Loss-w    7.2187, KL-Loss-y    3.8185, KL-Weight  1.000
+TRAIN Epoch 46/100, Mean ELBO   44.2436
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E46.pytorch
+split:  valid 	epoch:  46
+VALID Batch 0000/36, Loss   48.1178, NLL-Loss   33.5090, BCE-Loss    5.5169, KL-Loss-joint    9.0908, KL-Loss-w    6.7085, KL-Loss-y    3.9651, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1086, NLL-Loss   29.3709, BCE-Loss    5.0438, KL-Loss-joint    8.6928, KL-Loss-w    6.2010, KL-Loss-y    3.8647, KL-Weight  1.000
+VALID Epoch 46/100, Mean ELBO   47.2103
+split:  train 	epoch:  47
+TRAIN Batch 0000/292, Loss   43.6145, NLL-Loss   29.9097, BCE-Loss    4.6278, KL-Loss-joint    9.0760, KL-Loss-w    6.8771, KL-Loss-y    3.7238, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.7072, NLL-Loss   30.3631, BCE-Loss    5.3257, KL-Loss-joint    9.0174, KL-Loss-w    6.6550, KL-Loss-y    3.9569, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   41.9585, NLL-Loss   28.1156, BCE-Loss    4.5978, KL-Loss-joint    9.2440, KL-Loss-w    6.9118, KL-Loss-y    4.0179, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.2702, NLL-Loss   30.2286, BCE-Loss    4.7381, KL-Loss-joint    9.3023, KL-Loss-w    6.8794, KL-Loss-y    4.2294, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.0603, NLL-Loss   32.3798, BCE-Loss    4.5773, KL-Loss-joint    9.1021, KL-Loss-w    6.8133, KL-Loss-y    3.9367, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.0951, NLL-Loss   30.9923, BCE-Loss    4.6612, KL-Loss-joint    9.4405, KL-Loss-w    7.0801, KL-Loss-y    4.0218, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.8991, NLL-Loss   29.1853, BCE-Loss    4.0209, KL-Loss-joint    8.6919, KL-Loss-w    6.5969, KL-Loss-y    3.5652, KL-Weight  1.000
+TRAIN Epoch 47/100, Mean ELBO   44.1545
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E47.pytorch
+split:  valid 	epoch:  47
+VALID Batch 0000/36, Loss   47.0545, NLL-Loss   33.0141, BCE-Loss    4.6804, KL-Loss-joint    9.3588, KL-Loss-w    6.9881, KL-Loss-y    4.0319, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1121, NLL-Loss   29.2722, BCE-Loss    4.8710, KL-Loss-joint    8.9679, KL-Loss-w    6.4332, KL-Loss-y    4.0269, KL-Weight  1.000
+VALID Epoch 47/100, Mean ELBO   47.0822
+split:  train 	epoch:  48
+TRAIN Batch 0000/292, Loss   44.9830, NLL-Loss   30.9644, BCE-Loss    4.7447, KL-Loss-joint    9.2728, KL-Loss-w    6.8852, KL-Loss-y    4.0688, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.8729, NLL-Loss   30.4592, BCE-Loss    4.9242, KL-Loss-joint    9.4883, KL-Loss-w    7.0641, KL-Loss-y    4.2613, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   41.8724, NLL-Loss   28.2799, BCE-Loss    4.5110, KL-Loss-joint    9.0805, KL-Loss-w    6.5159, KL-Loss-y    4.2131, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   46.9930, NLL-Loss   33.0422, BCE-Loss    4.8140, KL-Loss-joint    9.1358, KL-Loss-w    6.6669, KL-Loss-y    4.0812, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.8713, NLL-Loss   30.1800, BCE-Loss    5.1192, KL-Loss-joint    9.5710, KL-Loss-w    7.0871, KL-Loss-y    4.2591, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.9476, NLL-Loss   29.0323, BCE-Loss    4.7515, KL-Loss-joint    9.1628, KL-Loss-w    6.9907, KL-Loss-y    3.8473, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   51.6525, NLL-Loss   37.6146, BCE-Loss    4.9200, KL-Loss-joint    9.1168, KL-Loss-w    7.0585, KL-Loss-y    3.7384, KL-Weight  1.000
+TRAIN Epoch 48/100, Mean ELBO   44.1134
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E48.pytorch
+split:  valid 	epoch:  48
+VALID Batch 0000/36, Loss   47.4192, NLL-Loss   33.3138, BCE-Loss    4.9749, KL-Loss-joint    9.1294, KL-Loss-w    6.6898, KL-Loss-y    3.9452, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1389, NLL-Loss   29.4027, BCE-Loss    4.9678, KL-Loss-joint    8.7674, KL-Loss-w    6.1866, KL-Loss-y    3.9827, KL-Weight  1.000
+VALID Epoch 48/100, Mean ELBO   47.0829
+split:  train 	epoch:  49
+TRAIN Batch 0000/292, Loss   43.5191, NLL-Loss   29.6681, BCE-Loss    4.7126, KL-Loss-joint    9.1373, KL-Loss-w    6.6994, KL-Loss-y    4.0023, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.2188, NLL-Loss   28.8795, BCE-Loss    5.1012, KL-Loss-joint    9.2370, KL-Loss-w    6.8995, KL-Loss-y    3.9502, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.7404, NLL-Loss   30.2670, BCE-Loss    5.1006, KL-Loss-joint    9.3717, KL-Loss-w    6.9578, KL-Loss-y    4.1227, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.1201, NLL-Loss   28.9311, BCE-Loss    4.6226, KL-Loss-joint    9.5653, KL-Loss-w    7.0453, KL-Loss-y    4.2220, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.4598, NLL-Loss   31.6014, BCE-Loss    4.6090, KL-Loss-joint    9.2482, KL-Loss-w    6.9383, KL-Loss-y    3.9020, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.2172, NLL-Loss   28.4218, BCE-Loss    4.6592, KL-Loss-joint    9.1352, KL-Loss-w    6.7127, KL-Loss-y    4.0302, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.0544, NLL-Loss   26.8499, BCE-Loss    5.3217, KL-Loss-joint    8.8818, KL-Loss-w    6.6712, KL-Loss-y    3.6816, KL-Weight  1.000
+TRAIN Epoch 49/100, Mean ELBO   44.0620
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E49.pytorch
+split:  valid 	epoch:  49
+VALID Batch 0000/36, Loss   47.3325, NLL-Loss   33.4323, BCE-Loss    4.3608, KL-Loss-joint    9.5382, KL-Loss-w    7.0818, KL-Loss-y    4.1126, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.3225, NLL-Loss   28.9957, BCE-Loss    5.1559, KL-Loss-joint    9.1699, KL-Loss-w    6.5959, KL-Loss-y    4.1116, KL-Weight  1.000
+VALID Epoch 49/100, Mean ELBO   47.1316
+split:  train 	epoch:  50
+TRAIN Batch 0000/292, Loss   44.1136, NLL-Loss   29.7755, BCE-Loss    4.8924, KL-Loss-joint    9.4446, KL-Loss-w    6.9652, KL-Loss-y    4.1686, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.0817, NLL-Loss   29.4044, BCE-Loss    4.6049, KL-Loss-joint    9.0714, KL-Loss-w    6.8163, KL-Loss-y    3.7749, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.0190, NLL-Loss   30.3413, BCE-Loss    4.4834, KL-Loss-joint    9.1932, KL-Loss-w    6.8216, KL-Loss-y    3.9099, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.8811, NLL-Loss   28.8290, BCE-Loss    4.6361, KL-Loss-joint    9.4149, KL-Loss-w    7.0491, KL-Loss-y    3.9707, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.3831, NLL-Loss   30.7646, BCE-Loss    4.4203, KL-Loss-joint    9.1972, KL-Loss-w    6.8165, KL-Loss-y    3.8866, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   46.0301, NLL-Loss   32.1211, BCE-Loss    4.7569, KL-Loss-joint    9.1510, KL-Loss-w    6.6045, KL-Loss-y    4.1483, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.5460, NLL-Loss   31.0449, BCE-Loss    4.4111, KL-Loss-joint    9.0888, KL-Loss-w    6.7503, KL-Loss-y    3.8330, KL-Weight  1.000
+TRAIN Epoch 50/100, Mean ELBO   43.9791
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E50.pytorch
+split:  valid 	epoch:  50
+VALID Batch 0000/36, Loss   47.3145, NLL-Loss   33.6215, BCE-Loss    4.6925, KL-Loss-joint    8.9995, KL-Loss-w    6.6281, KL-Loss-y    3.7967, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.4626, NLL-Loss   29.3016, BCE-Loss    4.5155, KL-Loss-joint    8.6444, KL-Loss-w    6.1868, KL-Loss-y    3.7919, KL-Weight  1.000
+VALID Epoch 50/100, Mean ELBO   47.0813
+split:  train 	epoch:  51
+TRAIN Batch 0000/292, Loss   44.3255, NLL-Loss   30.9455, BCE-Loss    4.4128, KL-Loss-joint    8.9661, KL-Loss-w    6.6864, KL-Loss-y    3.7470, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.7703, NLL-Loss   30.9283, BCE-Loss    4.7864, KL-Loss-joint    9.0545, KL-Loss-w    6.5576, KL-Loss-y    4.1153, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.1559, NLL-Loss   28.3296, BCE-Loss    4.3736, KL-Loss-joint    9.4516, KL-Loss-w    6.9806, KL-Loss-y    4.1371, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.9267, NLL-Loss   30.6363, BCE-Loss    4.7939, KL-Loss-joint    9.4953, KL-Loss-w    7.1556, KL-Loss-y    3.9763, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.9977, NLL-Loss   29.1749, BCE-Loss    4.7411, KL-Loss-joint    9.0806, KL-Loss-w    6.7532, KL-Loss-y    3.8711, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.3837, NLL-Loss   31.3708, BCE-Loss    4.8843, KL-Loss-joint    9.1276, KL-Loss-w    6.7340, KL-Loss-y    3.9156, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   38.6731, NLL-Loss   24.9113, BCE-Loss    3.9804, KL-Loss-joint    9.7802, KL-Loss-w    7.4772, KL-Loss-y    4.3093, KL-Weight  1.000
+TRAIN Epoch 51/100, Mean ELBO   43.9205
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E51.pytorch
+split:  valid 	epoch:  51
+VALID Batch 0000/36, Loss   46.8443, NLL-Loss   33.0034, BCE-Loss    4.4042, KL-Loss-joint    9.4356, KL-Loss-w    6.9598, KL-Loss-y    4.0521, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.2688, NLL-Loss   29.0092, BCE-Loss    4.1920, KL-Loss-joint    9.0665, KL-Loss-w    6.4475, KL-Loss-y    4.0581, KL-Weight  1.000
+VALID Epoch 51/100, Mean ELBO   47.0150
+split:  train 	epoch:  52
+TRAIN Batch 0000/292, Loss   43.0239, NLL-Loss   28.7106, BCE-Loss    4.7451, KL-Loss-joint    9.5670, KL-Loss-w    7.1053, KL-Loss-y    4.1255, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.5898, NLL-Loss   30.6731, BCE-Loss    4.5128, KL-Loss-joint    9.4027, KL-Loss-w    7.0922, KL-Loss-y    3.9087, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.7260, NLL-Loss   29.1472, BCE-Loss    4.4687, KL-Loss-joint    9.1090, KL-Loss-w    6.8097, KL-Loss-y    3.7689, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.4330, NLL-Loss   29.3245, BCE-Loss    4.5871, KL-Loss-joint    9.5204, KL-Loss-w    7.0337, KL-Loss-y    4.1476, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.2680, NLL-Loss   29.6367, BCE-Loss    4.3527, KL-Loss-joint    9.2776, KL-Loss-w    6.8560, KL-Loss-y    3.9924, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.9656, NLL-Loss   29.0955, BCE-Loss    4.5819, KL-Loss-joint    9.2872, KL-Loss-w    6.7717, KL-Loss-y    3.9792, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.5451, NLL-Loss   27.9144, BCE-Loss    4.4053, KL-Loss-joint    9.2243, KL-Loss-w    6.8180, KL-Loss-y    3.9048, KL-Weight  1.000
+TRAIN Epoch 52/100, Mean ELBO   43.8907
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E52.pytorch
+split:  valid 	epoch:  52
+VALID Batch 0000/36, Loss   47.2609, NLL-Loss   33.0984, BCE-Loss    4.9387, KL-Loss-joint    9.2228, KL-Loss-w    6.8524, KL-Loss-y    3.8977, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1085, NLL-Loss   29.4980, BCE-Loss    4.7816, KL-Loss-joint    8.8278, KL-Loss-w    6.3643, KL-Loss-y    3.8456, KL-Weight  1.000
+VALID Epoch 52/100, Mean ELBO   47.0726
+split:  train 	epoch:  53
+TRAIN Batch 0000/292, Loss   44.1330, NLL-Loss   30.2366, BCE-Loss    4.8592, KL-Loss-joint    9.0361, KL-Loss-w    6.8857, KL-Loss-y    3.6117, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   40.6940, NLL-Loss   26.7435, BCE-Loss    4.4858, KL-Loss-joint    9.4636, KL-Loss-w    7.0012, KL-Loss-y    4.0923, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.9312, NLL-Loss   30.3976, BCE-Loss    4.4324, KL-Loss-joint    9.1001, KL-Loss-w    6.8113, KL-Loss-y    3.7000, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.9345, NLL-Loss   30.2870, BCE-Loss    4.5218, KL-Loss-joint    9.1246, KL-Loss-w    6.9276, KL-Loss-y    3.6612, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.7823, NLL-Loss   29.8339, BCE-Loss    4.5326, KL-Loss-joint    9.4148, KL-Loss-w    6.9644, KL-Loss-y    4.0598, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.7065, NLL-Loss   31.7112, BCE-Loss    4.5121, KL-Loss-joint    9.4821, KL-Loss-w    6.9920, KL-Loss-y    3.9931, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   38.9567, NLL-Loss   26.1119, BCE-Loss    3.7221, KL-Loss-joint    9.1216, KL-Loss-w    6.9495, KL-Loss-y    3.7084, KL-Weight  1.000
+TRAIN Epoch 53/100, Mean ELBO   43.7922
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E53.pytorch
+split:  valid 	epoch:  53
+VALID Batch 0000/36, Loss   47.1754, NLL-Loss   33.2711, BCE-Loss    4.9119, KL-Loss-joint    8.9913, KL-Loss-w    6.5721, KL-Loss-y    3.7698, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.4160, NLL-Loss   29.7297, BCE-Loss    4.9575, KL-Loss-joint    8.7277, KL-Loss-w    6.1920, KL-Loss-y    3.8662, KL-Weight  1.000
+VALID Epoch 53/100, Mean ELBO   46.9713
+split:  train 	epoch:  54
+TRAIN Batch 0000/292, Loss   45.3019, NLL-Loss   30.9043, BCE-Loss    5.2178, KL-Loss-joint    9.1787, KL-Loss-w    6.7857, KL-Loss-y    3.8685, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.2243, NLL-Loss   31.3079, BCE-Loss    4.3733, KL-Loss-joint    9.5419, KL-Loss-w    7.1057, KL-Loss-y    4.0094, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.8526, NLL-Loss   30.4058, BCE-Loss    4.9823, KL-Loss-joint    9.4634, KL-Loss-w    6.9950, KL-Loss-y    4.1331, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.2431, NLL-Loss   30.1623, BCE-Loss    4.6286, KL-Loss-joint    9.4512, KL-Loss-w    7.0748, KL-Loss-y    3.9127, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.4721, NLL-Loss   30.1457, BCE-Loss    4.9698, KL-Loss-joint    9.3555, KL-Loss-w    6.9997, KL-Loss-y    3.8812, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   43.7836, NLL-Loss   29.9650, BCE-Loss    4.3718, KL-Loss-joint    9.4457, KL-Loss-w    7.0606, KL-Loss-y    3.9116, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.5907, NLL-Loss   28.2766, BCE-Loss    3.9702, KL-Loss-joint    9.3429, KL-Loss-w    7.0524, KL-Loss-y    3.7683, KL-Weight  1.000
+TRAIN Epoch 54/100, Mean ELBO   43.7398
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E54.pytorch
+split:  valid 	epoch:  54
+VALID Batch 0000/36, Loss   46.8772, NLL-Loss   33.3041, BCE-Loss    4.5102, KL-Loss-joint    9.0619, KL-Loss-w    6.7226, KL-Loss-y    3.7956, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.9159, NLL-Loss   29.5731, BCE-Loss    4.6118, KL-Loss-joint    8.7300, KL-Loss-w    6.2685, KL-Loss-y    3.8301, KL-Weight  1.000
+VALID Epoch 54/100, Mean ELBO   47.2110
+split:  train 	epoch:  55
+TRAIN Batch 0000/292, Loss   39.1485, NLL-Loss   25.3473, BCE-Loss    4.8872, KL-Loss-joint    8.9130, KL-Loss-w    6.5384, KL-Loss-y    3.8162, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.4904, NLL-Loss   30.5214, BCE-Loss    4.5345, KL-Loss-joint    9.4334, KL-Loss-w    7.1083, KL-Loss-y    3.8836, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.9824, NLL-Loss   29.5075, BCE-Loss    4.4462, KL-Loss-joint    9.0276, KL-Loss-w    6.6380, KL-Loss-y    3.7388, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.8281, NLL-Loss   29.4331, BCE-Loss    4.1461, KL-Loss-joint    9.2478, KL-Loss-w    6.8131, KL-Loss-y    3.8599, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.4003, NLL-Loss   31.5481, BCE-Loss    4.6944, KL-Loss-joint    9.1567, KL-Loss-w    6.8111, KL-Loss-y    3.7858, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   43.1567, NLL-Loss   29.6723, BCE-Loss    4.4760, KL-Loss-joint    9.0074, KL-Loss-w    6.6223, KL-Loss-y    3.7001, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   48.0930, NLL-Loss   34.8560, BCE-Loss    4.0984, KL-Loss-joint    9.1375, KL-Loss-w    6.9768, KL-Loss-y    3.4092, KL-Weight  1.000
+TRAIN Epoch 55/100, Mean ELBO   43.7439
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E55.pytorch
+split:  valid 	epoch:  55
+VALID Batch 0000/36, Loss   47.0891, NLL-Loss   33.2767, BCE-Loss    4.8971, KL-Loss-joint    8.9142, KL-Loss-w    6.5910, KL-Loss-y    3.6716, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.9545, NLL-Loss   29.5533, BCE-Loss    4.8501, KL-Loss-joint    8.5501, KL-Loss-w    6.1866, KL-Loss-y    3.6364, KL-Weight  1.000
+VALID Epoch 55/100, Mean ELBO   47.0256
+split:  train 	epoch:  56
+TRAIN Batch 0000/292, Loss   42.7592, NLL-Loss   29.4633, BCE-Loss    4.6359, KL-Loss-joint    8.6590, KL-Loss-w    6.4011, KL-Loss-y    3.5377, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.3521, NLL-Loss   29.5726, BCE-Loss    4.6459, KL-Loss-joint    9.1326, KL-Loss-w    6.7637, KL-Loss-y    3.7225, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.9317, NLL-Loss   30.0465, BCE-Loss    4.7514, KL-Loss-joint    9.1327, KL-Loss-w    6.6435, KL-Loss-y    3.9049, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.5997, NLL-Loss   30.8786, BCE-Loss    4.4192, KL-Loss-joint    9.3009, KL-Loss-w    6.9443, KL-Loss-y    3.8686, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.2633, NLL-Loss   28.3880, BCE-Loss    4.7086, KL-Loss-joint    9.1657, KL-Loss-w    6.6086, KL-Loss-y    3.9501, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.2686, NLL-Loss   31.5365, BCE-Loss    4.4390, KL-Loss-joint    9.2920, KL-Loss-w    6.8847, KL-Loss-y    3.7480, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   38.9486, NLL-Loss   25.1681, BCE-Loss    3.9037, KL-Loss-joint    9.8756, KL-Loss-w    7.4508, KL-Loss-y    3.8862, KL-Weight  1.000
+TRAIN Epoch 56/100, Mean ELBO   43.6432
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E56.pytorch
+split:  valid 	epoch:  56
+VALID Batch 0000/36, Loss   47.5914, NLL-Loss   33.6127, BCE-Loss    4.6159, KL-Loss-joint    9.3617, KL-Loss-w    6.9682, KL-Loss-y    3.7741, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.6588, NLL-Loss   29.3814, BCE-Loss    4.2569, KL-Loss-joint    9.0195, KL-Loss-w    6.5000, KL-Loss-y    3.7803, KL-Weight  1.000
+VALID Epoch 56/100, Mean ELBO   47.0552
+split:  train 	epoch:  57
+TRAIN Batch 0000/292, Loss   44.9908, NLL-Loss   31.3364, BCE-Loss    4.1120, KL-Loss-joint    9.5413, KL-Loss-w    7.2416, KL-Loss-y    3.9086, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.0669, NLL-Loss   30.4254, BCE-Loss    4.3821, KL-Loss-joint    9.2583, KL-Loss-w    6.8162, KL-Loss-y    3.7773, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.2477, NLL-Loss   30.6302, BCE-Loss    4.3431, KL-Loss-joint    9.2734, KL-Loss-w    6.9003, KL-Loss-y    3.7879, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.6421, NLL-Loss   30.5753, BCE-Loss    5.1057, KL-Loss-joint    8.9600, KL-Loss-w    6.5123, KL-Loss-y    3.7948, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.2089, NLL-Loss   31.3107, BCE-Loss    4.4815, KL-Loss-joint    9.4156, KL-Loss-w    7.0182, KL-Loss-y    4.0008, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   43.6942, NLL-Loss   29.6239, BCE-Loss    4.7012, KL-Loss-joint    9.3680, KL-Loss-w    6.8924, KL-Loss-y    4.1011, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   40.6436, NLL-Loss   28.5690, BCE-Loss    2.7608, KL-Loss-joint    9.3127, KL-Loss-w    6.8515, KL-Loss-y    3.7367, KL-Weight  1.000
+TRAIN Epoch 57/100, Mean ELBO   43.5959
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E57.pytorch
+split:  valid 	epoch:  57
+VALID Batch 0000/36, Loss   46.7663, NLL-Loss   33.1123, BCE-Loss    4.8253, KL-Loss-joint    8.8277, KL-Loss-w    6.4715, KL-Loss-y    3.6581, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.0707, NLL-Loss   29.3603, BCE-Loss    5.2676, KL-Loss-joint    8.4419, KL-Loss-w    5.8800, KL-Loss-y    3.6696, KL-Weight  1.000
+VALID Epoch 57/100, Mean ELBO   47.1154
+split:  train 	epoch:  58
+TRAIN Batch 0000/292, Loss   44.0060, NLL-Loss   30.6360, BCE-Loss    4.3771, KL-Loss-joint    8.9919, KL-Loss-w    6.6012, KL-Loss-y    3.8565, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.8051, NLL-Loss   28.9089, BCE-Loss    4.6661, KL-Loss-joint    9.2291, KL-Loss-w    6.8268, KL-Loss-y    3.8020, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.5115, NLL-Loss   28.5622, BCE-Loss    5.0114, KL-Loss-joint    8.9368, KL-Loss-w    6.6638, KL-Loss-y    3.6372, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.7157, NLL-Loss   29.8635, BCE-Loss    4.8651, KL-Loss-joint    8.9862, KL-Loss-w    6.7970, KL-Loss-y    3.4798, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.3245, NLL-Loss   29.2771, BCE-Loss    4.6590, KL-Loss-joint    9.3874, KL-Loss-w    6.8988, KL-Loss-y    3.9281, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.7837, NLL-Loss   31.9810, BCE-Loss    4.5508, KL-Loss-joint    9.2508, KL-Loss-w    6.8823, KL-Loss-y    3.6868, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   40.7883, NLL-Loss   27.8953, BCE-Loss    3.7936, KL-Loss-joint    9.0983, KL-Loss-w    6.7595, KL-Loss-y    3.8646, KL-Weight  1.000
+TRAIN Epoch 58/100, Mean ELBO   43.5585
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E58.pytorch
+split:  valid 	epoch:  58
+VALID Batch 0000/36, Loss   47.5194, NLL-Loss   33.6320, BCE-Loss    4.7256, KL-Loss-joint    9.1607, KL-Loss-w    6.7647, KL-Loss-y    3.7025, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.5955, NLL-Loss   29.1235, BCE-Loss    4.7267, KL-Loss-joint    8.7443, KL-Loss-w    6.2237, KL-Loss-y    3.6502, KL-Weight  1.000
+VALID Epoch 58/100, Mean ELBO   46.9757
+split:  train 	epoch:  59
+TRAIN Batch 0000/292, Loss   44.0165, NLL-Loss   30.0533, BCE-Loss    4.7436, KL-Loss-joint    9.2185, KL-Loss-w    6.8630, KL-Loss-y    3.6955, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   41.9926, NLL-Loss   28.3470, BCE-Loss    4.8716, KL-Loss-joint    8.7729, KL-Loss-w    6.4967, KL-Loss-y    3.6136, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.4610, NLL-Loss   29.5701, BCE-Loss    4.7821, KL-Loss-joint    9.1078, KL-Loss-w    6.7752, KL-Loss-y    3.6455, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.4666, NLL-Loss   28.6280, BCE-Loss    4.3202, KL-Loss-joint    9.5174, KL-Loss-w    7.1984, KL-Loss-y    3.7558, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   41.0640, NLL-Loss   27.2927, BCE-Loss    4.7265, KL-Loss-joint    9.0437, KL-Loss-w    6.6643, KL-Loss-y    3.7557, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.8856, NLL-Loss   29.2598, BCE-Loss    4.3003, KL-Loss-joint    9.3244, KL-Loss-w    6.9242, KL-Loss-y    3.7639, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.6350, NLL-Loss   30.5055, BCE-Loss    5.3953, KL-Loss-joint    8.7333, KL-Loss-w    6.7798, KL-Loss-y    3.1529, KL-Weight  1.000
+TRAIN Epoch 59/100, Mean ELBO   43.4873
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E59.pytorch
+split:  valid 	epoch:  59
+VALID Batch 0000/36, Loss   47.4976, NLL-Loss   33.6014, BCE-Loss    5.0533, KL-Loss-joint    8.8419, KL-Loss-w    6.5056, KL-Loss-y    3.4894, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.8176, NLL-Loss   29.7489, BCE-Loss    4.5490, KL-Loss-joint    8.5187, KL-Loss-w    6.0520, KL-Loss-y    3.4857, KL-Weight  1.000
+VALID Epoch 59/100, Mean ELBO   47.0632
+split:  train 	epoch:  60
+TRAIN Batch 0000/292, Loss   42.3946, NLL-Loss   29.0587, BCE-Loss    4.4913, KL-Loss-joint    8.8435, KL-Loss-w    6.5475, KL-Loss-y    3.4633, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.6743, NLL-Loss   31.2444, BCE-Loss    4.2498, KL-Loss-joint    9.1790, KL-Loss-w    6.9247, KL-Loss-y    3.5742, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.3905, NLL-Loss   29.3618, BCE-Loss    4.7357, KL-Loss-joint    9.2920, KL-Loss-w    6.7725, KL-Loss-y    3.8746, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.6661, NLL-Loss   29.6173, BCE-Loss    4.6598, KL-Loss-joint    9.3879, KL-Loss-w    7.0040, KL-Loss-y    3.8162, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.4771, NLL-Loss   32.0053, BCE-Loss    4.3838, KL-Loss-joint    9.0869, KL-Loss-w    6.9376, KL-Loss-y    3.4135, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.5514, NLL-Loss   31.7106, BCE-Loss    4.6870, KL-Loss-joint    9.1527, KL-Loss-w    6.7886, KL-Loss-y    3.6684, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   47.4109, NLL-Loss   32.7692, BCE-Loss    4.6285, KL-Loss-joint   10.0120, KL-Loss-w    7.9276, KL-Loss-y    3.5803, KL-Weight  1.000
+TRAIN Epoch 60/100, Mean ELBO   43.4685
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E60.pytorch
+split:  valid 	epoch:  60
+VALID Batch 0000/36, Loss   46.7008, NLL-Loss   33.4682, BCE-Loss    4.0219, KL-Loss-joint    9.2097, KL-Loss-w    6.8728, KL-Loss-y    3.6176, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.9417, NLL-Loss   29.2902, BCE-Loss    4.7578, KL-Loss-joint    8.8927, KL-Loss-w    6.4441, KL-Loss-y    3.6014, KL-Weight  1.000
+VALID Epoch 60/100, Mean ELBO   47.0332
+split:  train 	epoch:  61
+TRAIN Batch 0000/292, Loss   44.6124, NLL-Loss   30.7304, BCE-Loss    4.5343, KL-Loss-joint    9.3466, KL-Loss-w    7.1632, KL-Loss-y    3.6834, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.3753, NLL-Loss   28.8680, BCE-Loss    4.4552, KL-Loss-joint    9.0511, KL-Loss-w    6.7796, KL-Loss-y    3.4336, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.9441, NLL-Loss   31.3716, BCE-Loss    4.1927, KL-Loss-joint    9.3788, KL-Loss-w    7.0101, KL-Loss-y    3.6987, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.1668, NLL-Loss   28.8853, BCE-Loss    4.4643, KL-Loss-joint    8.8162, KL-Loss-w    6.4978, KL-Loss-y    3.5588, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.9273, NLL-Loss   30.3973, BCE-Loss    4.5166, KL-Loss-joint    9.0124, KL-Loss-w    6.7244, KL-Loss-y    3.5645, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   41.7673, NLL-Loss   28.0950, BCE-Loss    4.6104, KL-Loss-joint    9.0609, KL-Loss-w    6.6772, KL-Loss-y    3.5670, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.5811, NLL-Loss   30.3952, BCE-Loss    4.3454, KL-Loss-joint    9.8393, KL-Loss-w    7.3871, KL-Loss-y    4.3939, KL-Weight  1.000
+TRAIN Epoch 61/100, Mean ELBO   43.4334
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E61.pytorch
+split:  valid 	epoch:  61
+VALID Batch 0000/36, Loss   46.8067, NLL-Loss   33.2767, BCE-Loss    4.2541, KL-Loss-joint    9.2749, KL-Loss-w    6.9243, KL-Loss-y    3.6412, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.6486, NLL-Loss   29.5405, BCE-Loss    4.2642, KL-Loss-joint    8.8430, KL-Loss-w    6.3650, KL-Loss-y    3.5519, KL-Weight  1.000
+VALID Epoch 61/100, Mean ELBO   47.0020
+split:  train 	epoch:  62
+TRAIN Batch 0000/292, Loss   42.7320, NLL-Loss   29.4206, BCE-Loss    4.2458, KL-Loss-joint    9.0646, KL-Loss-w    6.6769, KL-Loss-y    3.5956, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   41.0352, NLL-Loss   27.9073, BCE-Loss    3.9450, KL-Loss-joint    9.1818, KL-Loss-w    6.8261, KL-Loss-y    3.6054, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.0440, NLL-Loss   30.6699, BCE-Loss    4.1349, KL-Loss-joint    9.2381, KL-Loss-w    6.7997, KL-Loss-y    3.7343, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.6038, NLL-Loss   30.8135, BCE-Loss    4.6407, KL-Loss-joint    9.1486, KL-Loss-w    6.8445, KL-Loss-y    3.5681, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.4496, NLL-Loss   29.6687, BCE-Loss    4.4767, KL-Loss-joint    9.3032, KL-Loss-w    6.7708, KL-Loss-y    3.7747, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.3491, NLL-Loss   30.2888, BCE-Loss    4.8433, KL-Loss-joint    9.2160, KL-Loss-w    6.6797, KL-Loss-y    3.7935, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.0681, NLL-Loss   29.7443, BCE-Loss    4.4115, KL-Loss-joint    9.9111, KL-Loss-w    7.6136, KL-Loss-y    3.8223, KL-Weight  1.000
+TRAIN Epoch 62/100, Mean ELBO   43.3767
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E62.pytorch
+split:  valid 	epoch:  62
+VALID Batch 0000/36, Loss   47.0109, NLL-Loss   33.5521, BCE-Loss    4.1415, KL-Loss-joint    9.3162, KL-Loss-w    6.8822, KL-Loss-y    3.6713, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.5417, NLL-Loss   29.5123, BCE-Loss    5.0384, KL-Loss-joint    8.9900, KL-Loss-w    6.4035, KL-Loss-y    3.6989, KL-Weight  1.000
+VALID Epoch 62/100, Mean ELBO   47.0490
+split:  train 	epoch:  63
+TRAIN Batch 0000/292, Loss   43.1547, NLL-Loss   29.2841, BCE-Loss    4.4438, KL-Loss-joint    9.4256, KL-Loss-w    6.8334, KL-Loss-y    3.8768, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.3888, NLL-Loss   29.4830, BCE-Loss    4.5157, KL-Loss-joint    9.3890, KL-Loss-w    6.8254, KL-Loss-y    3.8695, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   40.5484, NLL-Loss   27.1599, BCE-Loss    4.3183, KL-Loss-joint    9.0692, KL-Loss-w    6.8283, KL-Loss-y    3.4691, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.3211, NLL-Loss   30.8829, BCE-Loss    4.3097, KL-Loss-joint    9.1275, KL-Loss-w    6.6975, KL-Loss-y    3.6617, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.1867, NLL-Loss   29.3852, BCE-Loss    4.4579, KL-Loss-joint    9.3426, KL-Loss-w    6.9775, KL-Loss-y    3.6313, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.5697, NLL-Loss   29.0113, BCE-Loss    4.1596, KL-Loss-joint    9.3977, KL-Loss-w    7.0618, KL-Loss-y    3.6744, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.1270, NLL-Loss   28.2393, BCE-Loss    5.1453, KL-Loss-joint    8.7414, KL-Loss-w    6.4732, KL-Loss-y    3.4720, KL-Weight  1.000
+TRAIN Epoch 63/100, Mean ELBO   43.2758
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E63.pytorch
+split:  valid 	epoch:  63
+VALID Batch 0000/36, Loss   47.0205, NLL-Loss   33.4639, BCE-Loss    4.3617, KL-Loss-joint    9.1938, KL-Loss-w    6.8269, KL-Loss-y    3.5704, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.0483, NLL-Loss   29.3997, BCE-Loss    4.8936, KL-Loss-joint    8.7540, KL-Loss-w    6.3089, KL-Loss-y    3.5459, KL-Weight  1.000
+VALID Epoch 63/100, Mean ELBO   47.0854
+split:  train 	epoch:  64
+TRAIN Batch 0000/292, Loss   44.0698, NLL-Loss   30.3015, BCE-Loss    4.4322, KL-Loss-joint    9.3350, KL-Loss-w    7.1895, KL-Loss-y    3.3710, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   45.0719, NLL-Loss   31.1639, BCE-Loss    4.5598, KL-Loss-joint    9.3471, KL-Loss-w    6.9853, KL-Loss-y    3.5558, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.2879, NLL-Loss   29.8098, BCE-Loss    4.2095, KL-Loss-joint    9.2676, KL-Loss-w    6.7341, KL-Loss-y    3.7132, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.9680, NLL-Loss   32.3131, BCE-Loss    4.4778, KL-Loss-joint    9.1760, KL-Loss-w    6.8525, KL-Loss-y    3.4541, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   45.2117, NLL-Loss   31.5039, BCE-Loss    4.7511, KL-Loss-joint    8.9557, KL-Loss-w    6.6013, KL-Loss-y    3.5149, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.7237, NLL-Loss   32.0115, BCE-Loss    4.3654, KL-Loss-joint    9.3457, KL-Loss-w    7.0563, KL-Loss-y    3.5080, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.6963, NLL-Loss   31.0907, BCE-Loss    4.1947, KL-Loss-joint    9.4097, KL-Loss-w    7.1973, KL-Loss-y    3.6493, KL-Weight  1.000
+TRAIN Epoch 64/100, Mean ELBO   43.2898
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E64.pytorch
+split:  valid 	epoch:  64
+VALID Batch 0000/36, Loss   47.1318, NLL-Loss   33.6272, BCE-Loss    4.1139, KL-Loss-joint    9.3897, KL-Loss-w    7.1004, KL-Loss-y    3.6333, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.9486, NLL-Loss   29.5353, BCE-Loss    4.3746, KL-Loss-joint    9.0376, KL-Loss-w    6.5664, KL-Loss-y    3.6062, KL-Weight  1.000
+VALID Epoch 64/100, Mean ELBO   47.1060
+split:  train 	epoch:  65
+TRAIN Batch 0000/292, Loss   41.8621, NLL-Loss   28.8688, BCE-Loss    3.7361, KL-Loss-joint    9.2561, KL-Loss-w    6.9630, KL-Loss-y    3.6670, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.3513, NLL-Loss   29.0018, BCE-Loss    4.3569, KL-Loss-joint    8.9916, KL-Loss-w    6.6638, KL-Loss-y    3.4651, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.6175, NLL-Loss   28.9042, BCE-Loss    4.5002, KL-Loss-joint    9.2121, KL-Loss-w    6.6636, KL-Loss-y    3.6821, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   45.2859, NLL-Loss   31.5319, BCE-Loss    4.5782, KL-Loss-joint    9.1748, KL-Loss-w    6.7363, KL-Loss-y    3.6153, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.7877, NLL-Loss   29.0118, BCE-Loss    4.5085, KL-Loss-joint    9.2663, KL-Loss-w    6.8460, KL-Loss-y    3.7387, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.7620, NLL-Loss   29.1030, BCE-Loss    4.4540, KL-Loss-joint    9.2040, KL-Loss-w    6.8311, KL-Loss-y    3.5881, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.1702, NLL-Loss   27.9521, BCE-Loss    4.6014, KL-Loss-joint    8.6157, KL-Loss-w    6.1740, KL-Loss-y    3.6676, KL-Weight  1.000
+TRAIN Epoch 65/100, Mean ELBO   43.2331
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E65.pytorch
+split:  valid 	epoch:  65
+VALID Batch 0000/36, Loss   46.7836, NLL-Loss   33.5121, BCE-Loss    4.1142, KL-Loss-joint    9.1563, KL-Loss-w    6.7086, KL-Loss-y    3.6916, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.8511, NLL-Loss   29.6833, BCE-Loss    5.3764, KL-Loss-joint    8.7904, KL-Loss-w    6.2164, KL-Loss-y    3.6813, KL-Weight  1.000
+VALID Epoch 65/100, Mean ELBO   47.0879
+split:  train 	epoch:  66
+TRAIN Batch 0000/292, Loss   43.4248, NLL-Loss   29.8397, BCE-Loss    4.6280, KL-Loss-joint    8.9560, KL-Loss-w    6.6252, KL-Loss-y    3.5816, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.7295, NLL-Loss   29.4501, BCE-Loss    4.1942, KL-Loss-joint    9.0841, KL-Loss-w    6.7044, KL-Loss-y    3.5187, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.7426, NLL-Loss   29.0551, BCE-Loss    4.3433, KL-Loss-joint    9.3431, KL-Loss-w    6.8691, KL-Loss-y    3.7200, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.5061, NLL-Loss   29.1704, BCE-Loss    4.0765, KL-Loss-joint    9.2581, KL-Loss-w    6.9976, KL-Loss-y    3.5568, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.3102, NLL-Loss   29.8080, BCE-Loss    4.5177, KL-Loss-joint    8.9835, KL-Loss-w    6.6664, KL-Loss-y    3.4664, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.5037, NLL-Loss   29.1202, BCE-Loss    4.2689, KL-Loss-joint    9.1135, KL-Loss-w    6.6578, KL-Loss-y    3.5698, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.0748, NLL-Loss   31.0030, BCE-Loss    4.0082, KL-Loss-joint    9.0626, KL-Loss-w    7.1090, KL-Loss-y    2.7082, KL-Weight  1.000
+TRAIN Epoch 66/100, Mean ELBO   43.2140
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E66.pytorch
+split:  valid 	epoch:  66
+VALID Batch 0000/36, Loss   47.0482, NLL-Loss   33.5226, BCE-Loss    4.4833, KL-Loss-joint    9.0413, KL-Loss-w    6.7546, KL-Loss-y    3.4698, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.2119, NLL-Loss   29.1336, BCE-Loss    4.4201, KL-Loss-joint    8.6573, KL-Loss-w    6.2864, KL-Loss-y    3.4127, KL-Weight  1.000
+VALID Epoch 66/100, Mean ELBO   47.0947
+split:  train 	epoch:  67
+TRAIN Batch 0000/292, Loss   42.6619, NLL-Loss   29.2502, BCE-Loss    4.4914, KL-Loss-joint    8.9193, KL-Loss-w    6.7308, KL-Loss-y    3.3729, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.7706, NLL-Loss   29.1455, BCE-Loss    4.3504, KL-Loss-joint    9.2736, KL-Loss-w    6.8586, KL-Loss-y    3.4785, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.1021, NLL-Loss   30.7125, BCE-Loss    4.1177, KL-Loss-joint    9.2708, KL-Loss-w    6.7781, KL-Loss-y    3.5679, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.6549, NLL-Loss   30.0093, BCE-Loss    4.3701, KL-Loss-joint    9.2744, KL-Loss-w    6.7537, KL-Loss-y    3.6854, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.0233, NLL-Loss   29.3585, BCE-Loss    4.3361, KL-Loss-joint    9.3276, KL-Loss-w    6.8664, KL-Loss-y    3.6542, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.0344, NLL-Loss   30.4269, BCE-Loss    4.2953, KL-Loss-joint    9.3111, KL-Loss-w    6.9521, KL-Loss-y    3.6054, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   46.1531, NLL-Loss   32.9457, BCE-Loss    3.9687, KL-Loss-joint    9.2376, KL-Loss-w    6.9916, KL-Loss-y    3.3787, KL-Weight  1.000
+TRAIN Epoch 67/100, Mean ELBO   43.1624
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E67.pytorch
+split:  valid 	epoch:  67
+VALID Batch 0000/36, Loss   47.5677, NLL-Loss   33.8014, BCE-Loss    4.7099, KL-Loss-joint    9.0553, KL-Loss-w    6.6871, KL-Loss-y    3.4469, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.9702, NLL-Loss   29.8236, BCE-Loss    5.4587, KL-Loss-joint    8.6869, KL-Loss-w    6.2560, KL-Loss-y    3.3952, KL-Weight  1.000
+VALID Epoch 67/100, Mean ELBO   47.1415
+split:  train 	epoch:  68
+TRAIN Batch 0000/292, Loss   42.6290, NLL-Loss   29.3442, BCE-Loss    4.1566, KL-Loss-joint    9.1272, KL-Loss-w    6.7206, KL-Loss-y    3.5601, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.7693, NLL-Loss   29.3343, BCE-Loss    4.3531, KL-Loss-joint    9.0808, KL-Loss-w    6.7514, KL-Loss-y    3.4345, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.2507, NLL-Loss   28.5154, BCE-Loss    4.3069, KL-Loss-joint    9.4274, KL-Loss-w    6.9953, KL-Loss-y    3.6071, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.8148, NLL-Loss   30.0148, BCE-Loss    4.6206, KL-Loss-joint    9.1784, KL-Loss-w    6.8715, KL-Loss-y    3.4853, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   46.3385, NLL-Loss   32.3681, BCE-Loss    4.5633, KL-Loss-joint    9.4061, KL-Loss-w    7.1384, KL-Loss-y    3.3350, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.5120, NLL-Loss   29.3145, BCE-Loss    4.0596, KL-Loss-joint    9.1368, KL-Loss-w    7.0011, KL-Loss-y    3.1923, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   51.4872, NLL-Loss   37.8962, BCE-Loss    4.5836, KL-Loss-joint    9.0064, KL-Loss-w    6.8010, KL-Loss-y    3.0351, KL-Weight  1.000
+TRAIN Epoch 68/100, Mean ELBO   43.1114
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E68.pytorch
+split:  valid 	epoch:  68
+VALID Batch 0000/36, Loss   47.4317, NLL-Loss   33.4222, BCE-Loss    4.8138, KL-Loss-joint    9.1947, KL-Loss-w    6.7853, KL-Loss-y    3.5240, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.7733, NLL-Loss   29.8197, BCE-Loss    5.1527, KL-Loss-joint    8.7999, KL-Loss-w    6.2512, KL-Loss-y    3.5117, KL-Weight  1.000
+VALID Epoch 68/100, Mean ELBO   47.1428
+split:  train 	epoch:  69
+TRAIN Batch 0000/292, Loss   41.5132, NLL-Loss   28.0804, BCE-Loss    4.3649, KL-Loss-joint    9.0669, KL-Loss-w    6.7099, KL-Loss-y    3.3928, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.8785, NLL-Loss   31.2037, BCE-Loss    4.3079, KL-Loss-joint    9.3658, KL-Loss-w    7.0503, KL-Loss-y    3.4389, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.1284, NLL-Loss   30.3249, BCE-Loss    4.4180, KL-Loss-joint    9.3846, KL-Loss-w    6.9345, KL-Loss-y    3.5902, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   41.6996, NLL-Loss   28.1826, BCE-Loss    4.2643, KL-Loss-joint    9.2517, KL-Loss-w    6.8943, KL-Loss-y    3.5184, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.0501, NLL-Loss   29.5950, BCE-Loss    4.2551, KL-Loss-joint    9.1989, KL-Loss-w    6.7518, KL-Loss-y    3.6756, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   45.3457, NLL-Loss   32.1885, BCE-Loss    3.9501, KL-Loss-joint    9.2060, KL-Loss-w    6.9225, KL-Loss-y    3.4322, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   48.6681, NLL-Loss   35.5135, BCE-Loss    4.6322, KL-Loss-joint    8.5215, KL-Loss-w    6.0314, KL-Loss-y    3.3824, KL-Weight  1.000
+TRAIN Epoch 69/100, Mean ELBO   43.1351
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E69.pytorch
+split:  valid 	epoch:  69
+VALID Batch 0000/36, Loss   47.3185, NLL-Loss   33.9595, BCE-Loss    4.2280, KL-Loss-joint    9.1299, KL-Loss-w    6.7073, KL-Loss-y    3.5467, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.8741, NLL-Loss   29.7339, BCE-Loss    4.4270, KL-Loss-joint    8.7124, KL-Loss-w    6.2211, KL-Loss-y    3.4419, KL-Weight  1.000
+VALID Epoch 69/100, Mean ELBO   47.0770
+split:  train 	epoch:  70
+TRAIN Batch 0000/292, Loss   42.0947, NLL-Loss   28.8317, BCE-Loss    4.1021, KL-Loss-joint    9.1599, KL-Loss-w    6.7973, KL-Loss-y    3.5276, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.3357, NLL-Loss   29.0955, BCE-Loss    4.2852, KL-Loss-joint    8.9540, KL-Loss-w    6.8032, KL-Loss-y    3.2028, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   41.2913, NLL-Loss   27.3731, BCE-Loss    4.7699, KL-Loss-joint    9.1473, KL-Loss-w    6.6337, KL-Loss-y    3.6869, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   41.1713, NLL-Loss   28.0357, BCE-Loss    4.0735, KL-Loss-joint    9.0611, KL-Loss-w    6.7882, KL-Loss-y    3.4045, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.8762, NLL-Loss   30.6231, BCE-Loss    4.7327, KL-Loss-joint    9.5193, KL-Loss-w    7.1138, KL-Loss-y    3.6421, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   41.9873, NLL-Loss   28.1135, BCE-Loss    4.5940, KL-Loss-joint    9.2787, KL-Loss-w    6.9167, KL-Loss-y    3.4451, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.3680, NLL-Loss   27.6838, BCE-Loss    5.0683, KL-Loss-joint    9.6148, KL-Loss-w    6.8672, KL-Loss-y    4.0196, KL-Weight  1.000
+TRAIN Epoch 70/100, Mean ELBO   43.0348
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E70.pytorch
+split:  valid 	epoch:  70
+VALID Batch 0000/36, Loss   47.2610, NLL-Loss   34.0062, BCE-Loss    3.8425, KL-Loss-joint    9.4112, KL-Loss-w    7.0758, KL-Loss-y    3.4226, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.3403, NLL-Loss   29.5110, BCE-Loss    3.8212, KL-Loss-joint    9.0071, KL-Loss-w    6.5762, KL-Loss-y    3.3866, KL-Weight  1.000
+VALID Epoch 70/100, Mean ELBO   47.0728
+split:  train 	epoch:  71
+TRAIN Batch 0000/292, Loss   43.1770, NLL-Loss   29.5564, BCE-Loss    4.1999, KL-Loss-joint    9.4197, KL-Loss-w    7.0749, KL-Loss-y    3.5377, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.3048, NLL-Loss   29.6058, BCE-Loss    4.5453, KL-Loss-joint    9.1526, KL-Loss-w    6.5683, KL-Loss-y    3.6754, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.2097, NLL-Loss   30.8492, BCE-Loss    4.2873, KL-Loss-joint    9.0722, KL-Loss-w    6.7756, KL-Loss-y    3.3603, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.4462, NLL-Loss   28.9612, BCE-Loss    4.1859, KL-Loss-joint    9.2981, KL-Loss-w    6.9770, KL-Loss-y    3.3969, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.7241, NLL-Loss   31.1685, BCE-Loss    4.6270, KL-Loss-joint    8.9277, KL-Loss-w    6.4944, KL-Loss-y    3.4909, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   43.0054, NLL-Loss   29.4374, BCE-Loss    4.3710, KL-Loss-joint    9.1960, KL-Loss-w    6.9203, KL-Loss-y    3.3053, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   41.2396, NLL-Loss   28.2918, BCE-Loss    3.9101, KL-Loss-joint    9.0367, KL-Loss-w    7.0695, KL-Loss-y    3.2524, KL-Weight  1.000
+TRAIN Epoch 71/100, Mean ELBO   42.9864
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E71.pytorch
+split:  valid 	epoch:  71
+VALID Batch 0000/36, Loss   47.1736, NLL-Loss   34.0082, BCE-Loss    4.1415, KL-Loss-joint    9.0229, KL-Loss-w    6.6906, KL-Loss-y    3.3470, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.3479, NLL-Loss   30.4723, BCE-Loss    4.3087, KL-Loss-joint    8.5660, KL-Loss-w    6.2229, KL-Loss-y    3.2136, KL-Weight  1.000
+VALID Epoch 71/100, Mean ELBO   47.0558
+split:  train 	epoch:  72
+TRAIN Batch 0000/292, Loss   42.9746, NLL-Loss   29.7885, BCE-Loss    4.0495, KL-Loss-joint    9.1356, KL-Loss-w    6.7889, KL-Loss-y    3.4228, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   44.8718, NLL-Loss   30.9127, BCE-Loss    4.3610, KL-Loss-joint    9.5970, KL-Loss-w    7.2055, KL-Loss-y    3.5634, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.3888, NLL-Loss   29.4674, BCE-Loss    4.7320, KL-Loss-joint    9.1885, KL-Loss-w    6.7445, KL-Loss-y    3.4792, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   41.9277, NLL-Loss   28.1438, BCE-Loss    4.2004, KL-Loss-joint    9.5823, KL-Loss-w    7.1644, KL-Loss-y    3.4401, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.1002, NLL-Loss   28.9127, BCE-Loss    4.1433, KL-Loss-joint    9.0432, KL-Loss-w    6.6041, KL-Loss-y    3.4695, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.7453, NLL-Loss   31.0466, BCE-Loss    4.5610, KL-Loss-joint    9.1367, KL-Loss-w    6.7567, KL-Loss-y    3.3576, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   45.2197, NLL-Loss   31.2964, BCE-Loss    4.0078, KL-Loss-joint    9.9144, KL-Loss-w    7.0996, KL-Loss-y    4.1574, KL-Weight  1.000
+TRAIN Epoch 72/100, Mean ELBO   42.9711
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E72.pytorch
+split:  valid 	epoch:  72
+VALID Batch 0000/36, Loss   46.8169, NLL-Loss   33.5824, BCE-Loss    4.2040, KL-Loss-joint    9.0295, KL-Loss-w    6.6879, KL-Loss-y    3.3909, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.8489, NLL-Loss   29.7722, BCE-Loss    4.3638, KL-Loss-joint    8.7120, KL-Loss-w    6.2735, KL-Loss-y    3.4237, KL-Weight  1.000
+VALID Epoch 72/100, Mean ELBO   47.0222
+split:  train 	epoch:  73
+TRAIN Batch 0000/292, Loss   41.8285, NLL-Loss   28.6189, BCE-Loss    4.0779, KL-Loss-joint    9.1307, KL-Loss-w    6.8352, KL-Loss-y    3.3894, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.6035, NLL-Loss   29.2423, BCE-Loss    4.0761, KL-Loss-joint    9.2841, KL-Loss-w    6.8719, KL-Loss-y    3.5126, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.6483, NLL-Loss   30.9464, BCE-Loss    4.6070, KL-Loss-joint    9.0939, KL-Loss-w    6.8119, KL-Loss-y    3.3322, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.3196, NLL-Loss   29.1098, BCE-Loss    4.0910, KL-Loss-joint    9.1178, KL-Loss-w    6.8252, KL-Loss-y    3.2828, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.7232, NLL-Loss   29.2480, BCE-Loss    4.3207, KL-Loss-joint    9.1535, KL-Loss-w    6.7950, KL-Loss-y    3.3255, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   44.7512, NLL-Loss   31.2861, BCE-Loss    4.4448, KL-Loss-joint    9.0193, KL-Loss-w    6.6298, KL-Loss-y    3.3720, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   44.1071, NLL-Loss   30.9368, BCE-Loss    4.0908, KL-Loss-joint    9.0785, KL-Loss-w    6.8624, KL-Loss-y    3.1428, KL-Weight  1.000
+TRAIN Epoch 73/100, Mean ELBO   42.9483
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E73.pytorch
+split:  valid 	epoch:  73
+VALID Batch 0000/36, Loss   47.1926, NLL-Loss   33.9433, BCE-Loss    4.1299, KL-Loss-joint    9.1184, KL-Loss-w    6.7460, KL-Loss-y    3.3553, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.7193, NLL-Loss   29.6931, BCE-Loss    4.2747, KL-Loss-joint    8.7505, KL-Loss-w    6.3561, KL-Loss-y    3.3086, KL-Weight  1.000
+VALID Epoch 73/100, Mean ELBO   47.1275
+split:  train 	epoch:  74
+TRAIN Batch 0000/292, Loss   43.5918, NLL-Loss   30.0043, BCE-Loss    4.4273, KL-Loss-joint    9.1591, KL-Loss-w    6.7657, KL-Loss-y    3.4027, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.4150, NLL-Loss   28.7700, BCE-Loss    4.5624, KL-Loss-joint    9.0816, KL-Loss-w    6.7989, KL-Loss-y    3.2721, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.1709, NLL-Loss   29.3091, BCE-Loss    4.5872, KL-Loss-joint    9.2736, KL-Loss-w    6.9215, KL-Loss-y    3.4297, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.4312, NLL-Loss   29.1753, BCE-Loss    4.2702, KL-Loss-joint    8.9848, KL-Loss-w    6.6883, KL-Loss-y    3.2348, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.6460, NLL-Loss   29.2654, BCE-Loss    3.9881, KL-Loss-joint    9.3915, KL-Loss-w    6.9465, KL-Loss-y    3.5079, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   41.6584, NLL-Loss   28.1775, BCE-Loss    4.1035, KL-Loss-joint    9.3764, KL-Loss-w    7.0604, KL-Loss-y    3.4403, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   43.6238, NLL-Loss   29.5345, BCE-Loss    4.0955, KL-Loss-joint    9.9926, KL-Loss-w    7.1076, KL-Loss-y    4.0579, KL-Weight  1.000
+TRAIN Epoch 74/100, Mean ELBO   42.9098
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E74.pytorch
+split:  valid 	epoch:  74
+VALID Batch 0000/36, Loss   46.9595, NLL-Loss   33.6512, BCE-Loss    4.1735, KL-Loss-joint    9.1338, KL-Loss-w    6.8446, KL-Loss-y    3.2637, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.2186, NLL-Loss   29.7013, BCE-Loss    4.8102, KL-Loss-joint    8.7062, KL-Loss-w    6.3649, KL-Loss-y    3.1909, KL-Weight  1.000
+VALID Epoch 74/100, Mean ELBO   47.1170
+split:  train 	epoch:  75
+TRAIN Batch 0000/292, Loss   43.7032, NLL-Loss   29.9170, BCE-Loss    4.6779, KL-Loss-joint    9.1073, KL-Loss-w    6.8250, KL-Loss-y    3.2749, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.3833, NLL-Loss   29.0081, BCE-Loss    4.3556, KL-Loss-joint    9.0186, KL-Loss-w    6.6718, KL-Loss-y    3.3491, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   44.0483, NLL-Loss   30.5660, BCE-Loss    4.2594, KL-Loss-joint    9.2219, KL-Loss-w    6.7374, KL-Loss-y    3.4901, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   40.6498, NLL-Loss   27.7139, BCE-Loss    4.0366, KL-Loss-joint    8.8983, KL-Loss-w    6.6695, KL-Loss-y    3.1251, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.7064, NLL-Loss   29.0526, BCE-Loss    4.4100, KL-Loss-joint    9.2427, KL-Loss-w    7.0354, KL-Loss-y    3.1866, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.0926, NLL-Loss   28.1468, BCE-Loss    4.6832, KL-Loss-joint    9.2616, KL-Loss-w    6.9686, KL-Loss-y    3.3704, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   46.5012, NLL-Loss   33.0996, BCE-Loss    3.7136, KL-Loss-joint    9.6868, KL-Loss-w    7.1584, KL-Loss-y    3.5683, KL-Weight  1.000
+TRAIN Epoch 75/100, Mean ELBO   42.8542
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E75.pytorch
+split:  valid 	epoch:  75
+VALID Batch 0000/36, Loss   47.4401, NLL-Loss   33.6391, BCE-Loss    4.8062, KL-Loss-joint    8.9939, KL-Loss-w    6.6488, KL-Loss-y    3.2781, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.7056, NLL-Loss   29.7079, BCE-Loss    4.3998, KL-Loss-joint    8.5970, KL-Loss-w    6.1596, KL-Loss-y    3.1900, KL-Weight  1.000
+VALID Epoch 75/100, Mean ELBO   46.9630
+split:  train 	epoch:  76
+TRAIN Batch 0000/292, Loss   42.3890, NLL-Loss   29.1637, BCE-Loss    4.0835, KL-Loss-joint    9.1409, KL-Loss-w    6.8952, KL-Loss-y    3.2228, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.2826, NLL-Loss   29.8961, BCE-Loss    4.4779, KL-Loss-joint    8.9075, KL-Loss-w    6.6848, KL-Loss-y    3.1349, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   43.0543, NLL-Loss   29.9614, BCE-Loss    4.0388, KL-Loss-joint    9.0531, KL-Loss-w    6.6894, KL-Loss-y    3.2116, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.6996, NLL-Loss   29.2466, BCE-Loss    4.3965, KL-Loss-joint    9.0554, KL-Loss-w    6.8354, KL-Loss-y    3.2175, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.5779, NLL-Loss   30.0330, BCE-Loss    4.4415, KL-Loss-joint    9.1024, KL-Loss-w    6.8063, KL-Loss-y    3.3129, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   43.8654, NLL-Loss   30.4724, BCE-Loss    4.0748, KL-Loss-joint    9.3172, KL-Loss-w    6.9985, KL-Loss-y    3.3763, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   39.3715, NLL-Loss   26.0920, BCE-Loss    3.9120, KL-Loss-joint    9.3665, KL-Loss-w    6.6392, KL-Loss-y    3.9403, KL-Weight  1.000
+TRAIN Epoch 76/100, Mean ELBO   42.7879
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E76.pytorch
+split:  valid 	epoch:  76
+VALID Batch 0000/36, Loss   47.5155, NLL-Loss   33.9807, BCE-Loss    4.3313, KL-Loss-joint    9.2024, KL-Loss-w    6.7784, KL-Loss-y    3.3937, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.0670, NLL-Loss   29.7456, BCE-Loss    4.5604, KL-Loss-joint    8.7600, KL-Loss-w    6.3199, KL-Loss-y    3.3375, KL-Weight  1.000
+VALID Epoch 76/100, Mean ELBO   47.1010
+split:  train 	epoch:  77
+TRAIN Batch 0000/292, Loss   42.6547, NLL-Loss   29.0802, BCE-Loss    4.3817, KL-Loss-joint    9.1918, KL-Loss-w    6.8387, KL-Loss-y    3.3558, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.3380, NLL-Loss   29.6829, BCE-Loss    4.4268, KL-Loss-joint    9.2273, KL-Loss-w    6.7856, KL-Loss-y    3.3885, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   41.3363, NLL-Loss   27.9803, BCE-Loss    4.1392, KL-Loss-joint    9.2158, KL-Loss-w    6.8902, KL-Loss-y    3.2926, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.7034, NLL-Loss   30.9099, BCE-Loss    4.0571, KL-Loss-joint    8.7354, KL-Loss-w    6.4883, KL-Loss-y    3.1226, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.1102, NLL-Loss   28.4294, BCE-Loss    4.2365, KL-Loss-joint    9.4433, KL-Loss-w    6.9941, KL-Loss-y    3.5376, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.4899, NLL-Loss   29.3412, BCE-Loss    3.9848, KL-Loss-joint    9.1629, KL-Loss-w    6.9853, KL-Loss-y    3.1339, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   40.3920, NLL-Loss   27.1060, BCE-Loss    4.6732, KL-Loss-joint    8.6119, KL-Loss-w    6.5775, KL-Loss-y    2.8536, KL-Weight  1.000
+TRAIN Epoch 77/100, Mean ELBO   42.7608
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E77.pytorch
+split:  valid 	epoch:  77
+VALID Batch 0000/36, Loss   47.2034, NLL-Loss   33.8346, BCE-Loss    4.4368, KL-Loss-joint    8.9310, KL-Loss-w    6.6374, KL-Loss-y    3.3001, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.3722, NLL-Loss   30.3472, BCE-Loss    4.4362, KL-Loss-joint    8.5879, KL-Loss-w    6.1758, KL-Loss-y    3.3292, KL-Weight  1.000
+VALID Epoch 77/100, Mean ELBO   47.0751
+split:  train 	epoch:  78
+TRAIN Batch 0000/292, Loss   41.2446, NLL-Loss   28.1151, BCE-Loss    4.1715, KL-Loss-joint    8.9570, KL-Loss-w    6.6590, KL-Loss-y    3.2674, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.8297, NLL-Loss   29.6382, BCE-Loss    3.7458, KL-Loss-joint    9.4447, KL-Loss-w    7.0939, KL-Loss-y    3.2748, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.4372, NLL-Loss   29.2415, BCE-Loss    3.9380, KL-Loss-joint    9.2567, KL-Loss-w    7.0107, KL-Loss-y    3.1686, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.4955, NLL-Loss   29.3727, BCE-Loss    4.1609, KL-Loss-joint    8.9609, KL-Loss-w    6.8345, KL-Loss-y    2.9868, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   44.2979, NLL-Loss   31.1806, BCE-Loss    3.9649, KL-Loss-joint    9.1514, KL-Loss-w    6.7993, KL-Loss-y    3.2717, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.4821, NLL-Loss   29.2554, BCE-Loss    4.4959, KL-Loss-joint    8.7299, KL-Loss-w    6.3747, KL-Loss-y    3.1691, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   49.9457, NLL-Loss   35.4005, BCE-Loss    5.3618, KL-Loss-joint    9.1823, KL-Loss-w    7.0944, KL-Loss-y    3.0359, KL-Weight  1.000
+TRAIN Epoch 78/100, Mean ELBO   42.7892
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E78.pytorch
+split:  valid 	epoch:  78
+VALID Batch 0000/36, Loss   46.8815, NLL-Loss   33.6765, BCE-Loss    3.9626, KL-Loss-joint    9.2413, KL-Loss-w    6.9352, KL-Loss-y    3.2252, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1842, NLL-Loss   29.9788, BCE-Loss    4.3960, KL-Loss-joint    8.8085, KL-Loss-w    6.4546, KL-Loss-y    3.1463, KL-Weight  1.000
+VALID Epoch 78/100, Mean ELBO   47.0010
+split:  train 	epoch:  79
+TRAIN Batch 0000/292, Loss   40.0360, NLL-Loss   26.8193, BCE-Loss    4.0535, KL-Loss-joint    9.1622, KL-Loss-w    6.9663, KL-Loss-y    3.0894, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.5254, NLL-Loss   29.4417, BCE-Loss    3.9097, KL-Loss-joint    9.1730, KL-Loss-w    6.9519, KL-Loss-y    3.2455, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.1976, NLL-Loss   28.8952, BCE-Loss    4.2590, KL-Loss-joint    9.0424, KL-Loss-w    6.8445, KL-Loss-y    3.0187, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   43.9173, NLL-Loss   30.4109, BCE-Loss    4.0205, KL-Loss-joint    9.4849, KL-Loss-w    7.0956, KL-Loss-y    3.4123, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.2150, NLL-Loss   29.1474, BCE-Loss    3.9745, KL-Loss-joint    9.0920, KL-Loss-w    6.9049, KL-Loss-y    3.0654, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   43.1230, NLL-Loss   29.6126, BCE-Loss    3.9918, KL-Loss-joint    9.5176, KL-Loss-w    7.1542, KL-Loss-y    3.3124, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.8517, NLL-Loss   28.8546, BCE-Loss    4.9574, KL-Loss-joint    9.0388, KL-Loss-w    7.0603, KL-Loss-y    2.8402, KL-Weight  1.000
+TRAIN Epoch 79/100, Mean ELBO   42.7115
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E79.pytorch
+split:  valid 	epoch:  79
+VALID Batch 0000/36, Loss   47.2481, NLL-Loss   33.9935, BCE-Loss    4.2248, KL-Loss-joint    9.0289, KL-Loss-w    6.7526, KL-Loss-y    3.0987, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.9710, NLL-Loss   29.5427, BCE-Loss    4.8015, KL-Loss-joint    8.6258, KL-Loss-w    6.2622, KL-Loss-y    3.0463, KL-Weight  1.000
+VALID Epoch 79/100, Mean ELBO   47.0250
+split:  train 	epoch:  80
+TRAIN Batch 0000/292, Loss   43.2267, NLL-Loss   30.1048, BCE-Loss    3.9775, KL-Loss-joint    9.1434, KL-Loss-w    6.9033, KL-Loss-y    3.1009, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.6698, NLL-Loss   29.1195, BCE-Loss    4.5242, KL-Loss-joint    9.0251, KL-Loss-w    6.7970, KL-Loss-y    3.2286, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.4334, NLL-Loss   29.3482, BCE-Loss    4.0166, KL-Loss-joint    9.0677, KL-Loss-w    6.7636, KL-Loss-y    3.2445, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.2486, NLL-Loss   28.8861, BCE-Loss    4.3408, KL-Loss-joint    9.0208, KL-Loss-w    6.6784, KL-Loss-y    3.2144, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   40.1436, NLL-Loss   27.2090, BCE-Loss    4.1398, KL-Loss-joint    8.7939, KL-Loss-w    6.5016, KL-Loss-y    3.0988, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.1972, NLL-Loss   29.0865, BCE-Loss    4.1170, KL-Loss-joint    8.9928, KL-Loss-w    6.7631, KL-Loss-y    3.1328, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   47.3106, NLL-Loss   33.3958, BCE-Loss    4.6560, KL-Loss-joint    9.2578, KL-Loss-w    6.6536, KL-Loss-y    3.5421, KL-Weight  1.000
+TRAIN Epoch 80/100, Mean ELBO   42.7043
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E80.pytorch
+split:  valid 	epoch:  80
+VALID Batch 0000/36, Loss   47.1668, NLL-Loss   33.7509, BCE-Loss    4.3586, KL-Loss-joint    9.0562, KL-Loss-w    6.7937, KL-Loss-y    3.2083, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.1794, NLL-Loss   30.2799, BCE-Loss    4.2741, KL-Loss-joint    8.6244, KL-Loss-w    6.3089, KL-Loss-y    3.1022, KL-Weight  1.000
+VALID Epoch 80/100, Mean ELBO   47.0354
+split:  train 	epoch:  81
+TRAIN Batch 0000/292, Loss   42.1050, NLL-Loss   29.1661, BCE-Loss    4.0531, KL-Loss-joint    8.8848, KL-Loss-w    6.5888, KL-Loss-y    3.2564, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   43.5498, NLL-Loss   30.0182, BCE-Loss    4.4141, KL-Loss-joint    9.1165, KL-Loss-w    6.8949, KL-Loss-y    3.1521, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   42.4154, NLL-Loss   29.4428, BCE-Loss    3.9812, KL-Loss-joint    8.9904, KL-Loss-w    6.8366, KL-Loss-y    3.0320, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   41.7943, NLL-Loss   28.7961, BCE-Loss    3.9958, KL-Loss-joint    9.0014, KL-Loss-w    6.6347, KL-Loss-y    3.2235, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.1553, NLL-Loss   30.0711, BCE-Loss    4.1981, KL-Loss-joint    8.8852, KL-Loss-w    6.7664, KL-Loss-y    2.8728, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   41.3719, NLL-Loss   28.1990, BCE-Loss    4.0683, KL-Loss-joint    9.1036, KL-Loss-w    6.9836, KL-Loss-y    2.9558, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   43.9038, NLL-Loss   31.3080, BCE-Loss    3.8264, KL-Loss-joint    8.7685, KL-Loss-w    6.8789, KL-Loss-y    2.6972, KL-Weight  1.000
+TRAIN Epoch 81/100, Mean ELBO   42.6658
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E81.pytorch
+split:  valid 	epoch:  81
+VALID Batch 0000/36, Loss   47.1614, NLL-Loss   34.1571, BCE-Loss    3.9419, KL-Loss-joint    9.0614, KL-Loss-w    6.8400, KL-Loss-y    3.0631, KL-Weight  1.000
+VALID Batch 0036/36, Loss   43.0765, NLL-Loss   30.0474, BCE-Loss    4.3481, KL-Loss-joint    8.6800, KL-Loss-w    6.3838, KL-Loss-y    2.9912, KL-Weight  1.000
+VALID Epoch 81/100, Mean ELBO   47.0579
+split:  train 	epoch:  82
+TRAIN Batch 0000/292, Loss   42.7536, NLL-Loss   29.5592, BCE-Loss    3.9767, KL-Loss-joint    9.2167, KL-Loss-w    6.7859, KL-Loss-y    3.2637, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.3524, NLL-Loss   28.6562, BCE-Loss    4.2399, KL-Loss-joint    9.4552, KL-Loss-w    7.0418, KL-Loss-y    3.3206, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   40.4494, NLL-Loss   27.5762, BCE-Loss    3.5969, KL-Loss-joint    9.2753, KL-Loss-w    7.0270, KL-Loss-y    3.1023, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.0518, NLL-Loss   30.8599, BCE-Loss    4.1431, KL-Loss-joint    9.0478, KL-Loss-w    6.9768, KL-Loss-y    2.8909, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.3064, NLL-Loss   29.2193, BCE-Loss    3.7921, KL-Loss-joint    9.2939, KL-Loss-w    7.0139, KL-Loss-y    3.1598, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   41.8155, NLL-Loss   28.9111, BCE-Loss    3.8289, KL-Loss-joint    9.0744, KL-Loss-w    6.9221, KL-Loss-y    3.0186, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   43.5539, NLL-Loss   30.0984, BCE-Loss    4.2050, KL-Loss-joint    9.2494, KL-Loss-w    7.0863, KL-Loss-y    3.1384, KL-Weight  1.000
+TRAIN Epoch 82/100, Mean ELBO   42.6332
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E82.pytorch
+split:  valid 	epoch:  82
+VALID Batch 0000/36, Loss   46.9413, NLL-Loss   33.9705, BCE-Loss    3.7495, KL-Loss-joint    9.2204, KL-Loss-w    7.0368, KL-Loss-y    3.0752, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.7548, NLL-Loss   30.0270, BCE-Loss    3.8845, KL-Loss-joint    8.8424, KL-Loss-w    6.6037, KL-Loss-y    3.0334, KL-Weight  1.000
+VALID Epoch 82/100, Mean ELBO   47.0618
+split:  train 	epoch:  83
+TRAIN Batch 0000/292, Loss   41.8647, NLL-Loss   28.5832, BCE-Loss    3.8630, KL-Loss-joint    9.4174, KL-Loss-w    7.1776, KL-Loss-y    3.2139, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   42.4334, NLL-Loss   29.3147, BCE-Loss    4.1414, KL-Loss-joint    8.9763, KL-Loss-w    6.7735, KL-Loss-y    2.9463, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   41.9528, NLL-Loss   28.9551, BCE-Loss    4.0664, KL-Loss-joint    8.9304, KL-Loss-w    6.5836, KL-Loss-y    3.1216, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   44.0656, NLL-Loss   30.4136, BCE-Loss    4.6789, KL-Loss-joint    8.9722, KL-Loss-w    6.6781, KL-Loss-y    3.1597, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   42.5431, NLL-Loss   29.3864, BCE-Loss    4.0141, KL-Loss-joint    9.1416, KL-Loss-w    6.9440, KL-Loss-y    2.9785, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.9720, NLL-Loss   29.6480, BCE-Loss    4.2330, KL-Loss-joint    9.0900, KL-Loss-w    6.7953, KL-Loss-y    3.2121, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   42.0362, NLL-Loss   28.8126, BCE-Loss    3.9570, KL-Loss-joint    9.2656, KL-Loss-w    7.0530, KL-Loss-y    3.1643, KL-Weight  1.000
+TRAIN Epoch 83/100, Mean ELBO   42.5669
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E83.pytorch
+split:  valid 	epoch:  83
+VALID Batch 0000/36, Loss   46.7262, NLL-Loss   33.8321, BCE-Loss    4.0149, KL-Loss-joint    8.8783, KL-Loss-w    6.6894, KL-Loss-y    3.0089, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.7611, NLL-Loss   30.0144, BCE-Loss    4.2858, KL-Loss-joint    8.4600, KL-Loss-w    6.1944, KL-Loss-y    2.9918, KL-Weight  1.000
+VALID Epoch 83/100, Mean ELBO   47.0759
+split:  train 	epoch:  84
+TRAIN Batch 0000/292, Loss   41.9798, NLL-Loss   28.7311, BCE-Loss    4.3411, KL-Loss-joint    8.9066, KL-Loss-w    6.7446, KL-Loss-y    3.0124, KL-Weight  1.000
+TRAIN Batch 0050/292, Loss   41.2624, NLL-Loss   28.0453, BCE-Loss    3.9747, KL-Loss-joint    9.2413, KL-Loss-w    6.9430, KL-Loss-y    3.1104, KL-Weight  1.000
+TRAIN Batch 0100/292, Loss   41.4680, NLL-Loss   28.2490, BCE-Loss    4.2321, KL-Loss-joint    8.9860, KL-Loss-w    6.7150, KL-Loss-y    3.1218, KL-Weight  1.000
+TRAIN Batch 0150/292, Loss   42.4742, NLL-Loss   29.5681, BCE-Loss    4.0785, KL-Loss-joint    8.8267, KL-Loss-w    6.7158, KL-Loss-y    2.7793, KL-Weight  1.000
+TRAIN Batch 0200/292, Loss   43.6212, NLL-Loss   30.2956, BCE-Loss    4.0307, KL-Loss-joint    9.2939, KL-Loss-w    7.0601, KL-Loss-y    3.0370, KL-Weight  1.000
+TRAIN Batch 0250/292, Loss   42.9917, NLL-Loss   29.8017, BCE-Loss    3.9782, KL-Loss-joint    9.2109, KL-Loss-w    6.9532, KL-Loss-y    3.1088, KL-Weight  1.000
+TRAIN Batch 0292/292, Loss   40.0354, NLL-Loss   27.2104, BCE-Loss    4.1059, KL-Loss-joint    8.7182, KL-Loss-w    6.3474, KL-Loss-y    3.2452, KL-Weight  1.000
+TRAIN Epoch 84/100, Mean ELBO   42.5619
+Model saved at bin/JMVAE/2018-Aug-06-18:56:56/E84.pytorch
+split:  valid 	epoch:  84
+VALID Batch 0000/36, Loss   46.8308, NLL-Loss   33.8135, BCE-Loss    3.7470, KL-Loss-joint    9.2693, KL-Loss-w    6.9821, KL-Loss-y    3.1679, KL-Weight  1.000
+VALID Batch 0036/36, Loss   42.3890, NLL-Loss   29.4924, BCE-Loss    4.0552, KL-Loss-joint    8.8404, KL-Loss-w    6.5027, KL-Loss-y    3.0939, KL-Weight  1.000
+VALID Epoch 84/100, Mean ELBO   46.9551
+split:  train 	epoch:  85
